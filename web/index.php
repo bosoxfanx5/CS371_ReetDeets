@@ -48,7 +48,7 @@ if (empty($_SESSION["id"])) {
 	$sql1->execute();
 	$result1 = $sql1->fetch();
 	$_SESSION["id"] = $result1["id"];
-	echo $result1["id"];
+	//echo $result1["id"];
 }
 
 
