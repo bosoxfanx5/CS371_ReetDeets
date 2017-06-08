@@ -23,3 +23,11 @@
     border-color: #8064A2 !important;
 		color: white !important;
 }
+
+.btn-warning, .btn-warning:hover, .btn-warning:active, .btn-warning:visited {
+    color: white !important;
+}
+
+.btn-success, .btn-success:hover, .btn-success:active, .btn-sucess:visited {
+    color: white !important;
+}
