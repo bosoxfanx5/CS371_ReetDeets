@@ -171,7 +171,6 @@ _/          _/_/      _/_/        _/      _/_/_/_/  _/    _/
 -->
 <!-- Begin footer content -->
 <footer class="footer">
-	<nav class="navbar">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<!-- <div class="navbar-header"> -->
 			<!-- Left Side -->
@@ -185,8 +184,6 @@ _/          _/_/      _/_/        _/      _/_/_/_/  _/    _/
 		<!-- Center -->
 		<!-- <div class="navbar-center navbar-brand" href="#"><a class="navbar-brand"></a></div> -->
 		<!-- Collect the nav links, forms, and other content for toggling -->
-
-	</nav>
 </footer>
 
 
