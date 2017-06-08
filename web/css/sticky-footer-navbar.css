@@ -31,6 +31,10 @@ body > .container {
 
 }
 
+.nav {
+  background-color: rgba(47, 94, 217, 0.8) !important;
+}
+
 .navbar {
   background-color: rgba(47, 94, 217, 0.8) !important;
 }
