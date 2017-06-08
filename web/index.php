@@ -171,7 +171,7 @@ _/          _/_/      _/_/        _/      _/_/_/_/  _/    _/
 -->
 <!-- Begin footer content -->
 <footer class="footer">
-	<nav class="navbar navbar-default">
+	<nav class="navbar">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<!-- <div class="navbar-header"> -->
 			<!-- Left Side -->
