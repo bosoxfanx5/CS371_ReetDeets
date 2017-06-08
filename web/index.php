@@ -52,19 +52,19 @@ if (empty($_SESSION["id"])) {
 }
 
 
-//retrieve item id
-if (!empty($_GET['id'])) {
-	$isContent = true;
-	$sql = $db->prepare("SELECT * FROM s_saleable_item
-		WHERE id = :id");
-		$sql->execute(array(":id" => $_GET['id']));
-		$result2 = $sql->fetch(PDO::FETCH_ASSOC);
-		$itemID = $result2["id"];
-
-		$personID = $_SESSION["id"];
-		$sql1 = $db->prepare("INSERT INTO s_visited_items (visitor_id, item_id) VALUES ('$personID', '$itemID')");
-		$sql1->execute();
-}
+// //retrieve item id
+// if (!empty($_GET['id'])) {
+// 	$isContent = true;
+// 	$sql = $db->prepare("SELECT * FROM s_saleable_item
+// 		WHERE id = :id");
+// 		$sql->execute(array(":id" => $_GET['id']));
+// 		$result2 = $sql->fetch(PDO::FETCH_ASSOC);
+// 		$itemID = $result2["id"];
+//
+// 		$personID = $_SESSION["id"];
+// 		$sql1 = $db->prepare("INSERT INTO s_visited_items (visitor_id, item_id) VALUES ('$personID', '$itemID')");
+// 		$sql1->execute();
+// }
 
 
 
@@ -132,7 +132,7 @@ _/_/_/      _/_/    _/_/_/        _/
     <div class="row">
       <div class="col-xs-10 col-xs-offset-1">
         <form class="form-signin" method="POST" action="">
-          <input type="text" class="form-control" placeholder="Enter the Barcode ID">
+          <input type="text" class="form-control" name="barcode" placeholder="Enter the Barcode ID" required>
       </div>
     </div>
     <br>
@@ -149,7 +149,7 @@ _/_/_/      _/_/    _/_/_/        _/
     <div class="row text-center">
       <form class="form-signin" method="POST" action="">
         <div class="col-xs-6">
-          <button class="btn btn-warning btn-lg" type="submit" type="submit">Login</button>
+          <button class="btn btn-warning btn-lg" type="submit" type="submit"><a href="login.php">Login</a></button>
         </div>
         <div class="col-xs-6">
             <button class="btn btn-primary btn-lg" type="submit" type="submit">Sign Up</button>
@@ -171,6 +171,7 @@ _/          _/_/      _/_/        _/      _/_/_/_/  _/    _/
 -->
 <!-- Begin footer content -->
 <footer class="footer">
+	<nav class="navbar">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<!-- <div class="navbar-header"> -->
 			<!-- Left Side -->
@@ -184,6 +185,8 @@ _/          _/_/      _/_/        _/      _/_/_/_/  _/    _/
 		<!-- Center -->
 		<!-- <div class="navbar-center navbar-brand" href="#"><a class="navbar-brand"></a></div> -->
 		<!-- Collect the nav links, forms, and other content for toggling -->
+
+	</nav>
 </footer>
 
 
