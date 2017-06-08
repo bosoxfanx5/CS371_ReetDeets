@@ -176,10 +176,10 @@ _/          _/_/      _/_/        _/      _/_/_/_/  _/    _/
 		<!-- <div class="navbar-header"> -->
 			<!-- Left Side -->
 			<!-- <div class="btn-group"> -->
-				<ul class="nav navbar-nav navbar-left text-center">
-					&nbsp;
-					<li><p style="color:white">Copyright 2017 Brooks Robison, All Rights Reserved</p></a></li>
-				</ul>
+				<!-- <ul class="nav navbar-nav navbar-left text-center">
+					&nbsp; -->
+					<p style="color:white">Copyright 2017 Brooks Robison, All Rights Reserved</p></a>
+				<!-- </ul> -->
 			<!-- </div> -->
 		<!-- </div> -->
 		<!-- Center -->
