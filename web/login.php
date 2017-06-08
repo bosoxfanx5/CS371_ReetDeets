@@ -286,7 +286,6 @@ $database = null;
 	-->
 	<!-- Begin footer content -->
 	<footer class="footer">
-		<nav class="navbar navbar-default">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
 				<!-- Left Side -->
@@ -300,7 +299,6 @@ $database = null;
 			<!-- Center -->
 			<div class="navbar-center navbar-brand" href="#"><a class="navbar-brand"></a></div>
 			<!--Collect the nav links, forms, and other content for toggling-->
-		</nav>
 	</footer>
 </body>
 
