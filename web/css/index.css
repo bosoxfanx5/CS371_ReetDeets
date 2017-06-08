@@ -1,0 +1,24 @@
+/*stuff*/
+.push-to-bottom {
+	/* position: absolute; */
+	margin: 60px auto;
+}
+
+#logo {
+	width: 30px;
+	height: auto;
+}
+
+#mainimg {
+	width: 80%;
+	height: auto;
+}
+
+.jumbotron {
+  background-color: rgba(47, 94, 217, 0.8) !important;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #8064A2 !important;
+    border-color: #8064A2 !important;
+}
