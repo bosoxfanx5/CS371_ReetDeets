@@ -171,14 +171,14 @@ _/          _/_/      _/_/        _/      _/_/_/_/  _/    _/
 -->
 <!-- Begin footer content -->
 <footer class="footer">
-	<div class="navbar">
+	<div>
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<!-- <div class="navbar-header"> -->
 			<!-- Left Side -->
 			<!-- <div class="btn-group"> -->
 				<!-- <ul class="nav navbar-nav navbar-left text-center">
 					&nbsp; -->
-					<p style="color:white">Copyright 2017 Brooks Robison, All Rights Reserved</p></a>
+					<p style="color:white">Copyright 2017 Brooks Robison, All Rights Reserved</p>
 				<!-- </ul> -->
 			<!-- </div> -->
 		<!-- </div> -->
