@@ -178,7 +178,7 @@ _/          _/_/      _/_/        _/      _/_/_/_/  _/    _/
 			<!-- <div class="btn-group"> -->
 				<ul class="nav navbar-nav navbar-left text-center">
 					&nbsp;
-					<li><a href="#"><p style="color:white">Copyright 2017 Brooks Robison, All Rights Reserved</p></a></li>
+					<li><p style="color:white">Copyright 2017 Brooks Robison, All Rights Reserved</p></a></li>
 				</ul>
 			<!-- </div> -->
 		<!-- </div> -->
