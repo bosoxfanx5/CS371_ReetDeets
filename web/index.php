@@ -341,7 +341,7 @@ _/_/_/      _/_/    _/_/_/        _/
 					<input type="password" class="form-control" name="password" placeholder="Password" required>
 					<br>
 					<button class="btn btn-success" type="submit">Login</button>
-					<a href="#" id="forgot">Forgot Password</a> or <a href="#" id="createNew">Create New Login</a>
+					<a href="#" id="forgot">Forgot Password</a>
 					<?php if (!$userFound) {
 						echo "<br><br><p id='loginError'>*Email address and/or password is incorrect.</p>";
 					}
@@ -351,7 +351,7 @@ _/_/_/      _/_/    _/_/_/        _/
 		</div>
 	</div>
 
-
+	<br><br>
 
 <!--
 _/_/_/_/    _/_/      _/_/    _/_/_/_/_/  _/_/_/_/  _/_/_/
