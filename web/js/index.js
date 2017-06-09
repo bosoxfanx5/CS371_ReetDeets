@@ -33,7 +33,7 @@ $(document).ready(function() {
 
 	});
 
-	$("#login").click(function() {
+	$("#loginBtn").click(function() {
 		$("#login").fadeIn("slow");
 		alert("it worked");
 
