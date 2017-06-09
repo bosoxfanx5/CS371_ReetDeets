@@ -65,7 +65,149 @@ if (empty($_SESSION["id"])) {
 // 		$sql1 = $db->prepare("INSERT INTO s_visited_items (visitor_id, item_id) VALUES ('$personID', '$itemID')");
 // 		$sql1->execute();
 // }
+	$personID = "";
+	$userFound = true;
+	$validEmail = true;
+	$emailSent = false;
+	$confirmation = "";
 
+	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+		/******************************************************************
+		* User logging in authentication
+		*******************************************************************/
+
+		if (!empty($_POST["email"]) && !empty($_POST["password"])) {
+
+			$personEmail = $_POST["email"];
+			// query for email and password of user
+			$sql0 = $db->prepare("SELECT id, email, psswd FROM s_person WHERE email='$personEmail'");
+			$sql0->execute();
+			$result = $sql0->fetch();
+
+			// authenticate user provided info with database
+			$authenticated = password_verify($_POST["password"], $result['psswd']);
+
+			if ($result["email"] == $personEmail && $authenticated) {
+				$_SESSION["loggedIn"] = true;
+				$_SESSION["id"] = $result["id"];
+				$_SESSION["email"] = $result["email"];
+				$userFound = true;
+				header( 'Location: https://mysterious-bayou-55662.herokuapp.com/Project/mobile.php' );
+				die();
+			} else {
+				$userFound = false;
+			}
+		}
+
+		/******************************************************************
+		* Creation of new login account
+		*******************************************************************/
+
+
+		if (!empty($_POST["fname"]) && !empty($_POST["lname"]) && !empty($_POST["createEmail"])
+		&& !empty($_POST["createPassword"])) {
+			$fname = $_POST['fname'];
+			$lname = $_POST['lname'];
+			$gender = (int)$_POST['gender'];
+
+			if ($gender == 1) {
+				$prefix = "Mr.";
+			} else {
+				$prefix = "Ms.";
+			}
+
+			$cEmail = $_POST['createEmail'];
+			$cPassword = $_POST['createPassword'];
+
+			//hash the password
+			$hashed = password_hash($cPassword, PASSWORD_DEFAULT);
+
+			// if user already has a session id and is creating a new login
+			if (!empty($_SESSION["id"])) {
+				$personID = $_SESSION["id"];
+				$sql = $db->prepare("UPDATE s_person SET fname='$fname', lname='$lname', prefix='$prefix', gender=$gender,
+					email='$cEmail', psswd='$hashed' WHERE id='$personID'");
+
+				$sql->execute();
+				$_SESSION['email'] = $cEmail;
+				$_SESSION["loggedIn"] = true;
+				header( 'Location: https://mysterious-bayou-55662.herokuapp.com/Project/mobile.php' );
+				die();
+
+				} else {
+					// if there isn't a session id for the user yet
+					$sql = $db->prepare("INSERT INTO s_person (fname, lname, prefix, gender, email, psswd)
+					VALUES ('$fname', '$lname','$prefix', $gender, '$cEmail', '$hashed')");
+
+					$sql->execute();
+					$_SESSION['email'] = $cEmail;
+					$sql = $db->prepare("SELECT id FROM s_person WHERE email='$cEmail'");
+					$sql->execute();
+					$result2 = $sql->fetch();
+
+					$_SESSION["id"] = $result2['id'];
+					$_SESSION["loggedIn"] = true;
+					header( 'Location: https://mysterious-bayou-55662.herokuapp.com/Project/mobile.php' );
+					die();
+				}
+			}
+
+		/******************************************************************
+		* Forgot Password - My attempt at emailing a reset password link to the user.
+		* This would work if Heroku allowed sending emails. I attempted to set up
+		* the MailGun I installed using a domain that I own. However, for this Project
+		* I didn't want to pay the monthly fee to have the email service through GoDaddy.
+		*******************************************************************/
+		$emailAttempt = false; //set this so that the code below doesn't ever run
+		if ($emailAttempt) {
+			$fEmail = $_POST["forgotEmail"];
+			$qry = $db->prepare("SELECT id, prefix, lname, email FROM s_person WHERE email='$fEmail'");
+			$qry->execute();
+			$data = $qry->fetch();
+			echo "Database: " . $data["email"];
+			echo "Input: " . $_POST["forgotEmail"];
+			if ($_POST["forgotEmail"] == $data["email"]) {
+
+				$url = 'https://mysterious-bayou-55662.herokuapp.com/Project/reset_password.php?id=' . $data["id"]; //not sure how to construct this with security in mind
+
+				$to = $data["email"];
+				$subject = 'Reet Deets - Forgot Password';
+				$message =  "Hello " . $data["prefix"] . " " . $data["lname"] . ", <br><br> Someone has requested a to reset your password. If this
+				was not you, please ignore this email. If this was you who requested a password reset, please follow this link below:<br><br>" .
+				$url . "<br><br>Thank you,<br>Your ReetDeets Team";
+
+				// To send HTML mail, the Content-type header must be set
+				$headers  = 'MIME-Version: 1.0' . "\r\n";
+				$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+				// Add from to the header
+				$headers .= 'From: Reet Deets Team <info@reetdeets.com>' . "\r\n";
+
+				// Mail it
+				if(mail($to, $subject, $message, $headers)) {
+					// Message sent successfully
+					$confirmation = '<p class="alert alert-success">Your message was sent successfully!</p>';
+				} else {
+					// Message was not successful
+					$confirmation = '<p class="alert alert-danger">There was a problem sending your message. Please try again.</p>';
+				}
+
+			}
+		}
+
+		if (!empty($_POST["forgotEmail"])) {
+			$fEmail = $_POST["forgotEmail"];
+			$qry = $db->prepare("SELECT id, prefix, lname, email FROM s_person WHERE email='$fEmail'");
+			$qry->execute();
+			$data = $qry->fetch();
+
+			if ($_POST["forgotEmail"] == $data["email"]) {
+				header('Location: https://mysterious-bayou-55662.herokuapp.com/Project/reset_password.php?id=' . $data["id"]);
+			}
+		}
+
+	}
 
 
 $database = null;
@@ -147,18 +289,66 @@ _/_/_/      _/_/    _/_/_/        _/
 
   <div class="container">
     <div class="row text-center">
-      <form class="form-signin" method="POST" action="">
-        <div class="col-xs-6">
-          <a href="login.php" class="btn btn-warning btn-lg">Login</a>
-        </div>
-        <div class="col-xs-6">
-            <button class="btn btn-primary btn-lg" type="submit" type="submit">Sign Up</button>
-        </div>
-      </form>
+      <div class="col-xs-6">
+        <button class="btn btn-warning btn-lg" id="login">Login</button>
+      </div>
+      <div class="col-xs-6">
+          <button class="btn btn-primary btn-lg" id="createNew">Sign Up</button>
+      </div>
     </div>
   </div>
   <br>
 
+	<div id="creation" class="overlay">
+		<a href="javascript:void(0)" id="closeCreate" class="closebtn">&times;</a>
+		<div class="overlay-content">
+			<div class="wrapper">
+				<div class="form-group">
+				<form class="form-signin" method="POST" action="">
+					<h2>You want to join? Sweet!</h2>
+					<p>Fill out the form and click submit.</p>
+					<input type="text" class="form-control" name="fname" placeholder="First Name" required>
+					<br>
+					<input type="text" class="form-control" name="lname" placeholder="Last Name" required>
+					<br>
+					<div class="radio">
+						<input type="radio" name="gender" value="1">
+						<label class="control-label" for="Male">Male</label>
+						<br>
+						<input type="radio" name="gender" value="0">
+						<label class="control-label" for="Female">Female</label>
+						<br>
+					</div>
+					<input type="text" class="form-control" name="createEmail" placeholder="Email Address" required>
+					<br>
+					<input type="password" class="form-control" name="createPassword" placeholder="Password" required>
+					<button id="submitCreate" class="btn btn-success" type="submit">Submit</button>
+				</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="login" class="overlay">
+		<a href="javascript:void(0)" id="closeLogin" class="closebtn">&times;</a>
+		<div class="overlay-content">
+			<div class="wrapper">
+				<form class="form-signin" method="POST" action="">
+					<h2 class="form-signin-heading">Please login</h2>
+					<input type="text" class="form-control" name="email" placeholder="Email Address" required>
+					<br>
+					<input type="password" class="form-control" name="password" placeholder="Password" required>
+					<br>
+					<button class="btn btn-success" type="submit">Login</button>
+					<a href="#" id="forgot">Forgot Password</a> or <a href="#" id="createNew">Create New Login</a>
+					<?php if (!$userFound) {
+						echo "<br><br><p id='loginError'>*Email address and/or password is incorrect.</p>";
+					}
+					?>
+				</form>
+			</div>
+		</div>
+	</div>
 
 
 
