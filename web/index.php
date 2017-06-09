@@ -305,12 +305,12 @@ _/_/_/      _/_/    _/_/_/        _/
 		<div class="overlay-content">
 			<div class="wrapper">
 				<div class="form-group">
-				<form class="form-signin" method="POST" action="">
+				<form class="form-signin-x" method="POST" action="">
 					<h2>You want to join? Sweet!</h2>
 					<p>Fill out the form and click submit.</p>
-					<input type="text" class="form-control" name="fname" placeholder="First Name" required>
+					<input type="text" class="form-control-x" name="fname" placeholder="First Name" required>
 					<br>
-					<input type="text" class="form-control" name="lname" placeholder="Last Name" required>
+					<input type="text" class="form-control-x" name="lname" placeholder="Last Name" required>
 					<br>
 					<div class="radio">
 						<input type="radio" name="gender" value="1">
@@ -320,9 +320,9 @@ _/_/_/      _/_/    _/_/_/        _/
 						<label class="control-label" for="Female">Female</label>
 						<br>
 					</div>
-					<input type="text" class="form-control" name="createEmail" placeholder="Email Address" required>
+					<input type="text" class="form-control-x" name="createEmail" placeholder="Email Address" required>
 					<br>
-					<input type="password" class="form-control" name="createPassword" placeholder="Password" required>
+					<input type="password" class="form-control-x" name="createPassword" placeholder="Password" required>
 					<button id="submitCreate" class="btn btn-success" type="submit">Submit</button>
 				</form>
 				</div>
@@ -334,11 +334,11 @@ _/_/_/      _/_/    _/_/_/        _/
 		<a href="javascript:void(0)" id="closeLogin" class="closebtn">&times;</a>
 		<div class="overlay-content">
 			<div class="wrapper">
-				<form class="form-signin" method="POST" action="">
+				<form class="form-signin-x" method="POST" action="">
 					<h2 class="form-signin-heading">Please login</h2>
-					<input type="text" class="form-control" name="email" placeholder="Email Address" required>
+					<input type="text" class="form-control-x" name="email" placeholder="Email Address" required>
 					<br>
-					<input type="password" class="form-control" name="password" placeholder="Password" required>
+					<input type="password" class="form-control-x" name="password" placeholder="Password" required>
 					<br>
 					<button class="btn btn-success" type="submit">Login</button>
 					<a href="#" id="forgot">Forgot Password</a>
