@@ -149,7 +149,7 @@ _/_/_/      _/_/    _/_/_/        _/
     <div class="row text-center">
       <form class="form-signin" method="POST" action="">
         <div class="col-xs-6">
-          <a href="login.php"><button class="btn btn-warning btn-lg" type="submit" type="submit">Login</button></a>
+          <a href="login.php"><button class="btn btn-warning btn-lg">Login</button></a>
         </div>
         <div class="col-xs-6">
             <button class="btn btn-primary btn-lg" type="submit" type="submit">Sign Up</button>
