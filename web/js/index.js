@@ -35,7 +35,6 @@ $(document).ready(function() {
 
 	$("#loginBtn").click(function() {
 		$("#login").fadeIn("slow");
-		alert("it worked");
 
 
 	});
