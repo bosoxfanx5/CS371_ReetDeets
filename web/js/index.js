@@ -33,4 +33,19 @@ $(document).ready(function() {
 
 	});
 
+	$("#login").click(function() {
+		$("#login").fadeIn("slow");
+
+
+
+	});
+
+
+	$("#closeLogin").click(function() {
+		$("#login").fadeOut("slow");
+
+
+
+	});
+
 });
