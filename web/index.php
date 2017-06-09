@@ -230,6 +230,7 @@ $database = null;
 	<!-- Custom styles for this template -->
 	<link href="css/sticky-footer-navbar.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/login.css">
 	<!-- <link rel="stylesheet" href="login.css"> -->
 </head>
 
