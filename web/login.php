@@ -175,7 +175,7 @@ $database = null;
 	<title>Login</title>
 
 	<!-- Custom styles for this template -->
-	<link href="sticky-footer-navbar.css" rel="stylesheet">
+	<link href="css/sticky-footer-navbar.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/index.css">
 	<link rel="stylesheet" href="css/login.css">
 </head>
