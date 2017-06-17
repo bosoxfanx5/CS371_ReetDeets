@@ -93,7 +93,7 @@ if (empty($_SESSION["id"])) {
 				$_SESSION["id"] = $result["id"];
 				$_SESSION["email"] = $result["email"];
 				$userFound = true;
-				header( 'Location: https://mysterious-bayou-55662.herokuapp.com/Project/mobile.php' );
+				header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
 				die();
 			} else {
 				$userFound = false;
@@ -132,7 +132,7 @@ if (empty($_SESSION["id"])) {
 				$sql->execute();
 				$_SESSION['email'] = $cEmail;
 				$_SESSION["loggedIn"] = true;
-				header( 'Location: https://mysterious-bayou-55662.herokuapp.com/Project/mobile.php' );
+				header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
 				die();
 
 				} else {
@@ -148,7 +148,7 @@ if (empty($_SESSION["id"])) {
 
 					$_SESSION["id"] = $result2['id'];
 					$_SESSION["loggedIn"] = true;
-					header( 'Location: https://mysterious-bayou-55662.herokuapp.com/Project/mobile.php' );
+					header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
 					die();
 				}
 			}
