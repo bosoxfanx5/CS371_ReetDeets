@@ -67,7 +67,7 @@ if (empty($_SESSION["id"])) {
 // 		$sql1->execute();
 // }
 	$personID = "";
-	// $userFound = false;
+	$userFound;
 	// $validEmail = true;
 	// $emailSent = false;
 	// $confirmation = "";
