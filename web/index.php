@@ -302,6 +302,7 @@ _/_/_/      _/_/    _/_/_/        _/
 
 	<div id="creation" class="overlay-creation">
 		<div class="overlay-content">
+			<a href="javascript:void(0)" id="closeLogin" class="closebtn">&times;</a>
 			<div class="wrapper-creation">
 				<div class="form-group">
 				<form class="form-signin" method="POST" action="">
@@ -324,8 +325,8 @@ _/_/_/      _/_/    _/_/_/        _/
 
 	<div id="login" class="overlay">
 		<div class="overlay-content">
+			<a href="javascript:void(0)" id="closeLogin" class="closebtn">&times;</a>
 			<div class="wrapper">
-				<a href="javascript:void(0)" id="closeLogin" class="closebtn">&times;</a>
 				<form class="form-signin" method="POST" action="">
 					<h2 class="form-signin-heading">Please login</h2>
 					<input type="text" class="form-control" name="email" placeholder="Email Address" required>
