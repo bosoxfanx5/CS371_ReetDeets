@@ -72,7 +72,7 @@ input[type="password"] {
 	display: none;
 }
 
-.overlay .closebtn {
+.overlay .closebtn, .overlay-creation .closebtn{
 	position: absolute;
 	top: 20px;
 	right: 45px;
