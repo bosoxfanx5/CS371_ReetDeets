@@ -303,18 +303,30 @@ _/_/_/      _/_/    _/_/_/        _/
     </div>
   </div>
 
-
-  <div class="container">
-    <div class="row text-center">
-      <div class="col-xs-6">
-        <button class="btn btn-warning btn-lg" id="loginBtn">Login</button>
-      </div>
-      <div class="col-xs-6">
+	<?php if(empty($_SESSION["email"])) : ?>
+  	<div class="container">
+    	<div class="row text-center">
+      	<div class="col-xs-6">
+        	<button class="btn btn-warning btn-lg" id="loginBtn">Login</button>
+      	</div>
+      	<div class="col-xs-6">
           <button class="btn btn-primary btn-lg" id="createNew">Sign Up</button>
-      </div>
-    </div>
-  </div>
-  <br>
+      	</div>
+    	</div>
+  	</div>
+  	<br>
+	<?php elseif (isset($_SESSION["email"])) : ?>
+		<div class="container">
+    	<div class="row text-center">
+      	<div class="col-xs-6">
+        	<button class="btn btn-warning btn-lg" id="loginBtn">Logout</button>
+      	</div>
+    	</div>
+  	</div>
+  	<br>
+	<?php endif ?>
+
+
 
 	<div id="creation" class="overlay-creation">
 		<div class="overlay-content">
