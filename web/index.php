@@ -262,7 +262,7 @@ $database = null;
 					<?php if($_SESSION["loggedIn"] = true) : ?>
 						<div class="row">
 							<div class="col-xs-4 col-xs-offset-4 text-center">
-								<p>Welcome <?php echo $_SESSION["fname"]; ?> </p>
+								<p><?php echo "Welcome " .  $_SESSION["fname"]; ?> </p>
 							</div>
 						</div>
 					<?php endif ?>
