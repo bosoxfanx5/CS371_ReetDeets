@@ -91,7 +91,7 @@ input[type="password"] {
 
 .overlay .closebtn {
 	position: absolute;
-	top: 6px;
+	top: 3px;
 	right: 45px;
 	font-size: 70px;
 }
