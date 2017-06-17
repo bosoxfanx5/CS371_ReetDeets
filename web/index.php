@@ -81,7 +81,7 @@ if (empty($_SESSION["id"])) {
 
 			$personEmail = $_POST["email"];
 			// query for email and password of user
-			$sql0 = $db->prepare("SELECT id, email, psswd FROM s_person WHERE email='$personEmail'");
+			$sql0 = $db->prepare("SELECT id, fname, email, psswd FROM s_person WHERE email='$personEmail'");
 			$sql0->execute();
 			$result = $sql0->fetch();
 
@@ -92,6 +92,7 @@ if (empty($_SESSION["id"])) {
 				$_SESSION["loggedIn"] = true;
 				$_SESSION["id"] = $result["id"];
 				$_SESSION["email"] = $result["email"];
+				$_SESSION["fname"] = $result["fname"];
 				$userFound = true;
 				header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
 				die();
@@ -109,13 +110,14 @@ if (empty($_SESSION["id"])) {
 		&& !empty($_POST["createPassword"])) {
 			$fname = $_POST['fname'];
 			$lname = $_POST['lname'];
+			$_SESSION["fname"] = $fname;
 
 
-			if ($gender == 1) {
-				$prefix = "Mr.";
-			} else {
-				$prefix = "Ms.";
-			}
+			// if ($gender == 1) {
+			// 	$prefix = "Mr.";
+			// } else {
+			// 	$prefix = "Ms.";
+			// }
 
 			$cEmail = $_POST['createEmail'];
 			$cPassword = $_POST['createPassword'];
@@ -250,6 +252,13 @@ $database = null;
       <div class="row">
         <div class="col-xs-10 col-xs-offset-1 text-center">
           <span><h1>RD|Reet Deets</h1></span>
+					<?php if($_SESSION["loggedIn"]) : ?>
+						<div class="row">
+							<div class="col-xs-4 col-xs-offset-4 text-center">
+								<p>Welcome <?php $_SESSION["fname"]; ?> </p>
+							</div>
+						</div>
+					<?php endif ?>
         </div>
       </div>
     </div>
