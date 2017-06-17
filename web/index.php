@@ -318,7 +318,7 @@ _/_/_/      _/_/    _/_/_/        _/
 	<?php elseif (isset($_SESSION["email"])) : ?>
 		<div class="container">
     	<div class="row text-center">
-      	<div class="col-xs-6">
+      	<div class="col-xs-4 col-xs-offset-4">
         	<button class="btn btn-warning btn-lg" id="loginBtn">Logout</button>
       	</div>
     	</div>
