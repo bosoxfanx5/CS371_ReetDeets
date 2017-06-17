@@ -314,7 +314,7 @@ _/_/_/      _/_/    _/_/_/        _/
 					<input type="text" class="form-control" name="createEmail" placeholder="Email Address" required>
 					<br>
 					<input type="password" class="form-control" name="createPassword" placeholder="Password" required>
-					<button id="submitCreate" class="btn btn-success" type="submit">Submit</button>
+					<button id="submitCreate" class="btn btn-success btn-lg" type="submit">Submit</button>
 				</form>
 				</div>
 			</div>
@@ -323,16 +323,16 @@ _/_/_/      _/_/    _/_/_/        _/
 
 
 	<div id="login" class="overlay">
-		<a href="javascript:void(0)" id="closeLogin" class="closebtn">&times;</a>
 		<div class="overlay-content">
 			<div class="wrapper">
+				<a href="javascript:void(0)" id="closeLogin" class="closebtn">&times;</a>
 				<form class="form-signin" method="POST" action="">
 					<h2 class="form-signin-heading">Please login</h2>
 					<input type="text" class="form-control" name="email" placeholder="Email Address" required>
 					<br>
 					<input type="password" class="form-control" name="password" placeholder="Password" required>
 					<br>
-					<button class="btn btn-success" type="submit">Login</button>
+					<button class="btn btn-success btn-lg" type="submit">Login</button>
 					<a href="#" id="forgot">Forgot Password</a>
 					<?php if (!$userFound) {
 						echo "<br><br><p id='loginError'>*Email address and/or password is incorrect.</p>";
