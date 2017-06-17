@@ -12,7 +12,7 @@ include 'session.php';
 include 'dbconnect.php';
 
 $welcome = true;
-
+$_SESSION["loggedIn"] = false;
 
 if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
 	session_unset($_SESSION["id"]);
@@ -73,7 +73,7 @@ if (empty($_SESSION["id"])) {
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$userFound = true;
 		$personID = "";
-		$_SESSION["loggedIn"] = false;
+
 		$_SESSION["fname"] = "";
 		/******************************************************************
 		* User logging in authentication
@@ -256,7 +256,7 @@ $database = null;
       <div class="row">
         <div class="col-xs-10 col-xs-offset-1 text-center">
           <span><h1>RD|Reet Deets</h1></span>
-					<?php if($userFound) : ?>
+					<?php if($_SESSION["loggedIn"]) : ?>
 						<div class="row">
 							<div class="col-xs-4 col-xs-offset-4 text-center">
 								<p>Welcome <?php $_SESSION["fname"]; ?> </p>
