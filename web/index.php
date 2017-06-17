@@ -109,7 +109,7 @@ if (empty($_SESSION["id"])) {
 		&& !empty($_POST["createPassword"])) {
 			$fname = $_POST['fname'];
 			$lname = $_POST['lname'];
-			$gender = (int)$_POST['gender'];
+
 
 			if ($gender == 1) {
 				$prefix = "Mr.";
@@ -126,7 +126,7 @@ if (empty($_SESSION["id"])) {
 			// if user already has a session id and is creating a new login
 			if (!empty($_SESSION["id"])) {
 				$personID = $_SESSION["id"];
-				$sql = $db->prepare("UPDATE s_person SET fname='$fname', lname='$lname', prefix='$prefix', gender=$gender,
+				$sql = $db->prepare("UPDATE s_person SET fname='$fname', lname='$lname', prefix='$prefix',
 					email='$cEmail', psswd='$hashed' WHERE id='$personID'");
 
 				$sql->execute();
@@ -137,8 +137,8 @@ if (empty($_SESSION["id"])) {
 
 				} else {
 					// if there isn't a session id for the user yet
-					$sql = $db->prepare("INSERT INTO s_person (fname, lname, prefix, gender, email, psswd)
-					VALUES ('$fname', '$lname','$prefix', $gender, '$cEmail', '$hashed')");
+					$sql = $db->prepare("INSERT INTO s_person (fname, lname, prefix, email, psswd)
+					VALUES ('$fname','$lname','$prefix','$cEmail','$hashed')");
 
 					$sql->execute();
 					$_SESSION['email'] = $cEmail;
@@ -274,7 +274,7 @@ _/_/_/      _/_/    _/_/_/        _/
   <div class="container">
     <div class="row">
       <div class="col-xs-10 col-xs-offset-1">
-        <form class="form-signin" method="POST" action="">
+        <form class="form-signin" method="POST" action="product.php">
           <input type="text" class="form-control" name="barcode" placeholder="Enter the Barcode ID" required>
       </div>
     </div>
@@ -302,7 +302,6 @@ _/_/_/      _/_/    _/_/_/        _/
 
 	<div id="creation" class="overlay-creation">
 		<div class="overlay-content">
-
 			<div class="wrapper-creation">
 				<div class="form-group">
 				<form class="form-signin" method="POST" action="">
@@ -326,7 +325,6 @@ _/_/_/      _/_/    _/_/_/        _/
 
 	<div id="login" class="overlay">
 		<div class="overlay-content">
-
 			<div class="wrapper">
 				<form class="form-signin" method="POST" action="">
 					<h2 class="form-signin-heading">Please login</h2>
