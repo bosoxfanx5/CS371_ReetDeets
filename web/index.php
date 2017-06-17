@@ -302,7 +302,7 @@ _/_/_/      _/_/    _/_/_/        _/
 
 	<div id="creation" class="overlay-creation">
 		<div class="overlay-content">
-			<a href="javascript:void(0)" id="closeCreate" class="closebtn">&times;</a>
+
 			<div class="wrapper-creation">
 				<div class="form-group">
 				<form class="form-signin" method="POST" action="">
@@ -316,6 +316,7 @@ _/_/_/      _/_/    _/_/_/        _/
 					<br>
 					<input type="password" class="form-control" name="createPassword" placeholder="Password" required>
 					<button id="submitCreate" class="btn btn-success btn-lg" type="submit">Submit</button>
+					<a href="javascript:void(0)" id="closeCreate" class="closebtn">&times;</a>
 				</form>
 				</div>
 			</div>
