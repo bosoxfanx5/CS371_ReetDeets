@@ -261,7 +261,7 @@ $database = null;
 					<?php //echo $_SESSION["fname"] . " " . $_SESSION["loggedIn"]; ?>
 					<?php if(isset($_SESSION["email"])) : ?>
 						<div class="row">
-							<div class="col-xs-4 col-xs-offset-4 text-center">
+							<div class="col-xs-10 col-xs-offset-1 text-center">
 								<p><?php echo "Welcome " .  $_SESSION["email"]; ?> </p>
 							</div>
 						</div>
