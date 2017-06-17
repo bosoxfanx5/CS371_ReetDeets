@@ -14,7 +14,7 @@ include 'dbconnect.php';
 $welcome = true;
 $userFound = true;
 $_SESSION["loggedIn"] = false;
-$_SESSION["fname"] = "";
+$_SESSION["fname"] = "Test";
 
 if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
 	session_unset($_SESSION["id"]);
