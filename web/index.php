@@ -301,7 +301,6 @@ _/_/_/      _/_/    _/_/_/        _/
   <br>
 
 	<div id="creation" class="overlay-creation">
-		<a href="javascript:void(0)" id="closeCreate" class="closebtn">&times;</a>
 		<div class="overlay-content">
 			<div class="wrapper">
 				<div class="form-group">
