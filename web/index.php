@@ -312,14 +312,6 @@ _/_/_/      _/_/    _/_/_/        _/
 					<br>
 					<input type="text" class="form-control" name="lname" placeholder="Last Name" required>
 					<br>
-					<div class="radio">
-						<input type="radio" name="gender" value="1">
-						<label class="control-label" for="Male">Male</label>
-						<br>
-						<input type="radio" name="gender" value="0">
-						<label class="control-label" for="Female">Female</label>
-						<br>
-					</div>
 					<input type="text" class="form-control" name="createEmail" placeholder="Email Address" required>
 					<br>
 					<input type="password" class="form-control" name="createPassword" placeholder="Password" required>
