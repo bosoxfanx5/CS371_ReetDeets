@@ -59,9 +59,9 @@ input[type="password"] {
 }
 
 .overlay-creation {
-	height: 65%;
+	height: 74%;
 	width: 100%;
-	margin-top: 34%;
+	margin-top: 25%;
 	position: fixed;
 	z-index: 1;
 	top: 0;
