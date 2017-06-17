@@ -12,8 +12,7 @@ include 'session.php';
 include 'dbconnect.php';
 
 $welcome = true;
-$_SESSION["loggedIn"] = false;
-$_SESSION["fname"] = "";
+
 
 if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
 	session_unset($_SESSION["id"]);
@@ -66,14 +65,16 @@ if (empty($_SESSION["id"])) {
 // 		$sql1 = $db->prepare("INSERT INTO s_visited_items (visitor_id, item_id) VALUES ('$personID', '$itemID')");
 // 		$sql1->execute();
 // }
-	$personID = "";
-	$userFound;
+
 	// $validEmail = true;
 	// $emailSent = false;
 	// $confirmation = "";
 
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
+		$userFound = true;
+		$personID = "";
+		$_SESSION["loggedIn"] = false;
+		$_SESSION["fname"] = "";
 		/******************************************************************
 		* User logging in authentication
 		*******************************************************************/
@@ -135,6 +136,7 @@ if (empty($_SESSION["id"])) {
 				$sql->execute();
 				$_SESSION['email'] = $cEmail;
 				$userFound = true;
+				$_SESSION["loggedIn"] = true;
 				header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
 				die();
 
@@ -151,6 +153,7 @@ if (empty($_SESSION["id"])) {
 
 					$_SESSION["id"] = $result2['id'];
 					$userFound = true;
+					$_SESSION["loggedIn"] = true;
 					header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
 					die();
 				}
