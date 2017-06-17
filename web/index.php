@@ -326,7 +326,7 @@ _/_/_/      _/_/    _/_/_/        _/
 
 	<div id="login" class="overlay">
 		<div class="overlay-content">
-			<a href="javascript:void(0)" id="closeLogin" class="closebtn">&times;</a>
+
 			<div class="wrapper">
 				<form class="form-signin" method="POST" action="">
 					<h2 class="form-signin-heading">Please login</h2>
@@ -336,6 +336,7 @@ _/_/_/      _/_/    _/_/_/        _/
 					<br>
 					<button class="btn btn-success btn-lg" type="submit">Login</button>
 					<a href="#" id="forgot">Forgot Password</a>
+					<a href="javascript:void(0)" id="closeLogin" class="closebtn">&times;</a>
 					<?php if (!$userFound) {
 						echo "<br><br><p id='loginError'>*Email address and/or password is incorrect.</p>";
 					}
