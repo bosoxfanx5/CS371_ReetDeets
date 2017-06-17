@@ -57,7 +57,7 @@ input[type="password"] {
 .overlay {
 	height: 74%;
 	width: 100%;
-	margin-top: 39%;
+	margin-top: 36%;
 	position: fixed;
 	z-index: 1;
 	top: 0;
