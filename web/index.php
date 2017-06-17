@@ -259,7 +259,7 @@ $database = null;
         <div class="col-xs-10 col-xs-offset-1 text-center">
           <span><h1>RD|Reet Deets</h1></span>
 					<?php //echo $_SESSION["fname"] . " " . $_SESSION["loggedIn"]; ?>
-					<?php if($_SESSION["loggedIn"] = true) : ?>
+					<?php if(isset($_SESSION["email"])) : ?>
 						<div class="row">
 							<div class="col-xs-4 col-xs-offset-4 text-center">
 								<p><?php echo "Welcome " .  $_SESSION["fname"]; ?> </p>
