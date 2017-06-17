@@ -319,7 +319,7 @@ _/_/_/      _/_/    _/_/_/        _/
 		<div class="container">
     	<div class="row text-center">
       	<div class="col-xs-4 col-xs-offset-4">
-        	<button class="btn btn-warning btn-lg" id="loginBtn">Logout</button>
+        	<a class="btn btn-warning btn-lg" id="loginBtn" href="https://mysterious-bayou-55662.herokuapp.com?logout=true">Logout</a>
       	</div>
     	</div>
   	</div>
