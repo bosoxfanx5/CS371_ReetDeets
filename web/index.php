@@ -12,6 +12,7 @@ include 'session.php';
 include 'dbconnect.php';
 
 $welcome = true;
+$userFound = true;
 $_SESSION["loggedIn"] = false;
 
 if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
@@ -71,7 +72,7 @@ if (empty($_SESSION["id"])) {
 	// $confirmation = "";
 
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-		$userFound = true;
+
 		$personID = "";
 
 		$_SESSION["fname"] = "";
