@@ -333,7 +333,7 @@ _/_/_/      _/_/    _/_/_/        _/
 					<input type="password" class="form-control" name="password" placeholder="Password" required>
 					<br>
 					<button class="btn btn-success btn-lg" type="submit">Login</button>
-					<button class="btn btn-warning btn-lg"><a href="javascript:void(0)" id="closeLogin" class="closebtn"></a>Cancel</button>
+					<a href="javascript:void(0)" id="closeLogin" class="closebtn" type="button">Cancel</a>
 					<a href="#" id="forgot">Forgot Password</a>
 					<?php if (!$userFound) {
 						echo "<br><br><p id='loginError'>*Email address and/or password is incorrect.</p>";
