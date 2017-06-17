@@ -302,7 +302,7 @@ _/_/_/      _/_/    _/_/_/        _/
 
 	<div id="creation" class="overlay-creation">
 		<div class="overlay-content">
-			<div class="wrapper">
+			<!-- <div class="wrapper"> -->
 				<div class="form-group">
 				<form class="form-signin" method="POST" action="">
 					<h2>You want to join? Sweet!</h2>
@@ -316,7 +316,7 @@ _/_/_/      _/_/    _/_/_/        _/
 					<input type="password" class="form-control" name="createPassword" placeholder="Password" required>
 					<button id="submitCreate" class="btn btn-success" type="submit">Submit</button>
 				</form>
-				</div>
+				<!-- </div> -->
 			</div>
 		</div>
 	</div>
