@@ -302,6 +302,7 @@ _/_/_/      _/_/    _/_/_/        _/
 
 	<div id="creation" class="overlay-creation">
 		<div class="overlay-content">
+			<a href="javascript:void(0)" id="closeLogin" class="closebtn">&times;</a>
 			<div class="wrapper-creation">
 				<div class="form-group">
 				<form class="form-signin" method="POST" action="">
