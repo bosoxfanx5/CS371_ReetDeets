@@ -13,7 +13,7 @@ include 'dbconnect.php';
 
 $welcome = true;
 $_SESSION["loggedIn"] = false;
-$_SESSION["fname"] = "Brooks";
+$_SESSION["fname"] = "";
 
 if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
 	session_unset($_SESSION["id"]);
@@ -67,7 +67,7 @@ if (empty($_SESSION["id"])) {
 // 		$sql1->execute();
 // }
 	$personID = "";
-	// $userFound = true;
+	$userFound = false;
 	// $validEmail = true;
 	// $emailSent = false;
 	// $confirmation = "";
@@ -111,7 +111,7 @@ if (empty($_SESSION["id"])) {
 		&& !empty($_POST["createPassword"])) {
 			$fname = $_POST['fname'];
 			$lname = $_POST['lname'];
-			// $_SESSION["fname"] = $fname;
+			$_SESSION["fname"] = $fname;
 
 
 			// if ($gender == 1) {
@@ -134,7 +134,7 @@ if (empty($_SESSION["id"])) {
 
 				$sql->execute();
 				$_SESSION['email'] = $cEmail;
-				$_SESSION["loggedIn"] = true;
+				$userFound = true;
 				header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
 				die();
 
@@ -150,7 +150,7 @@ if (empty($_SESSION["id"])) {
 					$result2 = $sql->fetch();
 
 					$_SESSION["id"] = $result2['id'];
-					$_SESSION["loggedIn"] = true;
+					$userFound = true;
 					header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
 					die();
 				}
@@ -253,8 +253,7 @@ $database = null;
       <div class="row">
         <div class="col-xs-10 col-xs-offset-1 text-center">
           <span><h1>RD|Reet Deets</h1></span>
-					<?php echo $_SESSION["fname"] ?>
-					<?php if($_SESSION["loggedIn"] == true) : ?>
+					<?php if($userFound) : ?>
 						<div class="row">
 							<div class="col-xs-4 col-xs-offset-4 text-center">
 								<p>Welcome <?php $_SESSION["fname"]; ?> </p>
