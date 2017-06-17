@@ -56,19 +56,19 @@ if (empty($_SESSION["id"])) {
 }
 
 
-// //retrieve item id
-// if (!empty($_GET['id'])) {
-// 	$isContent = true;
-// 	$sql = $db->prepare("SELECT * FROM s_saleable_item
-// 		WHERE id = :id");
-// 		$sql->execute(array(":id" => $_GET['id']));
-// 		$result2 = $sql->fetch(PDO::FETCH_ASSOC);
-// 		$itemID = $result2["id"];
-//
-// 		$personID = $_SESSION["id"];
-// 		$sql1 = $db->prepare("INSERT INTO s_visited_items (visitor_id, item_id) VALUES ('$personID', '$itemID')");
-// 		$sql1->execute();
-// }
+//retrieve item id
+if (!empty($_GET['id'])) {
+	$isContent = true;
+	$sql = $db->prepare("SELECT * FROM s_saleable_item
+		WHERE id = :id");
+		$sql->execute(array(":id" => $_GET['id']));
+		$result2 = $sql->fetch(PDO::FETCH_ASSOC);
+		$itemID = $result2["id"];
+
+		$personID = $_SESSION["id"];
+		$sql1 = $db->prepare("INSERT INTO s_visited_items (visitor_id, item_id) VALUES ('$personID', '$itemID')");
+		$sql1->execute();
+}
 
 	// $validEmail = true;
 	// $emailSent = false;
@@ -292,7 +292,7 @@ _/_/_/      _/_/    _/_/_/        _/
   <div class="container">
     <div class="row">
       <div class="col-xs-10 col-xs-offset-1">
-        <form class="form-signin" method="POST" action="product.php">
+        <form class="form-signin" method="GET" action="product.php">
           <input type="text" class="form-control" name="barcode" placeholder="Enter the Barcode ID" required>
       </div>
     </div>
