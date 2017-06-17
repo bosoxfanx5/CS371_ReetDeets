@@ -13,6 +13,7 @@ include 'dbconnect.php';
 
 $welcome = true;
 $_SESSION["loggedIn"] = false;
+$_SESSION["fname"] = "Brooks";
 
 if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
 	session_unset($_SESSION["id"]);
@@ -66,10 +67,10 @@ if (empty($_SESSION["id"])) {
 // 		$sql1->execute();
 // }
 	$personID = "";
-	$userFound = true;
-	$validEmail = true;
-	$emailSent = false;
-	$confirmation = "";
+	// $userFound = true;
+	// $validEmail = true;
+	// $emailSent = false;
+	// $confirmation = "";
 
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -110,7 +111,7 @@ if (empty($_SESSION["id"])) {
 		&& !empty($_POST["createPassword"])) {
 			$fname = $_POST['fname'];
 			$lname = $_POST['lname'];
-			$_SESSION["fname"] = $fname;
+			// $_SESSION["fname"] = $fname;
 
 
 			// if ($gender == 1) {
@@ -161,55 +162,55 @@ if (empty($_SESSION["id"])) {
 		* the MailGun I installed using a domain that I own. However, for this Project
 		* I didn't want to pay the monthly fee to have the email service through GoDaddy.
 		*******************************************************************/
-		$emailAttempt = false; //set this so that the code below doesn't ever run
-		if ($emailAttempt) {
-			$fEmail = $_POST["forgotEmail"];
-			$qry = $db->prepare("SELECT id, prefix, lname, email FROM s_person WHERE email='$fEmail'");
-			$qry->execute();
-			$data = $qry->fetch();
-			echo "Database: " . $data["email"];
-			echo "Input: " . $_POST["forgotEmail"];
-			if ($_POST["forgotEmail"] == $data["email"]) {
-
-				$url = 'https://mysterious-bayou-55662.herokuapp.com/Project/reset_password.php?id=' . $data["id"]; //not sure how to construct this with security in mind
-
-				$to = $data["email"];
-				$subject = 'Reet Deets - Forgot Password';
-				$message =  "Hello " . $data["prefix"] . " " . $data["lname"] . ", <br><br> Someone has requested a to reset your password. If this
-				was not you, please ignore this email. If this was you who requested a password reset, please follow this link below:<br><br>" .
-				$url . "<br><br>Thank you,<br>Your ReetDeets Team";
-
-				// To send HTML mail, the Content-type header must be set
-				$headers  = 'MIME-Version: 1.0' . "\r\n";
-				$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-
-				// Add from to the header
-				$headers .= 'From: Reet Deets Team <info@reetdeets.com>' . "\r\n";
-
-				// Mail it
-				if(mail($to, $subject, $message, $headers)) {
-					// Message sent successfully
-					$confirmation = '<p class="alert alert-success">Your message was sent successfully!</p>';
-				} else {
-					// Message was not successful
-					$confirmation = '<p class="alert alert-danger">There was a problem sending your message. Please try again.</p>';
-				}
-
-			}
-		}
-
-		if (!empty($_POST["forgotEmail"])) {
-			$fEmail = $_POST["forgotEmail"];
-			$qry = $db->prepare("SELECT id, prefix, lname, email FROM s_person WHERE email='$fEmail'");
-			$qry->execute();
-			$data = $qry->fetch();
-
-			if ($_POST["forgotEmail"] == $data["email"]) {
-				header('Location: https://mysterious-bayou-55662.herokuapp.com/Project/reset_password.php?id=' . $data["id"]);
-			}
-		}
-
-	}
+	// 	$emailAttempt = false; //set this so that the code below doesn't ever run
+	// 	if ($emailAttempt) {
+	// 		$fEmail = $_POST["forgotEmail"];
+	// 		$qry = $db->prepare("SELECT id, prefix, lname, email FROM s_person WHERE email='$fEmail'");
+	// 		$qry->execute();
+	// 		$data = $qry->fetch();
+	// 		echo "Database: " . $data["email"];
+	// 		echo "Input: " . $_POST["forgotEmail"];
+	// 		if ($_POST["forgotEmail"] == $data["email"]) {
+	//
+	// 			$url = 'https://mysterious-bayou-55662.herokuapp.com/Project/reset_password.php?id=' . $data["id"]; //not sure how to construct this with security in mind
+	//
+	// 			$to = $data["email"];
+	// 			$subject = 'Reet Deets - Forgot Password';
+	// 			$message =  "Hello " . $data["prefix"] . " " . $data["lname"] . ", <br><br> Someone has requested a to reset your password. If this
+	// 			was not you, please ignore this email. If this was you who requested a password reset, please follow this link below:<br><br>" .
+	// 			$url . "<br><br>Thank you,<br>Your ReetDeets Team";
+	//
+	// 			// To send HTML mail, the Content-type header must be set
+	// 			$headers  = 'MIME-Version: 1.0' . "\r\n";
+	// 			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+	//
+	// 			// Add from to the header
+	// 			$headers .= 'From: Reet Deets Team <info@reetdeets.com>' . "\r\n";
+	//
+	// 			// Mail it
+	// 			if(mail($to, $subject, $message, $headers)) {
+	// 				// Message sent successfully
+	// 				$confirmation = '<p class="alert alert-success">Your message was sent successfully!</p>';
+	// 			} else {
+	// 				// Message was not successful
+	// 				$confirmation = '<p class="alert alert-danger">There was a problem sending your message. Please try again.</p>';
+	// 			}
+	//
+	// 		}
+	// 	}
+	//
+	// 	if (!empty($_POST["forgotEmail"])) {
+	// 		$fEmail = $_POST["forgotEmail"];
+	// 		$qry = $db->prepare("SELECT id, prefix, lname, email FROM s_person WHERE email='$fEmail'");
+	// 		$qry->execute();
+	// 		$data = $qry->fetch();
+	//
+	// 		if ($_POST["forgotEmail"] == $data["email"]) {
+	// 			header('Location: https://mysterious-bayou-55662.herokuapp.com/Project/reset_password.php?id=' . $data["id"]);
+	// 		}
+	// 	}
+	//
+	// }
 
 
 $database = null;
