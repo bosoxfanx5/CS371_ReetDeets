@@ -12,7 +12,7 @@ include 'session.php';
 include 'dbconnect.php';
 
 $welcome = true;
-
+$_SESSION["loggedIn"] = false;
 
 if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
 	session_unset($_SESSION["id"]);
