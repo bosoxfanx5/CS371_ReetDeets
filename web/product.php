@@ -2,8 +2,8 @@
 include 'session.php';
 include 'dbconnect.php';
 
-
-
+$barcode = $_GET["barcode"];
+echo $barcode;
 
 ?>
 

@@ -15,7 +15,7 @@ $welcome = true;
 $userFound = true;
 $_SESSION["loggedIn"] = false;
 $_SESSION["fname"] = "";
-$barcode;
+$barcode = $_POST["barcode"];
 
 if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
 	session_unset($_SESSION["id"]);
@@ -25,7 +25,6 @@ if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-	$barcode = $_GET["barcode"];
 
 	$sql0 = $db->prepare("SELECT id, title FROM s_saleable_item");
 	$sql0->execute();
@@ -294,14 +293,14 @@ _/_/_/      _/_/    _/_/_/        _/
   <div class="container">
     <div class="row">
       <div class="col-xs-10 col-xs-offset-1">
-        <?php print_r('<form class="form-signin" method="GET" action="product.php?barcode=' . $barcode) ?>
+        <form class="form-signin" method="GET" action="product.php">
           <input type="text" class="form-control" name="barcode" placeholder="Enter the Barcode ID" required>
       </div>
     </div>
     <br>
     <div class="row text-center">
       <div class="col-xs-4 col-xs-offset-4">
-        <button class="btn btn-success btn-lg" type="submit" type="submit">Submit</button>
+        <input class="btn btn-success btn-lg" type="submit">
       </form>
       </div>
     </div>
