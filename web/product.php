@@ -8,7 +8,7 @@ $sql0 = $db->prepare("SELECT title, price, listinfo1, listinfo2, listinfo3, list
 $sql0->execute();
 $result = $sql0->fetch();
 
-echo $result["title"] . $result["price"] . $result["image"] . $result["listinfo1"];
+
 
 
 ?>
