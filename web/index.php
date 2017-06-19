@@ -292,7 +292,7 @@ _/_/_/      _/_/    _/_/_/        _/
   <div class="container">
     <div class="row">
       <div class="col-xs-10 col-xs-offset-1">
-        <?php print_r('<form class="form-signin" method="GET" action="product.php?barcode=' . $_GET["barcode"]) ?>
+        <?php print_r('<form class="form-signin" method="GET" action="product.php?barcode=' . $barcode) ?>
           <input type="text" class="form-control" name="barcode" placeholder="Enter the Barcode ID" required>
       </div>
     </div>
