@@ -284,7 +284,7 @@ _/_/_/      _/_/    _/_/_/        _/
 	<div class="container">
 		<div class="row">
       <div class="col-xs-6 col-xs-offset-3">
-			   <img class="img-responsive" src="img/barcode.gif">
+			   <img class="img-responsive" src="img/barcode_sm.png">
        </div>
 		</div>
   </div>
@@ -292,7 +292,7 @@ _/_/_/      _/_/    _/_/_/        _/
   <div class="container">
     <div class="row">
       <div class="col-xs-10 col-xs-offset-1">
-        <form class="form-signin" method="GET" action="product.php">
+        <?php print_r('<form class="form-signin" method="GET" action="product.php?barcode=' . $_GET["barcode"]) ?>
           <input type="text" class="form-control" name="barcode" placeholder="Enter the Barcode ID" required>
       </div>
     </div>
