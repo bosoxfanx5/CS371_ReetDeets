@@ -15,6 +15,7 @@ $welcome = true;
 $userFound = true;
 $_SESSION["loggedIn"] = false;
 $_SESSION["fname"] = "";
+$barcode;
 
 if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
 	session_unset($_SESSION["id"]);
@@ -24,6 +25,7 @@ if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+	$barcode = $_GET["barcode"];
 
 	$sql0 = $db->prepare("SELECT id, title FROM s_saleable_item");
 	$sql0->execute();
