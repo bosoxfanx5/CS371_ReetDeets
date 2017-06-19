@@ -67,7 +67,7 @@ $result = $sql0->fetch();
     </div>
     <div class="row">
       <div class="col-xs-6">
-        <img class="img-responsive" src="img/tv.jpg"> <!--change to php img source -->
+        <img class="img-responsive" src=<?php echo $result["image"] ?>> <!--change to php img source -->
       </div>
       <div class="col-xs-6">
         <ul id="product-info"> <!--change to php product info (limit 4, limit characters)-->
