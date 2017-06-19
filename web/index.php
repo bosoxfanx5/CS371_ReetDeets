@@ -15,7 +15,7 @@ $welcome = true;
 $userFound = true;
 $_SESSION["loggedIn"] = false;
 $_SESSION["fname"] = "";
-$barcode = $_POST["barcode"];
+
 
 if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
 	session_unset($_SESSION["id"]);
