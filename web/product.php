@@ -3,7 +3,11 @@ include 'session.php';
 include 'dbconnect.php';
 
 $barcode = $_GET["barcode"];
-echo $barcode;
+
+$sql0 = $db->prepare("SELECT title, price, listinfo1, listinfo2, listinfo3, listinfo4, image FROM s_saleable_item WHERE barcode='$barcode'");
+$sql0->execute();
+$result = $sql0->fetch();
+
 
 ?>
 
@@ -33,7 +37,7 @@ echo $barcode;
     <div class="container">
       <div class="navbar-header">
         <?php if(!empty($_SESSION["email"])) : ?>
-          <span class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">tester@test.com</span> <!-- change to php email -->
+          <span class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"><?php echo $_SESSION["email"] ?></span> <!-- change to php email -->
           <a class="navbar-brand" href="#"><p style="color:black">RD|ReetDeets</p></a>
         <?php else :?>
           <span class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">Options</span>
@@ -58,7 +62,7 @@ echo $barcode;
   <div class="container">
     <div class="row">
       <div class="col-xs-9">
-        <p>VIZIO - 60" Class - LED - 2160p - with Chromecast Built-in - 4K Ultra HD</p> <!--change to php product name (limit characters)-->
+        <p><?php echo $result["title"] ?></p> <!--change to php product name (limit characters)-->
       </div>
     </div>
     <div class="row">
