@@ -1,0 +1,99 @@
+.navbar-default {
+  background-color: rgba(47, 94, 217, 0.8) !important;
+  border-color: #8ba2e1 !important;
+}
+.navbar-default .navbar-brand {
+  color: #ecf0f1 !important;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: rgba(47, 94, 217, 0.8) !important;
+}
+.navbar-default .navbar-text {
+  color: #ecf0f1 !important;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #ecf0f1 !important;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: rgba(47, 94, 217, 0.8) !important;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu {
+  background-color: rgba(47, 94, 217, 0.8) !important;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a {
+  color: #ecf0f1 !important;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+  color: rgba(47, 94, 217, 0.8) !important;
+  background-color: #8ba2e1 !important;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li.divider {
+  background-color: #8ba2e1 !important;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: rgba(47, 94, 217, 0.8) !important;
+  background-color: #8ba2e1 !important;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: rgba(47, 94, 217, 0.8) !important;
+  background-color: #8ba2e1 !important;
+}
+.navbar-default .navbar-toggle {
+  border-color: #8ba2e1 !important;
+  background-color: #ecf0f1 !important;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #8ba2e1 !important;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #ecf0f1 !important;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #ecf0f1 !important;
+}
+.navbar-default .navbar-link {
+  color: #ecf0f1 !important;
+}
+.navbar-default .navbar-link:hover {
+  color: rgba(47, 94, 217, 0.8) !important;
+}
+
+.review-container {
+  background-color: lightgray;
+  border-radius: 25%;
+  height: 200px;
+  overflow: auto;
+}
+
+.review {
+  height: 80px;
+  background-color: #ecf0f1;
+  overflow: hidden;
+  border-radius: 10%;
+
+}
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #ecf0f1 !important;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: rgba(47, 94, 217, 0.8) !important;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: rgba(47, 94, 217, 0.8) !important;
+    background-color: #8ba2e1 !important;
+  }
+}
