@@ -35,21 +35,28 @@ $sql0 = $db->prepare("SELECT title, price, listinfo1, listinfo2, listinfo3, list
 $sql0->execute();
 $result = $sql0->fetch();
 $image = '<img class="img-responsive" src=' . $result["image"] . '>';
+$max = count($visitedID);
 
 if (!empty($_GET["barcode"])) {
+   array_push($visitedID, $barcode);
 
-   for ($x = 0; $x <= count($visitedID); $x++) {
-      if (!empty($visitedID[$x])) {
-         $previousEnabled = true;
-      } else {
-         $visitedID[$x] = $barcode;
-      }
+   if ($max > 1 && $barcode != $visitedID[0]) {
+      $previousEnabled = true;
 
-      if(isset($_REQUEST["previous"]) && $x < count($visitedID)) {
+      if(isset($_REQUEST["previous"])) {
          $nextEnabled = true;
-         $barcode = $visitedID[--$x];
+
+         $barcode = $visitedID[$max - 2];
+
+         if ($barcode == $visitedID[0]){
+            $previousEnabled = false;
+            $nextEnabled = true;
+         }
       }
    }
+
+
+}
 
 	$sql2 = $db->prepare("SELECT id FROM s_saleable_item WHERE barcode='$barcode'");
 	$sql2->execute();
@@ -61,8 +68,6 @@ if (!empty($_GET["barcode"])) {
 	$sql2 = $db->prepare("INSERT INTO s_visited_items (visitor_id, item_id) VALUES ('$personID', '$itemID')");
 	$sql2->execute();
 
-
-}
 
 $database = null;
 ?>
