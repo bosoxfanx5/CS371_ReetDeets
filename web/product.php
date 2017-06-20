@@ -150,7 +150,7 @@ $database = null;
   <nav class="navbar navbar-default">
     <div class="container">
       <div class="navbar-header">
-        <?php if(!empty($_SESSION["email"])) : ?>
+        <?php if(isset($_SESSION["email"])) : ?>
           <span class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"><?php echo $_SESSION["email"] ?></span> <!-- change to php email -->
           <a class="navbar-brand" href="#"><h4 style="color:black">RD|ReetDeets</h4></a>
         <?php else :?>
