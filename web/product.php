@@ -146,7 +146,7 @@ $database = null;
 </head>
 
 <body>
-
+   <?php echo $_SESSION["email"] ?>
   <nav class="navbar navbar-default">
     <div class="container">
       <div class="navbar-header">
