@@ -57,7 +57,7 @@ if (!empty($_GET["barcode"])) {
       echo $code;
    }
    echo sizeof($_SESSION["codes"]);
-
+   echo $barcode != $_SESSION["codes"][0];
 
 	$sql2 = $db->prepare("SELECT id FROM s_saleable_item WHERE barcode='$barcode'");
 	$sql2->execute();
