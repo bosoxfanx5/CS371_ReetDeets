@@ -89,8 +89,11 @@ if(isset($_REQUEST["previous"])) {
 if(isset($_REQUEST["next"])){
    $_SESSION["previousEnabled"] = true;
    $_SESSION["index"] += 1;
-   $barcode = $_SESSION["codes"][$_SESSION["index"]];
 
+   if(($_SESSION["index"] + 1) != $_SESSION["max"]) {
+      $barcode = $_SESSION["codes"][$_SESSION["index"]];
+   }
+   
    if (($_SESSION["index"] + 1) == $_SESSION["max"] && $_SESSION["index"] != 0) {
       $_SESSION["nextEnabled"] = false;
       $_SESSION["previousEnabled"] = true;
