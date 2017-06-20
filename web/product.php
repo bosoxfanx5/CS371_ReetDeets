@@ -1,6 +1,7 @@
 <?php
 include 'session.php';
 include 'dbconnect.php';
+include 'authenticate.php';
 
 $barcode = $_GET["barcode"];
 
