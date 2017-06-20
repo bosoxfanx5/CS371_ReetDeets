@@ -93,6 +93,8 @@ if(isset($_REQUEST["next"])){
    if (($_SESSION["index"] + 1) == $_SESSION["max"] && $_SESSION["index"] != 0) {
       $_SESSION["nextEnabled"] = false;
       $_SESSION["previousEnabled"] = true;
+   } else {
+      $_SESSION["nextEnabled"] = true;
    }
 }
 
