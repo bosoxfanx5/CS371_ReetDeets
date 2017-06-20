@@ -5,6 +5,8 @@ include 'authenticate.php';
 
 $barcode = $_GET["barcode"];
 
+
+
 if(isset($_SESSION["email"])) {
    $email = $_SESSION["email"];
    $sql = $db->prepare("SELECT id FROM s_person WHERE email='$email'");
@@ -28,6 +30,7 @@ if(isset($_SESSION["email"])) {
 $sql0 = $db->prepare("SELECT title, price, listinfo1, listinfo2, listinfo3, listinfo4, image FROM s_saleable_item WHERE barcode='$barcode'");
 $sql0->execute();
 $result = $sql0->fetch();
+$image = '<img class="img-responsive" src=' . $result["image"] . '>';
 
 if (!empty($_GET["barcode"])) {
 	$sql2 = $db->prepare("SELECT id FROM s_saleable_item WHERE barcode='$barcode'");
@@ -99,7 +102,7 @@ if (!empty($_GET["barcode"])) {
     </div>
     <div class="row">
       <div class="col-xs-6">
-        <?php echo '<img class="img-responsive" src="' . '$result["image"]' . '">' ?> <!--change to php img source -->
+        <?php echo $image ?> <!--change to php img source -->
         <!-- <img class="img-responsive" src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/4989/4989400_sd.jpg;maxHeight=550;maxWidth=642"> -->
       </div>
       <div class="col-xs-6">
