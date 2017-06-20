@@ -83,7 +83,7 @@ if (!empty($_POST["fname"]) && !empty($_POST["lname"]) && !empty($_POST["createE
 	}
 $database = null;
 ?>
-<html>
+
 <div id="creation" class="overlay-creation">
 	<div class="overlay-content">
 		<div class="wrapper-creation">
@@ -129,4 +129,3 @@ $database = null;
 </div>
 
 <br><br>
-</html>
