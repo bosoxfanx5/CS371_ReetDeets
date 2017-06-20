@@ -1,7 +1,7 @@
 <?php
 include 'session.php';
 include 'dbconnect.php';
-include 'authenticate.php';
+
 
 $barcode = $_GET["barcode"];
 
@@ -274,7 +274,7 @@ if (!empty($_GET["barcode"])) {
   </div>
 
 
-
+  <?php include 'authenticate.php'; ?>
 
 
 
