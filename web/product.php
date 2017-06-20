@@ -44,10 +44,11 @@ $sql0->execute();
 $result = $sql0->fetch();
 $image = '<img class="img-responsive" src=' . $result["image"] . '>';
 $max = sizeof($_SESSION["codes"]);
+
 if (!empty($_GET["barcode"])) {
    array_push($visitedID, $barcode);
    $_SESSION["codes"][] = $barcode;
-
+   $max = sizeof($_SESSION["codes"]);
    if ($max > 1 && $barcode != $visitedID[0]) {
       $previousEnabled = true;
 
