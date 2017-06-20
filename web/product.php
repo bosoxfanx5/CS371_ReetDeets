@@ -235,7 +235,7 @@ $database = null;
 </head>
 
 <body>
-   <?php echo $_SESSION["email"] ?>
+
   <nav class="navbar navbar-default">
     <div class="container">
       <div class="navbar-header">
@@ -418,7 +418,7 @@ $database = null;
      <div class="overlay-content">
         <div class="wrapper-creation">
            <div class="form-group">
-           <form class="form-signin" method="POST" action="">
+           <form class="form-signin" method="POST" action="product.php">
               <h2>You want to join? Sweet!</h2>
               <p>Fill out the form and click submit.</p>
               <input type="text" class="form-control" name="fname" placeholder="First Name" required>
