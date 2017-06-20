@@ -48,7 +48,7 @@ $image = '<img class="img-responsive" src=' . $result["image"] . '>';
 if (!empty($_GET["barcode"])) {
    $_SESSION["codes"][] = $barcode;
    $max = sizeof($_SESSION["codes"]);
-   if ($max > 1 && $barcode != $visitedID[0]) {
+   if ($max > 1 && $barcode != $_SESSION["codes"][0]) {
       $previousEnabled = true;
 
       if(isset($_REQUEST["previous"])) {
