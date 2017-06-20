@@ -45,9 +45,8 @@ $image = '<img class="img-responsive" src=' . $result["image"] . '>';
 
 if (!empty($_GET["barcode"])) {
    array_push($visitedID, $barcode);
-   $max = sizeof($visitedID);
-   // echo "array should be loaded";
-   if ($max > 1 && $barcode != $visitedID[0]) {
+   
+   if (sizeof($visitedID) > 1 && $barcode != $visitedID[0]) {
       $previousEnabled = true;
 
       if(isset($_REQUEST["previous"])) {
@@ -62,11 +61,11 @@ if (!empty($_GET["barcode"])) {
       }
    }
 
-   foreach ($visitedID as $code) {
-      echo $code;
-   }
-   echo $max;
-}
+//    foreach ($visitedID as $code) {
+//       echo $code;
+//    }
+//    echo $max;
+
 
 	$sql2 = $db->prepare("SELECT id FROM s_saleable_item WHERE barcode='$barcode'");
 	$sql2->execute();
@@ -77,7 +76,7 @@ if (!empty($_GET["barcode"])) {
 	$personID = $_SESSION["id"];
 	$sql2 = $db->prepare("INSERT INTO s_visited_items (visitor_id, item_id) VALUES ('$personID', '$itemID')");
 	$sql2->execute();
-
+}
 
 $database = null;
 ?>
