@@ -74,10 +74,10 @@ $result = $sql0->fetch();
       </div>
       <div class="col-xs-6">
         <ul id="product-info"> <!--change to php product info (limit 4, limit characters)-->
-          <li><span>2 x AA batteries</span></li>
-          <li><span>HDMI cable</span></li>
-          <li><span>Owners manual</span></li>
-          <li><span>Remote Control</span></li>
+          <li><span><?php echo $result["listinfo1"] ?></span></li>
+          <li><span><?php echo $result["listinfo2"] ?></span></li>
+          <li><span><?php echo $result["listinfo3"] ?></span></li>
+          <li><span><?php echo $result["listinfo4"] ?></span></li>
         </ul>
       </div>
     </div>
