@@ -2,14 +2,20 @@
 include 'session.php';
 include 'dbconnect.php';
 
-// ini_set('memory_limit', '256M');
+
 
 $barcode = $_GET["barcode"];
 $visitedID = array();
 $previousEnabled = false;
 
-// $_GET["previous"];
-// $_GET["next"];
+if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
+	session_unset($_SESSION["id"]);
+	session_unset($_SESSION["email"]);
+   $visitedID = array();
+	session_destroy();
+	header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
+	die();
+}
 
 if(isset($_SESSION["email"])) {
    $email = $_SESSION["email"];
@@ -55,6 +61,9 @@ if (!empty($_GET["barcode"])) {
       }
    }
 
+   foreach ($visitedID as $code) {
+      echo $code;
+   }
 
 }
 
@@ -100,7 +109,7 @@ $database = null;
       <div class="navbar-header">
         <?php if(!empty($_SESSION["email"])) : ?>
           <span class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"><?php echo $_SESSION["email"] ?></span> <!-- change to php email -->
-          <a class="navbar-brand" href="#"><h3 style="color:black">RD|ReetDeets</h3></a>
+          <a class="navbar-brand" href="#"><h4 style="color:black">RD|ReetDeets</h4></a>
         <?php else :?>
           <span class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">Options</span>
           <a class="navbar-brand" href="#"><p style="color:black">RD|ReetDeets</p></a>
