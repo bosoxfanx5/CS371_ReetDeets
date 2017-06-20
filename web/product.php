@@ -61,10 +61,10 @@ if (!empty($_GET["barcode"])) {
       }
    }
 
-   foreach ($visitedID as $code) {
-      echo $code;
-   }
-   echo $max;
+   // foreach ($visitedID as $code) {
+   //    echo $code;
+   // }
+   // echo $max;
 }
 
 	$sql2 = $db->prepare("SELECT id FROM s_saleable_item WHERE barcode='$barcode'");
@@ -261,7 +261,7 @@ $database = null;
       <div class="row">
          <form method="GET" action="product.php?previous=true">
             <div class="col-xs-4">
-               <?php if ($previousEnabled) : ?>
+               <?php if ($previousEnabled == false) : ?>
                   <button class="btn btn-danger btn-lg" type="submit" disabled><span>Previous</span></button>
                <?php else : ?>
                   <button class="btn btn-danger btn-lg" type="submit"><span>Previous</span></button>
@@ -270,7 +270,7 @@ $database = null;
          </form>
          <form method="GET" action="product.php?next=true">
             <div class="col-xs-4">
-               <?php if (empty($next)) : ?>
+               <?php if ($nextEnabled == false) : ?>
                   <button class="btn btn-success btn-lg" type="submit" disabled><span>Next</span></button>
                <?php else :?>
                   <button class="btn btn-success btn-lg" type="submit"><span>Next</span></button>
