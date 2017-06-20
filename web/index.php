@@ -132,10 +132,10 @@ _/_/_/      _/_/    _/_/_/        _/
   	<div class="container">
     	<div class="row text-center">
       	<div class="col-xs-6">
-        	<button class="btn btn-warning btn-lg" id="loginBtn">Login</button>
+        		<button class="btn btn-warning btn-lg" id="loginBtn">Login</button>
       	</div>
       	<div class="col-xs-6">
-          <button class="btn btn-primary btn-lg" id="createNew">Sign Up</button>
+         	<button class="btn btn-primary btn-lg" id="createNew">Sign Up</button>
       	</div>
     	</div>
   	</div>
