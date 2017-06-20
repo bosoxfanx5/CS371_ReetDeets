@@ -4,7 +4,7 @@ include 'dbconnect.php';
 
 
 
-$barcode = $_GET["barcode"];
+
 
 
 $_SESSION["previousEnabled"] = false;
@@ -40,18 +40,19 @@ if(isset($_SESSION["email"])) {
 	$_SESSION["id"] = $result1["id"];
 }
 
-$sql0 = $db->prepare("SELECT title, price, listinfo1, listinfo2, listinfo3, listinfo4, image FROM s_saleable_item WHERE barcode='$barcode'");
-$sql0->execute();
-$result = $sql0->fetch();
-$image = '<img class="img-responsive" src=' . $result["image"] . '>';
+
 
 
 if (!empty($_GET["barcode"])) {
+   $barcode = $_GET["barcode"];
    $_SESSION["codes"][] = $barcode;
+
+
    $max = sizeof($_SESSION["codes"]);
    if ($max > 1 && $barcode != $_SESSION["codes"][0]) {
       $_SESSION["previousEnabled"] = true;
    }
+
 
    // foreach ($_SESSION["codes"] as $code) {
    //    echo $code;
@@ -59,20 +60,12 @@ if (!empty($_GET["barcode"])) {
    // echo sizeof($_SESSION["codes"]);
    // echo $barcode != $_SESSION["codes"][0];
 
-	$sql2 = $db->prepare("SELECT id FROM s_saleable_item WHERE barcode='$barcode'");
-	$sql2->execute();
-	$result2 = $sql2->fetch();
-	$itemID = $result2["id"];
 
-
-	$personID = $_SESSION["id"];
-	$sql2 = $db->prepare("INSERT INTO s_visited_items (visitor_id, item_id) VALUES ('$personID', '$itemID')");
-	$sql2->execute();
 }
 
 if(isset($_REQUEST["previous"])) {
    $_SESSION["nextEnabled"] = true;
-
+   echo "previous request made";
    $barcode = $_SESSION["codes"][$max - 2];
 
    if ($barcode == $_SESSION["codes"][0] && $max > 1) {
@@ -87,6 +80,20 @@ if(isset($_REQUEST["next"])) {
    }
 }
 
+$sql0 = $db->prepare("SELECT title, price, listinfo1, listinfo2, listinfo3, listinfo4, image FROM s_saleable_item WHERE barcode='$barcode'");
+$sql0->execute();
+$result = $sql0->fetch();
+$image = '<img class="img-responsive" src=' . $result["image"] . '>';
+
+$sql2 = $db->prepare("SELECT id FROM s_saleable_item WHERE barcode='$barcode'");
+$sql2->execute();
+$result2 = $sql2->fetch();
+$itemID = $result2["id"];
+
+
+$personID = $_SESSION["id"];
+$sql2 = $db->prepare("INSERT INTO s_visited_items (visitor_id, item_id) VALUES ('$personID', '$itemID')");
+$sql2->execute();
 $database = null;
 ?>
 
