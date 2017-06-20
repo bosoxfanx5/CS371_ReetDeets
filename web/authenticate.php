@@ -1,5 +1,4 @@
 <?php
-include 'session.php';
 include 'dbconnect.php';
 
 if (!empty($_POST["email"]) && !empty($_POST["password"])) {
