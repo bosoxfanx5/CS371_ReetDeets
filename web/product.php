@@ -13,7 +13,8 @@ $nextEnabled = false;
 if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
 	session_unset($_SESSION["id"]);
 	session_unset($_SESSION["email"]);
-   unset($visitedID);
+   session_unset($_SESSION["previousEnabled"]);
+   session_unset($_SESSION["nextEnabled"]);
 	session_destroy();
 	header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
 	die();
@@ -49,24 +50,13 @@ if (!empty($_GET["barcode"])) {
    $_SESSION["codes"][] = $barcode;
    $max = sizeof($_SESSION["codes"]);
    if ($max > 1 && $barcode != $_SESSION["codes"][0]) {
-      $previousEnabled = true;
-
-      if(isset($_REQUEST["previous"])) {
-         $nextEnabled = true;
-
-         $barcode = $_SESSION["codes"][$max - 2];
-
-         if ($barcode == $visitedID[0]){
-            $previousEnabled = false;
-            $nextEnabled = true;
-         }
-      }
+      $_SESSION["previousEnabled"] = true;
    }
 
-   foreach ($_SESSION["codes"] as $code) {
-      echo $code;
-   }
-   echo sizeof($_SESSION["codes"]);
+   // foreach ($_SESSION["codes"] as $code) {
+   //    echo $code;
+   // }
+   // echo sizeof($_SESSION["codes"]);
 
 
 	$sql2 = $db->prepare("SELECT id FROM s_saleable_item WHERE barcode='$barcode'");
@@ -78,6 +68,23 @@ if (!empty($_GET["barcode"])) {
 	$personID = $_SESSION["id"];
 	$sql2 = $db->prepare("INSERT INTO s_visited_items (visitor_id, item_id) VALUES ('$personID', '$itemID')");
 	$sql2->execute();
+}
+
+if(isset($_REQUEST["previous"])) {
+   $_SESSION["nextEnabled"] = true;
+
+   $barcode = $_SESSION["codes"][$max - 2];
+
+   if ($barcode == $_SESSION["codes"][0] && $max > 1) {
+      $_SESSION["previousEnabled"] = false;
+      $_SESSION["nextEnabled"] = true;
+   }
+}
+
+if(isset($_REQUEST["next"])) {
+   if ($barcode == $_SESSION["codes"][$max]) {
+      $_SESSION["nextEnabled"] = false;
+   }
 }
 
 $database = null;
