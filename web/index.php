@@ -108,7 +108,7 @@ _/_/_/      _/_/    _/_/_/        _/
 	<div class="container">
 		<div class="row">
       <div class="col-xs-4 col-xs-offset-4">
-			   <img class="img-responsive" src="img/barcode_smLogo.png">
+			   <img class="img-responsive logo" src="img/barcode_smLogo.png">
        </div>
 		</div>
   </div>
