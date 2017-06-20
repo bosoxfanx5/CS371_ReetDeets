@@ -83,6 +83,9 @@ if(isset($_REQUEST["next"])) {
    if (($_SESSION["index"] + 1) == $_SESSION["max"]) {
       $_SESSION["nextEnabled"] = false;
    }
+
+   echo $_SESSION["index"] . "<br>";
+   echo $_SESSION["max"];
 }
 
 $sql0 = $db->prepare("SELECT title, price, listinfo1, listinfo2, listinfo3, listinfo4, image FROM s_saleable_item WHERE barcode='$barcode'");
