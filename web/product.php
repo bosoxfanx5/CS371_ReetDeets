@@ -53,11 +53,11 @@ if (!empty($_GET["barcode"])) {
       $_SESSION["previousEnabled"] = true;
    }
 
-   foreach ($_SESSION["codes"] as $code) {
-      echo $code;
-   }
-   echo sizeof($_SESSION["codes"]);
-   echo $barcode != $_SESSION["codes"][0];
+   // foreach ($_SESSION["codes"] as $code) {
+   //    echo $code;
+   // }
+   // echo sizeof($_SESSION["codes"]);
+   // echo $barcode != $_SESSION["codes"][0];
 
 	$sql2 = $db->prepare("SELECT id FROM s_saleable_item WHERE barcode='$barcode'");
 	$sql2->execute();
@@ -270,7 +270,7 @@ $database = null;
       <div class="row">
          <form method="GET" action="product.php?previous=true">
             <div class="col-xs-4">
-               <?php if ($previousEnabled == false) : ?>
+               <?php if ($_SESSION["previousEnabled"] == false) : ?>
                   <button class="btn btn-danger btn-lg" type="submit" disabled><span>Previous</span></button>
                <?php else : ?>
                   <button class="btn btn-danger btn-lg" type="submit"><span>Previous</span></button>
@@ -279,7 +279,7 @@ $database = null;
          </form>
          <form method="GET" action="product.php?next=true">
             <div class="col-xs-4">
-               <?php if ($nextEnabled == false) : ?>
+               <?php if ($_SESSION["nextEnabled"] == false) : ?>
                   <button class="btn btn-success btn-lg" type="submit" disabled><span>Next</span></button>
                <?php else :?>
                   <button class="btn btn-success btn-lg" type="submit"><span>Next</span></button>
