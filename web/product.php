@@ -127,11 +127,15 @@ $database = null;
         <?php echo $image ?>
       </div>
       <div class="col-xs-6">
-        <ul id="product-info">
-          <li><span><?php echo $result["listinfo1"] ?></span></li>
-          <li><span><?php echo $result["listinfo2"] ?></span></li>
-          <li><span><?php echo $result["listinfo3"] ?></span></li>
-          <li><span><?php echo $result["listinfo4"] ?></span></li>
+         <ul id="product-info">
+            <?php if (isset($result["listinfo1"])) : ?>
+               <li><span><?php echo $result["listinfo1"] ?></span></li>
+            <?php if (isset($result["listinfo2"])) : ?>
+               <li><span><?php echo $result["listinfo2"] ?></span></li>
+            <?php if (isset($result["listinfo3"])) : ?>
+               <li><span><?php echo $result["listinfo3"] ?></span></li>
+            <?php if (isset($result["listinfo4"])) : ?>
+               <li><span><?php echo $result["listinfo4"] ?></span></li>
         </ul>
       </div>
     </div>
