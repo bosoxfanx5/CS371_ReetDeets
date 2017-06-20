@@ -7,6 +7,7 @@ include 'dbconnect.php';
 $barcode = $_GET["barcode"];
 $visitedID = array();
 $previousEnabled = false;
+$nextEnabled = false;
 
 if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
 	session_unset($_SESSION["id"]);
@@ -61,10 +62,10 @@ if (!empty($_GET["barcode"])) {
       }
    }
 
-   // foreach ($visitedID as $code) {
-   //    echo $code;
-   // }
-   // echo $max;
+   foreach ($visitedID as $code) {
+      echo $code;
+   }
+   echo $max;
 }
 
 	$sql2 = $db->prepare("SELECT id FROM s_saleable_item WHERE barcode='$barcode'");
