@@ -5,7 +5,13 @@ include 'dbconnect.php';
 
 $barcode = $_GET["barcode"];
 
-
+if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
+	session_unset($_SESSION["id"]);
+	session_unset($_SESSION["email"]);
+	session_destroy();
+	header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
+	die();
+}
 
 if(isset($_SESSION["email"])) {
    $email = $_SESSION["email"];
@@ -98,15 +104,15 @@ if (!empty($_GET["barcode"])) {
   <div class="container">
     <div class="row">
       <div class="col-xs-9">
-        <p><?php echo $result["title"] ?></p> <!--change to php product name (limit characters)-->
+        <p><?php echo $result["title"] ?></p>
       </div>
     </div>
     <div class="row">
       <div class="col-xs-6">
-        <?php echo $image ?> <!--change to php img source -->
+        <?php echo $image ?>
       </div>
       <div class="col-xs-6">
-        <ul id="product-info"> <!--change to php product info (limit 4, limit characters)-->
+        <ul id="product-info">
           <li><span><?php echo $result["listinfo1"] ?></span></li>
           <li><span><?php echo $result["listinfo2"] ?></span></li>
           <li><span><?php echo $result["listinfo3"] ?></span></li>
@@ -116,11 +122,11 @@ if (!empty($_GET["barcode"])) {
     </div>
     <div class="row">
       <div class="col-xs-6 text-center">
-        <h3><span><?php echo $result["price"] ?><span></h3> <!-- change to php price -->
+        <h3><span><?php echo $result["price"] ?><span></h3>
       </div>
       <div class="col-xs-6 text-center">
         <form method="GET" action="productDetails.php">
-          <button class="btn btn-warning btn-md" type="submit">Product<br> Features</button>
+          <input class="btn btn-warning btn-md" type="submit">Product<br> Features</input>
         </form>
       </div>
     </div>
@@ -215,20 +221,24 @@ if (!empty($_GET["barcode"])) {
   <br><br>
 
   <div class="container">
-    <form method="GET" action="">
       <div class="row">
-        <div class="col-xs-4">
-          <button class="btn btn-danger btn-lg" type="submit" disabled>Previous</button>
-        </div>
-        <div class="col-xs-4">
-          <button class="btn btn-success btn-lg" type="submit">Next</button>
-        </div>
-        <div class="col-xs-4">
-          <a href="index.php"><button class="btn btn-primary btn-lg" type="submit"><span>New <br>Lookup</span></button></a>
-        </div>
+         <form method="GET" action="">
+            <div class="col-xs-4">
+               <input class="btn btn-danger btn-lg" type="submit" disabled>Previous</input>
+            </div>
+         </form>
+         <form method="GET" action="">
+            <div class="col-xs-4">
+               <input class="btn btn-success btn-lg" type="submit">Next</input>
+            </div>
+         </form>
+         <form method="POST" action="index.php">
+            <div class="col-xs-4">
+               <input class="btn btn-primary btn-lg" type="submit"><span>New <br>Lookup</span></input>
+            </div>
+         </form>
       </div>
-    </form>
-  </div>
+   </div>
 
 
   <div id="creation" class="overlay-creation">
