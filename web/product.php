@@ -64,6 +64,7 @@ if (!empty($_GET["barcode"])) {
   <link rel="stylesheet" href="css/product.css">
   <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="css/login.css">
+  <?php include 'authenticate.php'; ?>
 </head>
 
 <body>
@@ -230,7 +231,7 @@ if (!empty($_GET["barcode"])) {
   </div>
 
 
-  <?php include 'authenticate.php'; ?>
+
 
 
 
