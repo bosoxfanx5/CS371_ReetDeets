@@ -12,7 +12,7 @@ $nextEnabled = false;
 if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
 	session_unset($_SESSION["id"]);
 	session_unset($_SESSION["email"]);
-   $visitedID = array();
+   unset($visitedID);
 	session_destroy();
 	header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
 	die();
@@ -45,7 +45,7 @@ $image = '<img class="img-responsive" src=' . $result["image"] . '>';
 $max = count($visitedID);
 
 if (!empty($_GET["barcode"])) {
-   array_push($visitedID, $barcode);
+   $visitedID[] = $barcode;
 
    if ($max > 1 && $barcode != $visitedID[0]) {
       $previousEnabled = true;
