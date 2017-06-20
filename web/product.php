@@ -46,7 +46,7 @@ $max = count($visitedID);
 
 if (!empty($_GET["barcode"])) {
    $visitedID[] = $barcode;
-
+   echo "array should be loaded";
    if ($max > 1 && $barcode != $visitedID[0]) {
       $previousEnabled = true;
 
