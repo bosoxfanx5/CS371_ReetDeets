@@ -280,29 +280,23 @@ $database = null;
 
   <div class="container">
       <div class="row">
-         <form method="GET" action="product.php?previous=true">
-            <div class="col-xs-4">
-               <?php if ($_SESSION["previousEnabled"] == false) : ?>
-                  <button class="btn btn-danger btn-lg" type="submit" disabled><span>Previous</span></button>
-               <?php else : ?>
-                  <button class="btn btn-danger btn-lg" type="submit"><span>Previous</span></button>
-               <?php endif ?>
-            </div>
-         </form>
-         <form method="GET" action="product.php?next=true">
-            <div class="col-xs-4">
-               <?php if ($_SESSION["nextEnabled"] == false) : ?>
-                  <button class="btn btn-success btn-lg" type="submit" disabled><span>Next</span></button>
-               <?php else :?>
-                  <button class="btn btn-success btn-lg" type="submit"><span>Next</span></button>
-               <? endif ?>
-            </div>
-         </form>
-         <form method="POST" action="index.php">
-            <div class="col-xs-4">
-               <button class="btn btn-primary btn-lg" type="submit"><span>New<br>Lookup</span></button>
-            </div>
-         </form>
+         <div class="col-xs-4">
+            <?php if ($_SESSION["previousEnabled"] == false) : ?>
+               <a class="btn btn-danger btn-lg" type="submit" disabled><span>Previous</span></a>
+            <?php else : ?>
+               <a class="btn btn-danger btn-lg" type="submit" href="https://mysterious-bayou-55662.herokuapp.com?previous=true"><span>Previous</span></a>
+            <?php endif ?>
+         </div>
+         <div class="col-xs-4">
+            <?php if ($_SESSION["nextEnabled"] == false) : ?>
+               <a class="btn btn-success btn-lg" type="submit" disabled><span>Next</span></a>
+            <?php else :?>
+               <a class="btn btn-success btn-lg" type="submit" href="https://mysterious-bayou-55662.herokuapp.com?next=true"><span>Next</span></a>
+            <? endif ?>
+         </div>
+         <div class="col-xs-4">
+            <button class="btn btn-primary btn-lg" type="submit"><span>New<br>Lookup</span></button>
+         </div>
       </div>
    </div>
 
