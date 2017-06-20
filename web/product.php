@@ -73,7 +73,7 @@ if (!empty($_GET["barcode"])) {
       <div class="navbar-header">
         <?php if(!empty($_SESSION["email"])) : ?>
           <span class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"><?php echo $_SESSION["email"] ?></span> <!-- change to php email -->
-          <a class="navbar-brand" href="#"><p style="color:black">RD|ReetDeets</p></a>
+          <a class="navbar-brand" href="#"><h4 style="color:black">RD|ReetDeets</h4></a>
         <?php else :?>
           <span class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">Options</span>
           <a class="navbar-brand" href="#"><p style="color:black">RD|ReetDeets</p></a>
@@ -103,7 +103,6 @@ if (!empty($_GET["barcode"])) {
     <div class="row">
       <div class="col-xs-6">
         <?php echo $image ?> <!--change to php img source -->
-        <!-- <img class="img-responsive" src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/4989/4989400_sd.jpg;maxHeight=550;maxWidth=642"> -->
       </div>
       <div class="col-xs-6">
         <ul id="product-info"> <!--change to php product info (limit 4, limit characters)-->
@@ -231,7 +230,7 @@ if (!empty($_GET["barcode"])) {
   </div>
 
 
-  
+  <?php include 'authenticate.php'; ?>
 
 
 
