@@ -130,12 +130,16 @@ $database = null;
          <ul id="product-info">
             <?php if (isset($result["listinfo1"])) : ?>
                <li><span><?php echo $result["listinfo1"] ?></span></li>
+            <?php endif ?>
             <?php if (isset($result["listinfo2"])) : ?>
                <li><span><?php echo $result["listinfo2"] ?></span></li>
+            <?php endif ?>
             <?php if (isset($result["listinfo3"])) : ?>
                <li><span><?php echo $result["listinfo3"] ?></span></li>
+            <?php endif ?>
             <?php if (isset($result["listinfo4"])) : ?>
                <li><span><?php echo $result["listinfo4"] ?></span></li>
+            <?php endif ?>
         </ul>
       </div>
     </div>
