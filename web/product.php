@@ -51,7 +51,7 @@ if (!empty($_GET["barcode"])) {
    $max = sizeof($_SESSION["codes"]);
    $_SESSION["index"] = sizeof($_SESSION["codes"]) - 1;
 
-   if ($max > 1 && $index != 0) {
+   if ($max > 1 && $_SESSION["index"] != 0) {
       $_SESSION["previousEnabled"] = true;
    }
 
@@ -68,9 +68,9 @@ if (!empty($_GET["barcode"])) {
 if(isset($_REQUEST["previous"])) {
    $_SESSION["nextEnabled"] = true;
    $_SESSION["index"] -= 1;
-   $barcode = $_SESSION["codes"][$index];
+   $barcode = $_SESSION["codes"][$_SESSION["index"]];
 
-   if ($index == 0 && $max > 1) {
+   if ($_SESSION["index"] == 0 && $max > 1) {
       $_SESSION["previousEnabled"] = false;
    }
 }
@@ -78,9 +78,9 @@ if(isset($_REQUEST["previous"])) {
 if(isset($_REQUEST["next"])) {
    $_SESSION["previousEnabled"] = true;
    $_SESSION["index"] += 1;
-   $barcode = $_SESSION["codes"][$index];
+   $barcode = $_SESSION["codes"][$_SESSION["index"]];
 
-   if (($index + 1) == $max) {
+   if (($_SESSION["index"] + 1) == $max) {
       $_SESSION["nextEnabled"] = false;
    }
 }
