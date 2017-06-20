@@ -46,7 +46,6 @@ $image = '<img class="img-responsive" src=' . $result["image"] . '>';
 
 
 if (!empty($_GET["barcode"])) {
-   array_push($visitedID, $barcode);
    $_SESSION["codes"][] = $barcode;
    $max = sizeof($_SESSION["codes"]);
    if ($max > 1 && $barcode != $visitedID[0]) {
