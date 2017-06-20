@@ -43,3 +43,7 @@
 .btn-success, .btn-success:hover, .btn-success:active, .btn-sucess:visited {
     color: white !important;
 }
+
+.logo {
+	top: 10px;
+}
