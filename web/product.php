@@ -5,7 +5,8 @@ include 'dbconnect.php';
 
 
 $barcode = $_GET["barcode"];
-$visitedID = array();
+$visitedID = $_SESSION["codes"];
+
 $previousEnabled = false;
 $nextEnabled = false;
 
@@ -45,6 +46,7 @@ $image = '<img class="img-responsive" src=' . $result["image"] . '>';
 
 if (!empty($_GET["barcode"])) {
    array_push($visitedID, $barcode);
+   $_SESSION["codes"] = $visitedID;
 
    if (sizeof($visitedID) > 1 && $barcode != $visitedID[0]) {
       $previousEnabled = true;
