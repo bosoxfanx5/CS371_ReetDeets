@@ -98,8 +98,8 @@ if(isset($_REQUEST["next"])){
    }
 }
 
-echo $_SESSION["index"] . "<br>";
-echo $_SESSION["max"];
+// echo $_SESSION["index"] . "<br>";
+// echo $_SESSION["max"];
 
 $sql0 = $db->prepare("SELECT title, price, listinfo1, listinfo2, listinfo3, listinfo4, image FROM s_saleable_item WHERE barcode='$barcode'");
 $sql0->execute();
