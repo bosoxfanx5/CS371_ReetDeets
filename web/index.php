@@ -10,7 +10,7 @@ Heroku CLI: heroku pg:psql postgresql-cubic-94519 --app rocky-everglades-86262--
 <?php
 include 'session.php';
 include 'dbconnect.php';
-include 'authenticate.php';
+
 
 $welcome = true;
 $userFound = true;
@@ -43,6 +43,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 }
 
 $database = null;
+
+
 ?>
 
 
@@ -76,7 +78,7 @@ $database = null;
 -->
 
 
-<!-- Fixed navbar -->
+
   <div class="jumbotron">
     <div class="container">
       <div class="row">
@@ -149,6 +151,8 @@ _/_/_/      _/_/    _/_/_/        _/
   	</div>
   	<br>
 	<?php endif ?>
+
+	<?php include 'authenticate.php'; ?>
 
 <!--
 _/_/_/_/    _/_/      _/_/    _/_/_/_/_/  _/_/_/_/  _/_/_/
