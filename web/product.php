@@ -45,7 +45,7 @@ $image = '<img class="img-responsive" src=' . $result["image"] . '>';
 
 if (!empty($_GET["barcode"])) {
    array_push($visitedID, $barcode);
-   
+
    if (sizeof($visitedID) > 1 && $barcode != $visitedID[0]) {
       $previousEnabled = true;
 
@@ -61,10 +61,10 @@ if (!empty($_GET["barcode"])) {
       }
    }
 
-//    foreach ($visitedID as $code) {
-//       echo $code;
-//    }
-//    echo $max;
+   foreach ($visitedID as $code) {
+      echo $code;
+   }
+   echo sizeof($visitedID);
 
 
 	$sql2 = $db->prepare("SELECT id FROM s_saleable_item WHERE barcode='$barcode'");
