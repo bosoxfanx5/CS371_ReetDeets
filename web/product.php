@@ -29,16 +29,14 @@ $sql0->execute();
 $result = $sql0->fetch();
 
 if (!empty($_GET["barcode"])) {
-	$isContent = true;
-	$sql = $db->prepare("SELECT * FROM s_saleable_item
-		WHERE id = :id");
-		$sql->execute(array(":id" => $_GET['id']));
-		$result2 = $sql->fetch(PDO::FETCH_ASSOC);
-		$itemID = $result2["id"];
+	$sql2 = $db->prepare("SELECT id FROM s_saleable_item WHERE barcode='$barcode'");
+	$sql2->execute();
+	$result2 = $sql2->fetch();
+	$itemID = $result2["id"];
 
-		$personID = $_SESSION["id"];
-		$sql1 = $db->prepare("INSERT INTO s_visited_items (visitor_id, item_id) VALUES ('$personID', '$itemID')");
-		$sql1->execute();
+	$personID = $_SESSION["id"];
+	$sql2 = $db->prepare("INSERT INTO s_visited_items (visitor_id, item_id) VALUES ('$personID', '$itemID')");
+	$sql2->execute();
 }
 
 
