@@ -43,7 +43,7 @@ $sql0 = $db->prepare("SELECT title, price, listinfo1, listinfo2, listinfo3, list
 $sql0->execute();
 $result = $sql0->fetch();
 $image = '<img class="img-responsive" src=' . $result["image"] . '>';
-$max = sizeof($_SESSION["codes"]);
+
 
 if (!empty($_GET["barcode"])) {
    array_push($visitedID, $barcode);
