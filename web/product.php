@@ -234,7 +234,7 @@ if (!empty($_GET["barcode"])) {
          </form>
          <form method="POST" action="index.php">
             <div class="col-xs-4">
-               <input class="btn btn-primary btn-lg" type="submit"><span>New <br>Lookup</span></input>
+               <input class="btn btn-primary btn-lg" type="submit" value="New Lookup">
             </div>
          </form>
       </div>
