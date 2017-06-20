@@ -224,17 +224,17 @@ if (!empty($_GET["barcode"])) {
       <div class="row">
          <form method="GET" action="">
             <div class="col-xs-4">
-               <input class="btn btn-danger btn-lg" type="submit" disabled>Previous</input>
+               <button class="btn btn-danger btn-lg" type="submit" disabled><span>Previous</span></button>
             </div>
          </form>
          <form method="GET" action="">
             <div class="col-xs-4">
-               <input class="btn btn-success btn-lg" type="submit">Next</input>
+               <button class="btn btn-success btn-lg" type="submit"><span>Next</span></button>
             </div>
          </form>
          <form method="POST" action="index.php">
             <div class="col-xs-4">
-               <input class="btn btn-primary btn-lg" type="submit" value="New Lookup">
+               <button class="btn btn-primary btn-lg" type="submit"><span>New<br>Lookup</span></button>
             </div>
          </form>
       </div>
