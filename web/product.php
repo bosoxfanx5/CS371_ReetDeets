@@ -69,7 +69,7 @@ $result = $sql0->fetch();
     </div>
     <div class="row">
       <div class="col-xs-6">
-        <?php echo '<img class="img-responsive" src="' . $result["image"] . '">' ?> <!--change to php img source -->
+        <?php echo "<img class='img-responsive' src='" . $result["image"] . "'>" ?> <!--change to php img source -->
         <!-- <img class="img-responsive" src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/4989/4989400_sd.jpg;maxHeight=550;maxWidth=642"> -->
       </div>
       <div class="col-xs-6">
