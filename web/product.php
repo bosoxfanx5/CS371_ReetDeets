@@ -42,10 +42,10 @@ $sql0 = $db->prepare("SELECT title, price, listinfo1, listinfo2, listinfo3, list
 $sql0->execute();
 $result = $sql0->fetch();
 $image = '<img class="img-responsive" src=' . $result["image"] . '>';
-$max = count($visitedID);
+$max = sizeof($visitedID);
 
 if (!empty($_GET["barcode"])) {
-   $visitedID[] = $barcode;
+   array_push($visitedID, $barcode);
    echo "array should be loaded";
    if ($max > 1 && $barcode != $visitedID[0]) {
       $previousEnabled = true;
