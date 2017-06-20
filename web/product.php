@@ -2,7 +2,7 @@
 include 'session.php';
 include 'dbconnect.php';
 
-ini_set('memory_limit', '256M');
+// ini_set('memory_limit', '256M');
 
 $barcode = $_GET["barcode"];
 $visitedID = array();
@@ -37,6 +37,20 @@ $result = $sql0->fetch();
 $image = '<img class="img-responsive" src=' . $result["image"] . '>';
 
 if (!empty($_GET["barcode"])) {
+
+   for ($x = 0; $x <= count($visitedID); $x++) {
+      if (!empty($visitedID[$x])) {
+         $previousEnabled = true;
+      } else {
+         $visitedID[$x] = $barcode;
+      }
+
+      if(isset($_REQUEST["previous"]) && $x < count($visitedID)) {
+         $nextEnabled = true;
+         $barcode = $visitedID[--$x];
+      }
+   }
+
 	$sql2 = $db->prepare("SELECT id FROM s_saleable_item WHERE barcode='$barcode'");
 	$sql2->execute();
 	$result2 = $sql2->fetch();
@@ -47,22 +61,7 @@ if (!empty($_GET["barcode"])) {
 	$sql2 = $db->prepare("INSERT INTO s_visited_items (visitor_id, item_id) VALUES ('$personID', '$itemID')");
 	$sql2->execute();
 
-   for ($x = 0; $x <= count($visitedID);) {
-      if (!empty($visitedID[$x])) {
-         $x++;
-         $previousEnabled = true;
-      } else {
-         $visitedID[$x] = $barcode;
-      }
 
-      if(isset($_REQUEST["previous"]) && $x < count($visitedID)) {
-         $nextEnabled = true;
-      }
-   }
-}
-
-if(isset($_REQUEST["previous"])) {
-   $nextEnabled = true;
 }
 
 $database = null;
