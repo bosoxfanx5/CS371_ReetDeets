@@ -2,6 +2,7 @@
 include 'session.php';
 include 'dbconnect.php';
 
+ini_set('memory_limit', '256M');
 
 $barcode = $_GET["barcode"];
 $visitedID = array();
