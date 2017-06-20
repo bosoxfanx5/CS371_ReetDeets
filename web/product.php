@@ -63,7 +63,7 @@ if (!empty($_GET["barcode"])) {
       }
    }
 
-   foreach ($visitedID as $code) {
+   foreach ($_SESSION["codes"] as $code) {
       echo $code;
    }
    echo sizeof($_SESSION["codes"]);
