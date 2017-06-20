@@ -7,8 +7,8 @@ include 'dbconnect.php';
 $barcode = $_GET["barcode"];
 
 
-$$_SESSION["previousEnabled"] = false;
-$$_SESSION["nextEnabled"] = false;
+$_SESSION["previousEnabled"] = false;
+$_SESSION["nextEnabled"] = false;
 
 if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
 	session_unset($_SESSION["id"]);
