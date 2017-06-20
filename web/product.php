@@ -53,10 +53,10 @@ if (!empty($_GET["barcode"])) {
       $_SESSION["previousEnabled"] = true;
    }
 
-   // foreach ($_SESSION["codes"] as $code) {
-   //    echo $code;
-   // }
-   // echo sizeof($_SESSION["codes"]);
+   foreach ($_SESSION["codes"] as $code) {
+      echo $code;
+   }
+   echo sizeof($_SESSION["codes"]);
 
 
 	$sql2 = $db->prepare("SELECT id FROM s_saleable_item WHERE barcode='$barcode'");
