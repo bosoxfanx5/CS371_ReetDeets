@@ -15,6 +15,8 @@ if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
 	session_unset($_SESSION["email"]);
    session_unset($_SESSION["previousEnabled"]);
    session_unset($_SESSION["nextEnabled"]);
+   session_unset($_SESSION["index"]);
+   session_unset($_SESSION["max"]);
 	session_destroy();
 	header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
 	die();
@@ -84,9 +86,9 @@ if(isset($_REQUEST["next"])) {
       $_SESSION["nextEnabled"] = false;
    }
 
-   echo $_SESSION["index"] . "<br>";
-   echo $_SESSION["max"];
 }
+echo $_SESSION["index"] . "<br>";
+echo $_SESSION["max"];
 
 $sql0 = $db->prepare("SELECT title, price, listinfo1, listinfo2, listinfo3, listinfo4, image FROM s_saleable_item WHERE barcode='$barcode'");
 $sql0->execute();
