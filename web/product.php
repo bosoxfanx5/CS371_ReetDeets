@@ -43,18 +43,18 @@ $sql0 = $db->prepare("SELECT title, price, listinfo1, listinfo2, listinfo3, list
 $sql0->execute();
 $result = $sql0->fetch();
 $image = '<img class="img-responsive" src=' . $result["image"] . '>';
-
+$max = sizeof($_SESSION["codes"]);
 if (!empty($_GET["barcode"])) {
    array_push($visitedID, $barcode);
    $_SESSION["codes"][] = $barcode;
 
-   if (sizeof($visitedID) > 1 && $barcode != $visitedID[0]) {
+   if ($max > 1 && $barcode != $visitedID[0]) {
       $previousEnabled = true;
 
       if(isset($_REQUEST["previous"])) {
          $nextEnabled = true;
 
-         $barcode = $visitedID[$max - 2];
+         $barcode = $_SESSION["codes"][$max - 2];
 
          if ($barcode == $visitedID[0]){
             $previousEnabled = false;
@@ -66,7 +66,7 @@ if (!empty($_GET["barcode"])) {
    foreach ($visitedID as $code) {
       echo $code;
    }
-   echo sizeof($visitedID);
+   echo sizeof($_SESSION["codes"]);
 
 
 	$sql2 = $db->prepare("SELECT id FROM s_saleable_item WHERE barcode='$barcode'");
