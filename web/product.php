@@ -47,8 +47,8 @@ if(isset($_SESSION["email"])) {
 
 
 if (!empty($_GET["barcode"])) {
-   $barcode = $_GET["barcode"];
-   $_SESSION["codes"][] = $barcode;
+   $_SESSION["barcode"] = $_GET["barcode"];
+   $_SESSION["codes"][] = $_SESSION["barcode"];
 
 
    $_SESSION["max"] = sizeof($_SESSION["codes"]);
@@ -71,7 +71,7 @@ if (!empty($_GET["barcode"])) {
 if(isset($_REQUEST["previous"])) {
    $_SESSION["nextEnabled"] = true;
    $_SESSION["index"] -= 1;
-   $barcode = $_SESSION["codes"][$_SESSION["index"]];
+   $_SESSION["barcode"] = $_SESSION["codes"][$_SESSION["index"]];
 
    if ($_SESSION["index"] == 0 && $_SESSION["max"] > 1) {
       $_SESSION["previousEnabled"] = false;
@@ -92,7 +92,7 @@ if(isset($_REQUEST["next"])){
 
    if(!(($_SESSION["index"] + 1) >= $_SESSION["max"])) {
       $_SESSION["index"] += 1;
-      $barcode = $_SESSION["codes"][$_SESSION["index"]];
+      $_SESSION["barcode"] = $_SESSION["codes"][$_SESSION["index"]];
    }
 
    if (($_SESSION["index"] + 1) == $_SESSION["max"] && $_SESSION["index"] != 0) {
@@ -105,7 +105,7 @@ if(isset($_REQUEST["next"])){
 
 // echo $_SESSION["index"] . "<br>";
 // echo $_SESSION["max"];
-
+$barcode = $_SESSION["barcode"];
 $sql0 = $db->prepare("SELECT title, price, listinfo1, listinfo2, listinfo3, listinfo4, image FROM s_saleable_item WHERE barcode='$barcode'");
 $sql0->execute();
 $result = $sql0->fetch();
