@@ -114,8 +114,9 @@ $itemID = $result2["id"];
 
 
 $personID = $_SESSION["id"];
-$sql2 = $db->prepare("INSERT INTO s_visited_items (visitor_id, item_id) VALUES ('$personID', '$itemID')");
-$sql2->execute();
+$sql3 = $db->prepare("INSERT INTO s_visited_items (visitor_id, item_id) VALUES ('$personID', '$itemID')");
+$sql3->execute();
+
 $database = null;
 ?>
 

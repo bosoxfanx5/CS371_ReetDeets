@@ -13,7 +13,7 @@ include 'dbconnect.php';
 
 
 $welcome = true;
-$userFound = true;
+
 $_SESSION["loggedIn"] = false;
 $_SESSION["fname"] = "";
 

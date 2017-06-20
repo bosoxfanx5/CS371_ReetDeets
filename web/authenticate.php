@@ -1,7 +1,7 @@
 <?php
 include 'dbconnect.php';
 
-
+$userFound = true;
 if (!empty($_POST["email"]) && !empty($_POST["password"])) {
 
 	$personEmail = $_POST["email"];
