@@ -5,14 +5,6 @@ include 'dbconnect.php';
 
 $barcode = $_GET["barcode"];
 
-if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
-	session_unset($_SESSION["id"]);
-	session_unset($_SESSION["email"]);
-	session_destroy();
-	header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
-	die();
-}
-
 if(isset($_SESSION["email"])) {
    $email = $_SESSION["email"];
    $sql = $db->prepare("SELECT id FROM s_person WHERE email='$email'");
@@ -49,7 +41,7 @@ if (!empty($_GET["barcode"])) {
 	$sql2->execute();
 }
 
-
+$database = null;
 ?>
 
 <!DOCTYPE html>
@@ -94,7 +86,7 @@ if (!empty($_GET["barcode"])) {
         </ul>
       <?php else : ?>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+          <li><a class="btn btn-warning btn-lg" id="loginBtn" href="https://mysterious-bayou-55662.herokuapp.com?logout=true"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
         </ul>
       <?php endif ?>
       </div>
@@ -126,7 +118,7 @@ if (!empty($_GET["barcode"])) {
       </div>
       <div class="col-xs-6 text-center">
         <form method="GET" action="productDetails.php">
-          <input class="btn btn-warning btn-md" type="submit">Product<br> Features</input>
+          <button class="btn btn-warning btn-md" type="submit"><span>Product<br>Features</span></button>
         </form>
       </div>
     </div>
