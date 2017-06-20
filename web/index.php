@@ -43,34 +43,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 //check session for visitor id
 
 
-if (empty($_SESSION["id"])) {
-	$sql1 = $db->prepare("INSERT INTO s_person (id) VALUES (uuid_generate_v4())");
-	$sql1->execute();
 
-	// 	//retrieve new person id
-	$personID = $db->lastInsertId();
-
-	$sql1 = $db->prepare("SELECT id FROM s_person WHERE autoinc='$personID'");
-	$sql1->execute();
-	$result1 = $sql1->fetch();
-	$_SESSION["id"] = $result1["id"];
-	//echo $result1["id"];
-}
 
 
 //retrieve item id
-if (!empty($_GET['id'])) {
-	$isContent = true;
-	$sql = $db->prepare("SELECT * FROM s_saleable_item
-		WHERE id = :id");
-		$sql->execute(array(":id" => $_GET['id']));
-		$result2 = $sql->fetch(PDO::FETCH_ASSOC);
-		$itemID = $result2["id"];
 
-		$personID = $_SESSION["id"];
-		$sql1 = $db->prepare("INSERT INTO s_visited_items (visitor_id, item_id) VALUES ('$personID', '$itemID')");
-		$sql1->execute();
-}
 
 	// $validEmail = true;
 	// $emailSent = false;

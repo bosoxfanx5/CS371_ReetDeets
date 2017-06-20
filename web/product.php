@@ -4,11 +4,42 @@ include 'dbconnect.php';
 
 $barcode = $_GET["barcode"];
 
+if(isset($_SESSION["email"])) {
+   $email = $_SESSION["email"];
+   $sql = $db->prepare("SELECT id FROM s_person WHERE email='$email'");
+   $sql->execute();
+   $idResult = $sql->fetch();
+
+   $_SESSION["id"] = $idResult["id"];
+} else {
+   $sql1 = $db->prepare("INSERT INTO s_person (id) VALUES (uuid_generate_v4())");
+	$sql1->execute();
+
+	//retrieve new person id
+	$personID = $db->lastInsertId();
+
+	$sql1 = $db->prepare("SELECT id FROM s_person WHERE autoinc='$personID'");
+	$sql1->execute();
+	$result1 = $sql1->fetch();
+	$_SESSION["id"] = $result1["id"];
+}
+
 $sql0 = $db->prepare("SELECT title, price, listinfo1, listinfo2, listinfo3, listinfo4, image FROM s_saleable_item WHERE barcode='$barcode'");
 $sql0->execute();
 $result = $sql0->fetch();
 
+if (!empty($_GET["barcode"])) {
+	$isContent = true;
+	$sql = $db->prepare("SELECT * FROM s_saleable_item
+		WHERE id = :id");
+		$sql->execute(array(":id" => $_GET['id']));
+		$result2 = $sql->fetch(PDO::FETCH_ASSOC);
+		$itemID = $result2["id"];
 
+		$personID = $_SESSION["id"];
+		$sql1 = $db->prepare("INSERT INTO s_visited_items (visitor_id, item_id) VALUES ('$personID', '$itemID')");
+		$sql1->execute();
+}
 
 
 ?>
@@ -83,7 +114,7 @@ $result = $sql0->fetch();
     </div>
     <div class="row">
       <div class="col-xs-6 text-center">
-        <h3><span>$749.99<span></h3> <!-- change to php price -->
+        <h3><span><?php echo $result["price"] ?><span></h3> <!-- change to php price -->
       </div>
       <div class="col-xs-6 text-center">
         <form method="GET" action="productDetails.php">
