@@ -64,7 +64,7 @@ if (!empty($_GET["barcode"])) {
    foreach ($visitedID as $code) {
       echo $code;
    }
-
+   echo $max;
 }
 
 	$sql2 = $db->prepare("SELECT id FROM s_saleable_item WHERE barcode='$barcode'");
