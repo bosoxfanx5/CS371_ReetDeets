@@ -27,10 +27,16 @@
 .btn-danger, .btn-danger:hover, .btn-danger:active, .btn-danger:visited {
     background-color: darkgrey !important;
     border-color: darkgrey !important;
-		color: white !important;
+	color: white !important;
 }
 
 .btn-danger:disabled {
+		background-color: lightgrey !important;
+		border-color: lightgrey !important;
+		color: darkgrey !important;
+}
+
+.btn-success:disabled {
 		background-color: lightgrey !important;
 		border-color: lightgrey !important;
 		color: darkgrey !important;
