@@ -294,9 +294,11 @@ $database = null;
                <a class="btn btn-success btn-lg" type="submit" href="https://mysterious-bayou-55662.herokuapp.com?next=true"><span>Next</span></a>
             <? endif ?>
          </div>
-         <div class="col-xs-4">
-            <button class="btn btn-primary btn-lg" type="submit"><span>New<br>Lookup</span></button>
-         </div>
+         <form method="POST" action="index.php">
+            <div class="col-xs-4">
+               <button class="btn btn-primary btn-lg" type="submit"><span>New<br>Lookup</span></button>
+            </div>
+         </form>
       </div>
    </div>
 
