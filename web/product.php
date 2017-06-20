@@ -78,8 +78,8 @@ if (!empty($_GET["barcode"])) {
       <div class="collapse navbar-collapse pull-right" id="myNavbar">
       <?php if(empty($_SESSION["email"])) : ?>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          <li><a href="#" id="loginBtn"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="#" id="createNew"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         </ul>
       <?php else : ?>
         <ul class="nav navbar-nav navbar-right">
