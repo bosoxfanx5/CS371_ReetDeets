@@ -231,7 +231,7 @@ if (!empty($_GET["barcode"])) {
   </div>
 
 
-  <?php include 'authenticate.php'; ?>
+  
 
 
 
