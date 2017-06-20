@@ -86,7 +86,7 @@ $database = null;
         </ul>
       <?php else : ?>
         <ul class="nav navbar-nav navbar-right">
-          <li><a class="btn btn-warning btn-lg" id="loginBtn" href="https://mysterious-bayou-55662.herokuapp.com?logout=true"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+          <li><a id="loginBtn" href="https://mysterious-bayou-55662.herokuapp.com?logout=true"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
         </ul>
       <?php endif ?>
       </div>
