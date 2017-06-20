@@ -4,6 +4,11 @@ include 'dbconnect.php';
 
 
 $barcode = $_GET["barcode"];
+$visitedID = array();
+$previousEnabled = false;
+
+// $_GET["previous"];
+// $_GET["next"];
 
 if(isset($_SESSION["email"])) {
    $email = $_SESSION["email"];
@@ -36,9 +41,27 @@ if (!empty($_GET["barcode"])) {
 	$result2 = $sql2->fetch();
 	$itemID = $result2["id"];
 
+
 	$personID = $_SESSION["id"];
 	$sql2 = $db->prepare("INSERT INTO s_visited_items (visitor_id, item_id) VALUES ('$personID', '$itemID')");
 	$sql2->execute();
+
+   for ($x = 0; $x <= count($visitedID);) {
+      if (!empty($visitedID[$x])) {
+         $x++;
+         $previousEnabled = true;
+      } else {
+         $visitedID[$x] = $barcode;
+      }
+
+      if(isset($_REQUEST["previous"]) && $x < count($visitedID)) {
+         $nextEnabled = true;
+      }
+   }
+}
+
+if(isset($_REQUEST["previous"])) {
+   $nextEnabled = true;
 }
 
 $database = null;
@@ -72,7 +95,7 @@ $database = null;
       <div class="navbar-header">
         <?php if(!empty($_SESSION["email"])) : ?>
           <span class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"><?php echo $_SESSION["email"] ?></span> <!-- change to php email -->
-          <a class="navbar-brand" href="#"><h4 style="color:black">RD|ReetDeets</h4></a>
+          <a class="navbar-brand" href="#"><h3 style="color:black">RD|ReetDeets</h3></a>
         <?php else :?>
           <span class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">Options</span>
           <a class="navbar-brand" href="#"><p style="color:black">RD|ReetDeets</p></a>
@@ -114,7 +137,7 @@ $database = null;
     </div>
     <div class="row">
       <div class="col-xs-6 text-center">
-        <h3><span><?php echo $result["price"] ?><span></h3>
+        <h2><span><?php echo '$' . $result["price"] ?><span></h2s>
       </div>
       <div class="col-xs-6 text-center">
         <form method="GET" action="productDetails.php">
@@ -214,14 +237,22 @@ $database = null;
 
   <div class="container">
       <div class="row">
-         <form method="GET" action="">
+         <form method="GET" action="product.php?previous=true">
             <div class="col-xs-4">
-               <button class="btn btn-danger btn-lg" type="submit" disabled><span>Previous</span></button>
+               <?php if ($previousEnabled) : ?>
+                  <button class="btn btn-danger btn-lg" type="submit" disabled><span>Previous</span></button>
+               <?php else : ?>
+                  <button class="btn btn-danger btn-lg" type="submit"><span>Previous</span></button>
+               <?php endif ?>
             </div>
          </form>
-         <form method="GET" action="">
+         <form method="GET" action="product.php?next=true">
             <div class="col-xs-4">
-               <button class="btn btn-success btn-lg" type="submit"><span>Next</span></button>
+               <?php if (empty($next)) : ?>
+                  <button class="btn btn-success btn-lg" type="submit" disabled><span>Next</span></button>
+               <?php else :?>
+                  <button class="btn btn-success btn-lg" type="submit"><span>Next</span></button>
+               <? endif ?>
             </div>
          </form>
          <form method="POST" action="index.php">
