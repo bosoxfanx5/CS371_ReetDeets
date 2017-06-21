@@ -16,7 +16,7 @@ $welcome = true;
 $error = "";
 $_SESSION["loggedIn"] = false;
 $_SESSION["fname"] = "";
-
+$_SESSION["error"] = "";
 
 if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
 	session_unset($_SESSION["id"]);
@@ -47,18 +47,18 @@ if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
 // 	}
 // }
 
-if (!empty($_GET["barcode"])) {
-	$barcodeCheck = $_GET["barcode"];
-	$sqlCheck = $db->prepare("SELECT id FROM s_saleable_item WHERE barcode='$barcodeCheck");
-	$sqlCheck->execute();
-	$check = $sqlCheck->fetch();
-
-	if(isset($check["id"])) {
-	} else {
-		header('Location: https://mysterious-bayou-55662.herokuapp.com');
-		$error = '<p style="color:red">Please Enter Valid Barcode</p>';
-	}
-}
+// if (!empty($_GET["barcode"])) {
+// 	$barcodeCheck = $_GET["barcode"];
+// 	$sqlCheck = $db->prepare("SELECT id FROM s_saleable_item WHERE barcode='$barcodeCheck");
+// 	$sqlCheck->execute();
+// 	$check = $sqlCheck->fetch();
+//
+// 	if(isset($check["id"])) {
+// 	} else {
+// 		header('Location: https://mysterious-bayou-55662.herokuapp.com');
+// 		$error = '<p style="color:red">Please Enter Valid Barcode</p>';
+// 	}
+// }
 
 $database = null;
 
@@ -118,7 +118,7 @@ _/_/_/      _/_/    _/_/_/        _/
     <div class="row">
       <div class="col-xs-10 col-xs-offset-1">
         <form class="form-signin" method="GET" action="product.php">
-			  <?php echo $error ?>
+			  <?php echo $_SESSION["error"] ?>
           <input type="text" class="form-control" name="barcode" placeholder="Enter the Barcode ID" required>
       </div>
     </div>

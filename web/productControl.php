@@ -136,12 +136,12 @@ if(isset($_SESSION["email"])) {
 
 
 if (!empty($_GET["barcode"])) {
-	// $barcodeCheck = $_GET["barcode"];
-	// $sqlCheck = $db->prepare("SELECT id FROM s_saleable_item WHERE barcode='$barcodeCheck");
-	// $sqlCheck->execute();
-	// $check = $sqlCheck->fetch();
+	$barcodeCheck = $_GET["barcode"];
+	$sqlCheck = $db->prepare("SELECT id FROM s_saleable_item WHERE barcode='$barcodeCheck");
+	$sqlCheck->execute();
+	$check = $sqlCheck->fetch();
 
-	// if(isset($check["id"])) {
+	if(isset($check["id"])) {
 		$_SESSION["barcode"] = $_GET["barcode"];
 	   $_SESSION["codes"][] = $_SESSION["barcode"];
 
@@ -151,8 +151,11 @@ if (!empty($_GET["barcode"])) {
 
 	   if ($_SESSION["max"] > 1 && $_SESSION["index"] != 0) {
 	      $_SESSION["previousEnabled"] = true;
-	   //}
-	//}
+	   } else {
+			$_SESSION["error"] = '<p style="color:red">Please Enter Valid Barcode</p>';
+			header('Location: https://mysterious-bayou-55662.herokuapp.com');
+		}
+	}
 
    // foreach ($_SESSION["codes"] as $code) {
    //    echo $code;
