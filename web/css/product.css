@@ -98,7 +98,11 @@
   }
 }
 
-#reviewLink:active {
-	color: black;
+#reviewLink:link {
+	color: rgba(47, 94, 217, 0.8);
 
+}
+
+#reviewLink:visited {
+	color: black;
 }
