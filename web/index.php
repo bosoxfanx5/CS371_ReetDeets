@@ -53,7 +53,7 @@ if (!empty($_GET["barcode"])) {
 	$sqlCheck->execute();
 	$check = $sqlCheck->fetch();
 
-	if(empty($check["id"])) {
+	if(isset($check["id"])) {
 	} else {
 		header('Location: https://mysterious-bayou-55662.herokuapp.com');
 		$error = '<p style="color:red">Please Enter Valid Barcode</p>';
@@ -61,7 +61,6 @@ if (!empty($_GET["barcode"])) {
 }
 
 $database = null;
-$error = '<p style="color:red">Please Enter Valid Barcode</p>';
 
 ?>
 
