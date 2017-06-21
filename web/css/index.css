@@ -24,16 +24,16 @@
 		color: white !important;
 }
 
-.btn-danger, .btn-danger:hover, .btn-danger:active, .btn-danger:visited {
+.btn-danger {
    background-color: #6b6b6b !important;
    border-color: #6b6b6b !important;
 	color: white !important;
 }
 
 .btn-danger:disabled {
-		background-color: #ebebeb !important;
-		border-color: #ebebeb !important;
-		color: #6b6b6b !important;
+	background-color: #ebebeb !important;
+	border-color: #ebebeb !important;
+	color: #6b6b6b !important;
 }
 
 .btn-success:disabled {
