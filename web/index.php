@@ -21,6 +21,11 @@ $_SESSION["fname"] = "";
 if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
 	session_unset($_SESSION["id"]);
 	session_unset($_SESSION["email"]);
+   session_unset($_SESSION["previousEnabled"]);
+   session_unset($_SESSION["nextEnabled"]);
+   session_unset($_SESSION["index"]);
+   session_unset($_SESSION["max"]);
+   session_unset($_SESSION["codes"]);
 	session_destroy();
 	header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
 	die();
