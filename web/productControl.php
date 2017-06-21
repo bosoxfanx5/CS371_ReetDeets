@@ -152,10 +152,10 @@ if (!empty($_GET["barcode"])) {
 
 	   if ($_SESSION["max"] > 1 && $_SESSION["index"] != 0) {
 	      $_SESSION["previousEnabled"] = true;
-	   } else {
-			$_SESSION["error"] = '<p style="color:red">Please Enter Valid Barcode</p>';
-			header('Location: https://mysterious-bayou-55662.herokuapp.com');
-		}
+	   }
+	} else {
+		$_SESSION["error"] = '<p style="color:red">Please Enter Valid Barcode</p>';
+		header('Location: https://mysterious-bayou-55662.herokuapp.com');
 	}
 
    // foreach ($_SESSION["codes"] as $code) {
@@ -163,7 +163,6 @@ if (!empty($_GET["barcode"])) {
    // }
    // echo sizeof($_SESSION["codes"]);
    // echo $barcode != $_SESSION["codes"][0];
-
 
 }
 
