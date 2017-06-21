@@ -144,8 +144,8 @@ if (!empty($_GET["barcode"])) {
 
 	if($sqlCheck->fetchColumn()) {
 		$barcode = $_GET["barcode"];
-		$_SESSION["barcode"] = $_GET["barcode"];
-	   $_SESSION["codes"][] = $_SESSION["barcode"];
+		//$_SESSION["barcode"] = $_GET["barcode"];
+	   $_SESSION["codes"][] = $barcode;
 
 
 	   $_SESSION["max"] = sizeof($_SESSION["codes"]);
@@ -170,7 +170,7 @@ if (!empty($_GET["barcode"])) {
 if(isset($_REQUEST["previous"])) {
    $_SESSION["nextEnabled"] = true;
    $_SESSION["index"] -= 1;
-   $_SESSION["barcode"] = $_SESSION["codes"][$_SESSION["index"]];
+   $barcode = $_SESSION["codes"][$_SESSION["index"]];
 
    if ($_SESSION["index"] == 0 && $_SESSION["max"] > 1) {
       $_SESSION["previousEnabled"] = false;
@@ -185,7 +185,7 @@ if(isset($_REQUEST["next"])){
 
    if(!(($_SESSION["index"] + 1) >= $_SESSION["max"])) {
       $_SESSION["index"] += 1;
-      $_SESSION["barcode"] = $_SESSION["codes"][$_SESSION["index"]];
+      $barcode = $_SESSION["codes"][$_SESSION["index"]];
    }
 
    if (($_SESSION["index"] + 1) == $_SESSION["max"] && $_SESSION["index"] != 0) {
