@@ -234,7 +234,8 @@ include 'productControl.php';
   <div id="features-review" class="overlay">
      <div class="overlay-content">
         <div class="wrapper">
-              <h1 class="form-signin-heading" style="color:white">Coming Soon</h1>
+              <h1 class="form-signin-heading text-center" style="color:white">Coming Soon</h1>
+              <br>
               <a href="javascript:void(0)" id="closeComing" class="closebtn">&times;</a>
         </div>
      </div>
