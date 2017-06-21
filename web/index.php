@@ -16,7 +16,6 @@ $welcome = true;
 $error = "";
 $_SESSION["loggedIn"] = false;
 $_SESSION["fname"] = "";
-$_SESSION["error"] = "";
 
 if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
 	session_unset($_SESSION["id"]);
@@ -60,12 +59,11 @@ if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
 // 		$error = '<p style="color:red">Please Enter Valid Barcode</p>';
 // 	}
 // }
-$error = "";
-if (isset($_SESSION["error"])) {
-	$error = $_SESSION["error"];
+if(isset($_REQUEST["isError"])) {
+	$error = '<p style="color:red">Please Enter Valid Barcode</p>';
 }
 
-echo isset($_SESSION["error"]);
+//echo isset($_SESSION["error"]);
 $database = null;
 
 ?>

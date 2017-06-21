@@ -155,8 +155,8 @@ if (!empty($_GET["barcode"])) {
 	      $_SESSION["previousEnabled"] = true;
 	   }
 	} else {
-		$_SESSION["error"] = '<p style="color:red">Please Enter Valid Barcode</p>';
-		header('Location: https://mysterious-bayou-55662.herokuapp.com');
+		//$_SESSION["error"] = '<p style="color:red">Please Enter Valid Barcode</p>';
+		header('Location: https://mysterious-bayou-55662.herokuapp.com?isError=true');
 	}
 
    // foreach ($_SESSION["codes"] as $code) {
