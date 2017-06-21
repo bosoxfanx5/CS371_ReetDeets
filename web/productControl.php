@@ -7,18 +7,6 @@ include 'dbconnect.php';
 *******************************************************************/
 $userFound = true;
 
-if (empty($_SESSION["id"])) {
-	$sql1 = $db->prepare("INSERT INTO s_person (id) VALUES (uuid_generate_v4())");
-	$sql1->execute();
-	// 	//retrieve new person id
-	$personID = $db->lastInsertId();
-	$sql1 = $db->prepare("SELECT id FROM s_person WHERE autoinc='$personID'");
-	$sql1->execute();
-	$result1 = $sql1->fetch();
-	$_SESSION["id"] = $result1["id"];
-	//echo $result1["id"];
-}
-
 /******************************************************************
 * LOGIN
 *******************************************************************/
@@ -217,20 +205,20 @@ if(isset($_REQUEST["backBar"])) {
 	// echo $_SESSION["max"];
 }
 	$reviewLink = '<a href="review.php?barcode=' . $barcode . '" id="reviewLink">';
-if(isset($barcode)) {
-	$sql0 = $db->prepare("SELECT id, title, price, listinfo1, listinfo2, listinfo3, listinfo4, image FROM s_saleable_item WHERE barcode='$barcode'");
-	$sql0->execute();
-	$result = $sql0->fetch();
-	$image = '<img class="img-responsive" src=' . $result["image"] . '>';
-
-	$itemID = $result["id"];
-	//echo $itemID;
-
-
-	$personID = $_SESSION["id"];
-	$sql3 = $db->prepare("INSERT INTO s_visited_items (visitor_id, item_id) VALUES ('$personID', '$itemID')");
-	$sql3->execute();
-}
+// if(isset($barcode)) {
+// 	$sql0 = $db->prepare("SELECT id, title, price, listinfo1, listinfo2, listinfo3, listinfo4, image FROM s_saleable_item WHERE barcode='$barcode'");
+// 	$sql0->execute();
+// 	$result = $sql0->fetch();
+// 	$image = '<img class="img-responsive" src=' . $result["image"] . '>';
+//
+// 	$itemID = $result["id"];
+// 	//echo $itemID;
+//
+//
+// 	$personID = $_SESSION["id"];
+// 	$sql3 = $db->prepare("INSERT INTO s_visited_items (visitor_id, item_id) VALUES ('$personID', '$itemID')");
+// 	$sql3->execute();
+// }
 
 $database = null;
 
