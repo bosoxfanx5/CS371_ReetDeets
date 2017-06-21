@@ -79,89 +79,88 @@ include 'productControl.php';
 
   <br>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-10 col-xs-offset-1 review-container">
-        <br>
-        <div class="container review"> <!-- make each container review a link -->
-          <div class="row">
-            <div class="col-xs-4 ">
-              <img class="img-responsive" src="img/5stars.png">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-12">
-              <h4>Best TV I've ever owned!</h4>
-              <p><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum.</span></p>
-            </div>
-          </div>
-        </div>
-        <br>
-        <div class="container review">
-          <div class="row">
-            <div class="col-xs-4 ">
-              <img class="img-responsive" src="img/3stars.png">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-12">
-              <h4>It's pretty good, but...</h4>
-              <p><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum.</span></p>
-            </div>
-          </div>
-        </div>
-        <br>
-        <div class="container review">
-          <div class="row">
-            <div class="col-xs-4 ">
-              <img class="img-responsive" src="img/1stars.png">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-12">
-              <h4>Not very good...</h4>
-              <p><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum.</span></p>
-            </div>
-          </div>
-        </div>
-        <br>
-        <div class="container review">
-          <div class="row">
-            <div class="col-xs-4 ">
-              <img class="img-responsive" src="img/4stars.png">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-12">
-              <h4>Great purchase!</h4>
-              <p><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum.</span></p>
-            </div>
-          </div>
-        </div>
-        <br><br>
+   <div class="container">
+      <div class="row">
+         <div class="col-xs-10 col-xs-offset-1 review-container"><br>
+            <a href="review.php"><div class="container review"> <!-- make each container review a link -->
+               <div class="row">
+                  <div class="col-xs-4 ">
+                     <img class="img-responsive" src="img/5stars.png">
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xs-12">
+                     <h4>Best TV I've ever owned!</h4>
+                     <p><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                              irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                              pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                              deserunt mollit anim id est laborum.</span>
+                     </p>
+                  </div>
+               </div>
+            </div></a><br>
+            <a href="review.php"><div class="container review">
+               <div class="row">
+                  <div class="col-xs-4 ">
+                     <img class="img-responsive" src="img/3stars.png">
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xs-12">
+                     <h4>It's pretty good, but...</h4>
+                     <p><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                              irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                              pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                              deserunt mollit anim id est laborum.</span>
+                     </p>
+                  </div>
+               </div>
+            </div></a><br>
+            <a href="review.php"><div class="container review">
+               <div class="row">
+                  <div class="col-xs-4 ">
+                     <img class="img-responsive" src="img/1stars.png">
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xs-12">
+                     <h4>Not very good...</h4>
+                     <p><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                              irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                              pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                              deserunt mollit anim id est laborum.</span>
+                     </p>
+                  </div>
+               </div>
+            </div></a><br>
+            <a href="review.php"><div class="container review">
+               <div class="row">
+                  <div class="col-xs-4 ">
+                     <img class="img-responsive" src="img/4stars.png">
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xs-12">
+                     <h4>Great purchase!</h4>
+                     <p><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                              irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                              pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                              deserunt mollit anim id est laborum.</span>
+                     </p>
+                  </div>
+               </div>
+            </div></a><br><br>
+         </div>
       </div>
-    </div>
-  </div>
+   </div>
 
   <br><br>
 
