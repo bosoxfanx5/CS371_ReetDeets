@@ -1,7 +1,7 @@
 <?php
 $backBar = $_REQUEST["barcode"];
-$address = "https://mysterious-bayou-55662.herokuapp.com/product.php?barcode=";
-$backLink = '<a class="btn btn-warning btn-lg" href="' .  $address . $backbar . '">Back</a>';
+
+$backLink = '<a href="product.php?barcode="' . $backbar . '" class="btn btn-warning btn-lg" >Back</a>';
 ?>
 
 <!DOCTYPE html>
