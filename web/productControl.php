@@ -7,6 +7,18 @@ include 'dbconnect.php';
 *******************************************************************/
 $userFound = true;
 
+if (empty($_SESSION["id"])) {
+	$sql1 = $db->prepare("INSERT INTO s_person (id) VALUES (uuid_generate_v4())");
+	$sql1->execute();
+	// 	//retrieve new person id
+	$personID = $db->lastInsertId();
+	$sql1 = $db->prepare("SELECT id FROM s_person WHERE autoinc='$personID'");
+	$sql1->execute();
+	$result1 = $sql1->fetch();
+	$_SESSION["id"] = $result1["id"];
+	echo $result1["id"];
+}
+
 /******************************************************************
 * LOGIN
 *******************************************************************/
