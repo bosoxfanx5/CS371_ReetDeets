@@ -147,86 +147,84 @@ if(isset($_SESSION["email"])) {
 }
 
 
-if(isset($_REQUEST["barcode"])) {
-	$barcode = $_REQUEST["barcode"];
-}
+if(isset($_REQUEST["backBar"])) {
+	$barcode = $_REQUEST["backBar"];
+} else {
 
-if (!empty($_GET["barcode"])) {
-	$barcodeCheck = $_GET["barcode"];
-	$sqlCheck = $db->prepare("SELECT COUNT(*) FROM s_saleable_item WHERE barcode='$barcodeCheck' LIMIT 1");
-	$sqlCheck->execute();
-	//$check = $sqlCheck->fetch();
+	if (!empty($_GET["barcode"])) {
+		$barcodeCheck = $_GET["barcode"];
+		$sqlCheck = $db->prepare("SELECT COUNT(*) FROM s_saleable_item WHERE barcode='$barcodeCheck' LIMIT 1");
+		$sqlCheck->execute();
+		//$check = $sqlCheck->fetch();
 
-	if($sqlCheck->fetchColumn()) {
-		$barcode = $_GET["barcode"];
-		//$_SESSION["barcode"] = $_GET["barcode"];
+		if($sqlCheck->fetchColumn()) {
+			$barcode = $_GET["barcode"];
+			//$_SESSION["barcode"] = $_GET["barcode"];
 
-		$_SESSION["codes"][] = $barcode;
+			$_SESSION["codes"][] = $barcode;
 
 
 
-	   $_SESSION["max"] = sizeof($_SESSION["codes"]);
-	   $_SESSION["index"] = sizeof($_SESSION["codes"]) - 1;
+			$_SESSION["max"] = sizeof($_SESSION["codes"]);
+			$_SESSION["index"] = sizeof($_SESSION["codes"]) - 1;
 
-	   if ($_SESSION["max"] > 1 && $_SESSION["index"] != 0) {
-	      $_SESSION["previousEnabled"] = true;
-	   }
-	} else {
-		//$_SESSION["error"] = '<p style="color:red">Please Enter Valid Barcode</p>';
-		header('Location: https://mysterious-bayou-55662.herokuapp.com?isError=true');
+			if ($_SESSION["max"] > 1 && $_SESSION["index"] != 0) {
+				$_SESSION["previousEnabled"] = true;
+			}
+		} else {
+			//$_SESSION["error"] = '<p style="color:red">Please Enter Valid Barcode</p>';
+			header('Location: https://mysterious-bayou-55662.herokuapp.com?isError=true');
+		}
+
+		// foreach ($_SESSION["codes"] as $code) {
+		//    echo $code;
+		// }
+		// echo sizeof($_SESSION["codes"]);
+		// echo $barcode != $_SESSION["codes"][0];
+
 	}
 
-   // foreach ($_SESSION["codes"] as $code) {
-   //    echo $code;
-   // }
-   // echo sizeof($_SESSION["codes"]);
-   // echo $barcode != $_SESSION["codes"][0];
+	if(isset($_REQUEST["previous"])) {
+		$_SESSION["nextEnabled"] = true;
+		$_SESSION["index"] -= 1;
+		$barcode = $_SESSION["codes"][$_SESSION["index"]];
 
+		if ($_SESSION["index"] == 0 && $_SESSION["max"] > 1) {
+			$_SESSION["previousEnabled"] = false;
+			$_SESSION["nextEnabled"] = true;
+		} else {
+			$_SESSION["previousEnabled"] = true;
+		}
+	}
+
+	if(isset($_REQUEST["next"])){
+		$_SESSION["previousEnabled"] = true;
+
+		if(!(($_SESSION["index"] + 1) >= $_SESSION["max"])) {
+			$_SESSION["index"] += 1;
+			$barcode = $_SESSION["codes"][$_SESSION["index"]];
+		}
+
+		if (($_SESSION["index"] + 1) == $_SESSION["max"] && $_SESSION["index"] != 0) {
+			$_SESSION["nextEnabled"] = false;
+			$_SESSION["previousEnabled"] = true;
+		} else {
+			$_SESSION["nextEnabled"] = true;
+		}
+	}
+	$reviewLink = '<a href="review.php?barcode=' . $barcode . '" id="reviewLink">';
+	// echo $_SESSION["index"] . "<br>";
+	// echo $_SESSION["max"];
 }
-
-if(isset($_REQUEST["previous"])) {
-   $_SESSION["nextEnabled"] = true;
-   $_SESSION["index"] -= 1;
-   $barcode = $_SESSION["codes"][$_SESSION["index"]];
-
-   if ($_SESSION["index"] == 0 && $_SESSION["max"] > 1) {
-      $_SESSION["previousEnabled"] = false;
-      $_SESSION["nextEnabled"] = true;
-   } else {
-      $_SESSION["previousEnabled"] = true;
-   }
-}
-
-if(isset($_REQUEST["next"])){
-   $_SESSION["previousEnabled"] = true;
-
-   if(!(($_SESSION["index"] + 1) >= $_SESSION["max"])) {
-      $_SESSION["index"] += 1;
-      $barcode = $_SESSION["codes"][$_SESSION["index"]];
-   }
-
-   if (($_SESSION["index"] + 1) == $_SESSION["max"] && $_SESSION["index"] != 0) {
-      $_SESSION["nextEnabled"] = false;
-      $_SESSION["previousEnabled"] = true;
-   } else {
-      $_SESSION["nextEnabled"] = true;
-   }
-}
-$reviewLink = '<a href="review.php?barcode=' . $barcode . '" id="reviewLink">';
-// echo $_SESSION["index"] . "<br>";
-// echo $_SESSION["max"];
-
 if(isset($barcode)) {
-	$sql0 = $db->prepare("SELECT title, price, listinfo1, listinfo2, listinfo3, listinfo4, image FROM s_saleable_item WHERE barcode='$barcode'");
+	$sql0 = $db->prepare("SELECT id, title, price, listinfo1, listinfo2, listinfo3, listinfo4, image FROM s_saleable_item WHERE barcode='$barcode'");
 	$sql0->execute();
 	$result = $sql0->fetch();
 	$image = '<img class="img-responsive" src=' . $result["image"] . '>';
 
-	$sql2 = $db->prepare("SELECT id FROM s_saleable_item WHERE barcode='$barcode'");
-	$sql2->execute();
-	$result2 = $sql2->fetch();
-	$itemID = $result2["id"];
+	$itemID = $result["id"];
 	echo $itemID;
+
 
 	$personID = $_SESSION["id"];
 	$sql3 = $db->prepare("INSERT INTO s_visited_items (visitor_id, item_id) VALUES ('$personID', '$itemID')");
