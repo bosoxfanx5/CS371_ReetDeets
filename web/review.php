@@ -1,6 +1,6 @@
 <?php
-$backBar = $_POST["barcode"];
-
+$backBar = $_GET["barcode"];
+echo $backBar;
 $backLink = '<a href="product.php?backBar="' . $backBar . '" class="btn btn-warning btn-lg" >Back</a>';
 ?>
 
