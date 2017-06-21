@@ -61,7 +61,7 @@ if (!empty($_GET["barcode"])) {
 }
 
 $database = null;
-
+$error = '<p style="color:red">Please Enter Valid Barcode</p>';
 
 ?>
 
