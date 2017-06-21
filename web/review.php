@@ -1,7 +1,7 @@
 <?php
-$backBar = $_REQUEST["barcode"];
+$backBar = $_GET["barcode"];
 
-$backLink = '<a href="product.php?backBar=true" class="btn btn-warning btn-lg" >Back</a>';
+$backLink = '<a href="product.php?backBar="' . $backBar . '" class="btn btn-warning btn-lg" >Back</a>';
 ?>
 
 <!DOCTYPE html>
