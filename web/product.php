@@ -235,7 +235,7 @@ include 'productControl.php';
      <div class="overlay-content">
         <div class="wrapper">
             <a href="javascript:void(0)" id="closeComing" class="closebtn">&times;</a>
-            <br>
+            <br><br><br><br>
             <h1 class="form-signin-heading text-center" style="color:white">Coming Soon</h1>
         </div>
      </div>
