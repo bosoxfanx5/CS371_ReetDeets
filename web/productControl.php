@@ -135,7 +135,9 @@ if(isset($_SESSION["email"])) {
 }
 
 
-
+if(isset($_REQUEST["backbar"])) {
+	$barcode = $_REQUEST["backbar"];
+}
 
 if (!empty($_GET["barcode"])) {
 	$barcodeCheck = $_GET["barcode"];
@@ -146,11 +148,9 @@ if (!empty($_GET["barcode"])) {
 	if($sqlCheck->fetchColumn()) {
 		$barcode = $_GET["barcode"];
 		//$_SESSION["barcode"] = $_GET["barcode"];
-	   if(isset($_REQUEST["backbar"])) {
-			$barcode = $_REQUEST["backbar"];
-		} else {
-			$_SESSION["codes"][] = $barcode;
-		}
+
+		$_SESSION["codes"][] = $barcode;
+
 
 
 	   $_SESSION["max"] = sizeof($_SESSION["codes"]);
@@ -204,21 +204,22 @@ $reviewLink = '<a href="review.php?barcode=' . $barcode . '" id="reviewLink">';
 // echo $_SESSION["index"] . "<br>";
 // echo $_SESSION["max"];
 
-$sql0 = $db->prepare("SELECT title, price, listinfo1, listinfo2, listinfo3, listinfo4, image FROM s_saleable_item WHERE barcode='$barcode'");
-$sql0->execute();
-$result = $sql0->fetch();
-$image = '<img class="img-responsive" src=' . $result["image"] . '>';
+if(isset($barcode)) {
+	$sql0 = $db->prepare("SELECT title, price, listinfo1, listinfo2, listinfo3, listinfo4, image FROM s_saleable_item WHERE barcode='$barcode'");
+	$sql0->execute();
+	$result = $sql0->fetch();
+	$image = '<img class="img-responsive" src=' . $result["image"] . '>';
 
-$sql2 = $db->prepare("SELECT id FROM s_saleable_item WHERE barcode='$barcode'");
-$sql2->execute();
-$result2 = $sql2->fetch();
-$itemID = $result2["id"];
+	$sql2 = $db->prepare("SELECT id FROM s_saleable_item WHERE barcode='$barcode'");
+	$sql2->execute();
+	$result2 = $sql2->fetch();
+	$itemID = $result2["id"];
 
 
-$personID = $_SESSION["id"];
-$sql3 = $db->prepare("INSERT INTO s_visited_items (visitor_id, item_id) VALUES ('$personID', '$itemID')");
-$sql3->execute();
-
+	$personID = $_SESSION["id"];
+	$sql3 = $db->prepare("INSERT INTO s_visited_items (visitor_id, item_id) VALUES ('$personID', '$itemID')");
+	$sql3->execute();
+}
 
 $database = null;
 
