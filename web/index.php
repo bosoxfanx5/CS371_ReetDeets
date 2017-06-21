@@ -118,7 +118,10 @@ _/_/_/      _/_/    _/_/_/        _/
     <div class="row">
       <div class="col-xs-10 col-xs-offset-1">
         <form class="form-signin" method="GET" action="product.php">
-			  <?php echo $_SESSION["error"] ?>
+			  <?php if (isset($_SESSION["error"])) {
+				  echo $_SESSION["error"];
+			  }
+			  ?>
           <input type="text" class="form-control" name="barcode" placeholder="Enter the Barcode ID" required>
       </div>
     </div>
