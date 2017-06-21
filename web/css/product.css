@@ -99,10 +99,10 @@
 }
 
 #reviewLink:link {
-	color: rgba(47, 94, 217, 0.8);
+	color: rgba(47, 94, 217, 0.8) !important;
 
 }
 
 #reviewLink:visited {
-	color: black;
+	color: black !important;
 }
