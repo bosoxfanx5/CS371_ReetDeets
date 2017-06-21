@@ -30,7 +30,7 @@
 	color: white !important;
 }
 
-.btn-danger:disabled {
+/*.btn-danger:disabled {
 	background-color: #ebebeb !important;
 	border-color: #ebebeb !important;
 	color: #6b6b6b !important;
@@ -40,7 +40,7 @@
 		background-color: lightgrey !important;
 		border-color: lightgrey !important;
 		color: darkgrey !important;
-}
+}*/
 
 .btn-warning, .btn-warning:hover, .btn-warning:active, .btn-warning:visited {
     color: white !important;
