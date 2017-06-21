@@ -59,6 +59,10 @@ if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
 // 		$error = '<p style="color:red">Please Enter Valid Barcode</p>';
 // 	}
 // }
+$error = "";
+if (isset($_SESSION["error"])) {
+	$error = '<p style="color:red">Please Enter Valid Barcode</p>';
+}
 
 $database = null;
 
@@ -118,10 +122,7 @@ _/_/_/      _/_/    _/_/_/        _/
     <div class="row">
       <div class="col-xs-10 col-xs-offset-1">
         <form class="form-signin" method="GET" action="product.php">
-			  <?php if (isset($_SESSION["error"])) {
-				  echo $_SESSION["error"];
-			  }
-			  ?>
+			  <?php echo $error; ?>
           <input type="text" class="form-control" name="barcode" placeholder="Enter the Barcode ID" required>
       </div>
     </div>
