@@ -206,7 +206,7 @@ if(isset($_SESSION["backBar"])) {
 	// echo $_SESSION["index"] . "<br>";
 	// echo $_SESSION["max"];
 }
-	$reviewLink = '<a href="review.php?barcode=' . $barcode . '" id="reviewLink">';
+	$reviewLink = '<a href="#" id="reviewLink">';
 if(isset($barcode)) {
 	$sql0 = $db->prepare("SELECT id, title, price, listinfo1, listinfo2, listinfo3, listinfo4, image FROM s_saleable_item WHERE barcode='$barcode'");
 	$sql0->execute();

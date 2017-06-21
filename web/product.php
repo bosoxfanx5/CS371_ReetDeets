@@ -71,9 +71,7 @@ include 'productControl.php';
         <h2><span><?php echo '$' . $result["price"] ?><span></h2s>
       </div>
       <div class="col-xs-6 text-center">
-         <form method="GET" action="productDetails.php">
-            <button class="btn btn-warning btn-md" type="submit"><span>Product<br>Features</span></button>
-         </form>
+         <button class="btn btn-warning btn-md" id="features"><span>Product<br>Features</span></button>
       </div>
     </div>
   </div>
@@ -223,13 +221,21 @@ include 'productControl.php';
               <input type="password" class="form-control" name="password" placeholder="Password" required>
               <br>
               <button class="btn btn-success btn-lg" type="submit">Login</button>
-              <a href="#" id="forgot">Forgot Password</a>
               <a href="javascript:void(0)" id="closeLogin" class="closebtn">&times;</a>
               <?php if (!$userFound) {
                  echo "<br><br><p id='loginError'>*Email address and/or password is incorrect.</p>";
               }
               ?>
            </form>
+        </div>
+     </div>
+  </div>
+
+  <div id="features-review" class="overlay">
+     <div class="overlay-content">
+        <div class="wrapper">
+              <h1 class="form-signin-heading" style="color:white">Coming Soon</h1>
+              <a href="javascript:void(0)" id="closeComing" class="closebtn">&times;</a>
         </div>
      </div>
   </div>
