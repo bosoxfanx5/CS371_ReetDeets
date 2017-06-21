@@ -1,6 +1,6 @@
 <?php
 $backBar = $_GET["barcode"];
-// $backBtn = '<a class="btn btn-warning btn-lg" href=
+
 ?>
 
 <!DOCTYPE html>
