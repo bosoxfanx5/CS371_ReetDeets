@@ -13,10 +13,10 @@
 	<meta name="author" content="Brooks Robison">
 	<link rel="icon" href="/favicon.ico">
 
-	<title>Front-end UI</title>
+	<title>RD|ReetDeets</title>
 
 	<!-- Custom styles for this template -->
-	
+
 	<link rel="stylesheet" href="css/index.css">
 	<link rel="stylesheet" href="css/login.css">
 </head>
