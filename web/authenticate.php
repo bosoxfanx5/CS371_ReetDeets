@@ -118,11 +118,20 @@ $database = null;
 				<br>
 				<button class="btn btn-success btn-lg" type="submit">Login</button>
 				<a href="javascript:void(0)" id="closeLogin" class="closebtn">&times;</a>
-				<?php if (!$userFound) {
-					echo "<br><br><p id='loginError'>*Email address and/or password is incorrect.</p>";
-				}
-				?>
 			</form>
+			<?php if (!$userFound) : ?>
+				<form class="form-signin" method="POST" action="">
+					<h2 class="form-signin-heading">Please login</h2>
+					<input type="text" class="form-control" name="email" placeholder="Email Address" required>
+					<br>
+					<input type="password" class="form-control" name="password" placeholder="Password" required>
+					<br>
+					<button class="btn btn-success btn-lg" type="submit">Login</button>
+					<a href="javascript:void(0)" id="closeLogin" class="closebtn">&times;</a>
+				</form>
+				<?php	echo "<br><br><p id='loginError'>*Email address and/or password is incorrect.</p>"; ?>
+			<?php endif ?>
+
 		</div>
 	</div>
 </div>
