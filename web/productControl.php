@@ -136,17 +136,23 @@ if(isset($_SESSION["email"])) {
 
 
 if (!empty($_GET["barcode"])) {
-   $_SESSION["barcode"] = $_GET["barcode"];
-   $_SESSION["codes"][] = $_SESSION["barcode"];
+	// $barcodeCheck = $_GET["barcode"];
+	// $sqlCheck = $db->prepare("SELECT id FROM s_saleable_item WHERE barcode='$barcodeCheck");
+	// $sqlCheck->execute();
+	// $check = $sqlCheck->fetch();
+
+	// if(isset($check["id"])) {
+		$_SESSION["barcode"] = $_GET["barcode"];
+	   $_SESSION["codes"][] = $_SESSION["barcode"];
 
 
-   $_SESSION["max"] = sizeof($_SESSION["codes"]);
-   $_SESSION["index"] = sizeof($_SESSION["codes"]) - 1;
+	   $_SESSION["max"] = sizeof($_SESSION["codes"]);
+	   $_SESSION["index"] = sizeof($_SESSION["codes"]) - 1;
 
-   if ($_SESSION["max"] > 1 && $_SESSION["index"] != 0) {
-      $_SESSION["previousEnabled"] = true;
-   }
-
+	   if ($_SESSION["max"] > 1 && $_SESSION["index"] != 0) {
+	      $_SESSION["previousEnabled"] = true;
+	   //}
+	//}
 
    // foreach ($_SESSION["codes"] as $code) {
    //    echo $code;
