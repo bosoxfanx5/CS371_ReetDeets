@@ -47,4 +47,24 @@ $(document).ready(function() {
 
 	});
 
+	$("#features").click(function() {
+		$("#features-review").fadeIn("slow");
+
+
+	});
+
+	$("#reviewLink").click(function() {
+		$("#features-review").fadeIn("slow");
+
+
+	});
+
+
+	$("#closeComing").click(function() {
+		$("#features-review").fadeOut("slow");
+
+
+
+	});
+
 });
