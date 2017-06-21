@@ -137,7 +137,7 @@ if(isset($_SESSION["email"])) {
 
 if (!empty($_GET["barcode"])) {
 	$barcodeCheck = $_GET["barcode"];
-	$sqlCheck = $db->prepare("SELECT COUNT(*) FROM s_saleable_item WHERE barcode='$barcodeCheck LIMIT 1");
+	$sqlCheck = $db->prepare("SELECT COUNT(*) FROM s_saleable_item WHERE barcode='$barcodeCheck' LIMIT 1");
 	$sqlCheck->execute();
 	//$check = $sqlCheck->fetch();
 
