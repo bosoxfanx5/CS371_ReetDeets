@@ -135,8 +135,9 @@ if(isset($_SESSION["email"])) {
 }
 
 
-if(isset($_GET["backBar"])) {
-	$barcode = $_GET["backBar"];
+if(isset($_SESSION["backBar"])) {
+	$barcode = $_SESSION["backBar"];
+	session_unset($_SESSION["backBar"]);
 } else {
 
 	if (!empty($_GET["barcode"])) {

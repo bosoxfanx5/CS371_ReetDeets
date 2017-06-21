@@ -1,7 +1,7 @@
 <?php
 $backBar = $_GET["barcode"];
-echo $backBar;
-$backLink = '<a href="product.php?backBar="' . $backBar . '" class="btn btn-warning btn-lg" >Back</a>';
+$_SESSION["backBar"] = $backBar;
+$backLink = '<a href="product.php" class="btn btn-warning btn-lg" >Back</a>';
 ?>
 
 <!DOCTYPE html>
