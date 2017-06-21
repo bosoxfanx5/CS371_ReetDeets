@@ -62,7 +62,7 @@ if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
 // }
 $error = "";
 if (isset($_SESSION["error"])) {
-	$error = '<p style="color:red">Please Enter Valid Barcode</p>';
+	$error = $_SESSION["error"];
 }
 
 $database = null;
