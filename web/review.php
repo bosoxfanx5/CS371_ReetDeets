@@ -1,5 +1,5 @@
 <?php
-$backBar = $_GET["barcode"];
+$backBar = $_POST["barcode"];
 
 $backLink = '<a href="product.php?backBar="' . $backBar . '" class="btn btn-warning btn-lg" >Back</a>';
 ?>
