@@ -117,7 +117,6 @@ $database = null;
 				<input type="password" class="form-control" name="password" placeholder="Password" required>
 				<br>
 				<button class="btn btn-success btn-lg" type="submit">Login</button>
-				<a href="#" id="forgot">Forgot Password</a>
 				<a href="javascript:void(0)" id="closeLogin" class="closebtn">&times;</a>
 				<?php if (!$userFound) {
 					echo "<br><br><p id='loginError'>*Email address and/or password is incorrect.</p>";
