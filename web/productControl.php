@@ -205,20 +205,20 @@ if(isset($_REQUEST["backBar"])) {
 	// echo $_SESSION["max"];
 }
 	$reviewLink = '<a href="review.php?barcode=' . $barcode . '" id="reviewLink">';
-// if(isset($barcode)) {
-// 	$sql0 = $db->prepare("SELECT id, title, price, listinfo1, listinfo2, listinfo3, listinfo4, image FROM s_saleable_item WHERE barcode='$barcode'");
-// 	$sql0->execute();
-// 	$result = $sql0->fetch();
-// 	$image = '<img class="img-responsive" src=' . $result["image"] . '>';
-//
-// 	$itemID = $result["id"];
-// 	//echo $itemID;
-//
-//
-// 	$personID = $_SESSION["id"];
-// 	$sql3 = $db->prepare("INSERT INTO s_visited_items (visitor_id, item_id) VALUES ('$personID', '$itemID')");
-// 	$sql3->execute();
-// }
+if(isset($barcode)) {
+	$sql0 = $db->prepare("SELECT id, title, price, listinfo1, listinfo2, listinfo3, listinfo4, image FROM s_saleable_item WHERE barcode='$barcode'");
+	$sql0->execute();
+	$result = $sql0->fetch();
+	$image = '<img class="img-responsive" src=' . $result["image"] . '>';
+
+	$itemID = $result["id"];
+	//echo $itemID;
+
+
+	// $personID = $_SESSION["id"];
+	// $sql3 = $db->prepare("INSERT INTO s_visited_items (visitor_id, item_id) VALUES ('$personID', '$itemID')");
+	// $sql3->execute();
+}
 
 $database = null;
 
