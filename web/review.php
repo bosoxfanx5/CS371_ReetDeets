@@ -1,6 +1,6 @@
 <?php
 $backBar = $_GET["barcode"];
-
+$backLink = '<a class="btn btn-warning btn-lg" href="https://mysterious-bayou-55662.herokuapp.com?backbar=' . $backbar . '">Back</a>';
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +29,7 @@ $backBar = $_GET["barcode"];
 	<div class="text-center">
 		<h1>Coming Soon!</h1>
 		<br>
-		<button class="btn btn-warning btn-lg" onclick="history.go(-1);">Back</button>
+		<?php echo $backLink; ?>
 	</div>
 
 

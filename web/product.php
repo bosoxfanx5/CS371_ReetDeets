@@ -83,7 +83,7 @@ include 'productControl.php';
    <div class="container">
       <div class="row">
          <div class="col-xs-10 col-xs-offset-1 review-container"><br>
-            <a href="review.php" id="reviewLink"><div class="container review"> <!-- make each container review a link -->
+            <?php echo $reviewLink; ?><div class="container review"> <!-- make each container review a link -->
                <div class="row">
                   <div class="col-xs-4 ">
                      <img class="img-responsive" src="img/5stars.png">
@@ -102,7 +102,7 @@ include 'productControl.php';
                   </div>
                </div>
             </div></a><br>
-            <a href="review.php" id="reviewLink"><div class="container review">
+            <?php echo $reviewLink; ?><div class="container review">
                <div class="row">
                   <div class="col-xs-4 ">
                      <img class="img-responsive" src="img/3stars.png">
@@ -121,7 +121,7 @@ include 'productControl.php';
                   </div>
                </div>
             </div></a><br>
-            <a href="review.php" id="reviewLink"><div class="container review">
+            <?php echo $reviewLink; ?><div class="container review">
                <div class="row">
                   <div class="col-xs-4 ">
                      <img class="img-responsive" src="img/1stars.png">
@@ -140,7 +140,7 @@ include 'productControl.php';
                   </div>
                </div>
             </div></a><br>
-            <a href="review.php" id="reviewLink"><div class="container review">
+            <?php echo $reviewLink; ?><div class="container review">
                <div class="row">
                   <div class="col-xs-4 ">
                      <img class="img-responsive" src="img/4stars.png">

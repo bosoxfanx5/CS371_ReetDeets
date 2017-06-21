@@ -99,6 +99,7 @@ if (!empty($_POST["fname"]) && !empty($_POST["lname"]) && !empty($_POST["createE
 $_SESSION["previousEnabled"] = false;
 $_SESSION["nextEnabled"] = false;
 
+
 if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
 	session_unset($_SESSION["id"]);
 	session_unset($_SESSION["email"]);
@@ -145,7 +146,11 @@ if (!empty($_GET["barcode"])) {
 	if($sqlCheck->fetchColumn()) {
 		$barcode = $_GET["barcode"];
 		//$_SESSION["barcode"] = $_GET["barcode"];
-	   $_SESSION["codes"][] = $barcode;
+	   if(isset($_REQUEST["backbar"])) {
+			$barcode = $_REQUEST["backbar"];
+		} else {
+			$_SESSION["codes"][] = $barcode;
+		}
 
 
 	   $_SESSION["max"] = sizeof($_SESSION["codes"]);
@@ -195,7 +200,7 @@ if(isset($_REQUEST["next"])){
       $_SESSION["nextEnabled"] = true;
    }
 }
-
+$reviewLink = '<a href="review.php?barcode=' . $barcode . '" id="reviewLink">';
 // echo $_SESSION["index"] . "<br>";
 // echo $_SESSION["max"];
 
