@@ -97,3 +97,8 @@
     background-color: #8ba2e1 !important;
   }
 }
+
+#reviewLink:active {
+	color: black;
+
+}
