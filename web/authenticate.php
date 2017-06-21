@@ -110,7 +110,7 @@ $database = null;
 <div id="login" class="overlay">
 	<div class="overlay-content">
 		<div class="wrapper">
-			<form class="form-signin" method="POST" action="index.php">
+			<form class="form-signin" method="POST" action="">
 				<h2 class="form-signin-heading">Please login</h2>
 				<input type="text" class="form-control" name="email" placeholder="Email Address" required>
 				<br>
