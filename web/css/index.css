@@ -25,15 +25,15 @@
 }
 
 .btn-danger, .btn-danger:hover, .btn-danger:active, .btn-danger:visited {
-    background-color: darkgrey !important;
-    border-color: darkgrey !important;
+   background-color: #6b6b6b !important;
+   border-color: #6b6b6b !important;
 	color: white !important;
 }
 
 .btn-danger:disabled {
-		background-color: lightgrey !important;
-		border-color: lightgrey !important;
-		color: darkgrey !important;
+		background-color: #ebebeb !important;
+		border-color: #ebebeb !important;
+		color: #6b6b6b !important;
 }
 
 .btn-success:disabled {
