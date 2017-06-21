@@ -17,10 +17,10 @@ include 'productControl.php';
       <div class="navbar-header">
         <?php if(isset($_SESSION["email"])) : ?>
           <span class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"><?php echo $_SESSION["email"] ?></span> <!-- change to php email -->
-          <a class="navbar-brand" href="#"><h4 style="color:black">RD|ReetDeets</h4></a>
+          <a class="navbar-brand" href="https://mysterious-bayou-55662.herokuapp.com"><h4 style="color:black">RD|ReetDeets</h4></a>
         <?php else :?>
           <span class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">Options</span>
-          <a class="navbar-brand" href="#"><p style="color:black">RD|ReetDeets</p></a>
+          <a class="navbar-brand" href="https://mysterious-bayou-55662.herokuapp.com"><p style="color:black">RD|ReetDeets</p></a>
         <?php endif ?>
       </div>
       <div class="collapse navbar-collapse pull-right" id="myNavbar">
@@ -28,6 +28,7 @@ include 'productControl.php';
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#" id="createNew"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
           <li><a href="#" id="loginBtn"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          <li><a href="https://mysterious-bayou-55662.herokuapp.com"><span class="glyphicon glyphicon-home"></span>Home</a></li>
         </ul>
       <?php else : ?>
         <ul class="nav navbar-nav navbar-right">
