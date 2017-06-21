@@ -70,7 +70,7 @@ include 'productControl.php';
         <h2><span><?php echo '$' . $result["price"] ?><span></h2s>
       </div>
       <div class="col-xs-6 text-center">
-         <form method="GET" action="productDetails.php">
+         <?php echo $features ?>
             <button class="btn btn-warning btn-md" type="submit"><span>Product<br>Features</span></button>
          </form>
       </div>

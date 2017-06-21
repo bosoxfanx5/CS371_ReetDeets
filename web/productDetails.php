@@ -1,5 +1,6 @@
 <?php
-
+$backBar = $_GET["barcode"];
+// $backBtn = '<a class="btn btn-warning btn-lg" href=
 ?>
 
 <!DOCTYPE html>
@@ -27,6 +28,8 @@
 
 	<div class="text-center">
 		<h1>Coming Soon!</h1>
+		<br>
+		<button class="btn btn-warning btn-lg" onclick="history.go(-1);">Back</button>
 	</div>
 
 

@@ -210,6 +210,7 @@ $personID = $_SESSION["id"];
 $sql3 = $db->prepare("INSERT INTO s_visited_items (visitor_id, item_id) VALUES ('$personID', '$itemID')");
 $sql3->execute();
 
+$features = '<form method="GET" action="productDetails.php?barcode="' . $barcode . '>';
 $database = null;
 
 ?>
