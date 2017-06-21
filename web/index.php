@@ -31,39 +31,11 @@ if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
 	die();
 }
 
-// if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-//
-// 	$sql0 = $db->prepare("SELECT id, title FROM s_saleable_item");
-// 	$sql0->execute();
-// 	$result0 = $sql0->fetchAll(PDO::FETCH_ASSOC);
-//
-// 	if (!empty($_GET['id'])) {
-// 		$isContent = true;
-// 		$welcome = false;
-// 		$sql = $db->prepare("SELECT * FROM s_saleable_item
-// 			WHERE id = :id");
-// 			$sql->execute(array(":id" => $_GET['id']));
-// 			$result = $sql->fetch(PDO::FETCH_ASSOC);
-// 	}
-// }
-
-// if (!empty($_GET["barcode"])) {
-// 	$barcodeCheck = $_GET["barcode"];
-// 	$sqlCheck = $db->prepare("SELECT id FROM s_saleable_item WHERE barcode='$barcodeCheck");
-// 	$sqlCheck->execute();
-// 	$check = $sqlCheck->fetch();
-//
-// 	if(isset($check["id"])) {
-// 	} else {
-// 		header('Location: https://mysterious-bayou-55662.herokuapp.com');
-// 		$error = '<p style="color:red">Please Enter Valid Barcode</p>';
-// 	}
-// }
 if(isset($_REQUEST["isError"])) {
 	$error = '<p style="color:red">Please Enter Valid Barcode</p>';
 }
 
-//echo isset($_SESSION["error"]);
+
 $database = null;
 
 ?>
