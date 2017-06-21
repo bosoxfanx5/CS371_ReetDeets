@@ -226,7 +226,7 @@ if(isset($barcode)) {
 	$sql2->execute();
 	$result2 = $sql2->fetch();
 	$itemID = $result2["id"];
-
+	echo $itemID;
 
 	$personID = $_SESSION["id"];
 	$sql3 = $db->prepare("INSERT INTO s_visited_items (visitor_id, item_id) VALUES ('$personID', '$itemID')");
