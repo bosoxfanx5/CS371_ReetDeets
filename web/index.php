@@ -65,6 +65,7 @@ if (isset($_SESSION["error"])) {
 	$error = $_SESSION["error"];
 }
 
+echo isset($_SESSION["error"]);
 $database = null;
 
 ?>
