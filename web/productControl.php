@@ -137,6 +137,7 @@ if(isset($_SESSION["email"])) {
 
 if(isset($_SESSION["backBar"])) {
 	$barcode = $_SESSION["backBar"];
+	echo $barcode;
 	session_unset($_SESSION["backBar"]);
 } else {
 
