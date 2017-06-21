@@ -16,7 +16,7 @@ if (empty($_SESSION["id"])) {
 	$sql1->execute();
 	$result1 = $sql1->fetch();
 	$_SESSION["id"] = $result1["id"];
-	echo $result1["id"];
+	//echo $result1["id"];
 }
 
 /******************************************************************
@@ -147,8 +147,8 @@ if(isset($_SESSION["email"])) {
 }
 
 
-if(isset($_REQUEST["backbar"])) {
-	$barcode = $_REQUEST["backbar"];
+if(isset($_REQUEST["barcode"])) {
+	$barcode = $_REQUEST["barcode"];
 }
 
 if (!empty($_GET["barcode"])) {
