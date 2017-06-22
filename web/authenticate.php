@@ -16,14 +16,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		// echo "awesome";
 		// authenticate user provided info with database
 		$authenticated = password_verify($_POST["password"], $result['psswd']);
-
+		echo "<script> alert('authenticated')</script>";
 		if (($result["email"] == $personEmail) && $authenticated) {
 			$_SESSION["loggedIn"] = true;
 			$_SESSION["id"] = $result["id"];
 			$_SESSION["email"] = $result["email"];
 			$_SESSION["fname"] = $result["fname"];
 			$userFound = true;
-			echo "<script> alert('authenticated')</script>";
+
 			header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
 			die();
 		} else {
