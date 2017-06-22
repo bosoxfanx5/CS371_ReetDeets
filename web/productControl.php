@@ -6,7 +6,8 @@ include 'dbconnect.php';
 * AUTHENTICATION
 *******************************************************************/
 $userFound = true;
-//$_SESSION["currentBarcode"];
+$_SESSION["currentBarcode"] = 1;
+
 /******************************************************************
 * LOGIN
 *******************************************************************/
@@ -150,7 +151,6 @@ if(isset($_SESSION["backBar"])) {
 
 		if($sqlCheck->fetchColumn()) {
 			$barcode = $_GET["barcode"];
-			$_SESSION["currentBarcode"] = $barcode;
 
 			if($_SESSION["currentBarcode"] != $barcode) {
 				$_SESSION["currentBarcode"] = $barcode;
@@ -184,7 +184,7 @@ if(isset($_SESSION["backBar"])) {
 		$_SESSION["index"] -= 1;
 		$barcode = $_SESSION["codes"][$_SESSION["index"]];
 		$_SESSION["currentBarcode"] = $barcode;
-		echo "current barcode set previous";
+		//echo "current barcode set previous";
 		if ($_SESSION["index"] == 0 && $_SESSION["max"] > 1) {
 			$_SESSION["previousEnabled"] = false;
 			$_SESSION["nextEnabled"] = true;
@@ -200,7 +200,7 @@ if(isset($_SESSION["backBar"])) {
 			$_SESSION["index"] += 1;
 			$barcode = $_SESSION["codes"][$_SESSION["index"]];
 			$_SESSION["currentBarcode"] = $barcode;
-			echo "current barcode set next";
+			//echo "current barcode set next";
 		}
 
 		if (($_SESSION["index"] + 1) == $_SESSION["max"] && $_SESSION["index"] != 0) {
