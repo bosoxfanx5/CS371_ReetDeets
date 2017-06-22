@@ -40,7 +40,7 @@ if(isset($_REQUEST["isError"])) {
 $database = null;
 
 ?>
-<?php include 'authenticate.php'; ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -138,7 +138,7 @@ _/_/_/      _/_/    _/_/_/        _/
   	<br>
 	<?php endif ?>
 
-
+	<?php include 'authenticate.php'; ?>
 
 <!--
 _/_/_/_/    _/_/      _/_/    _/_/_/_/_/  _/_/_/_/  _/_/_/
