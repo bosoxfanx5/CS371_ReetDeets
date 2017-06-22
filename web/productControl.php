@@ -150,11 +150,14 @@ if(isset($_SESSION["backBar"])) {
 
 		if($sqlCheck->fetchColumn()) {
 			$barcode = $_GET["barcode"];
-			//$_SESSION["barcode"] = $_GET["barcode"];
 
-			$_SESSION["codes"][] = $barcode;
-			$_SESSION["currentBarcode"] = $barcode;
-			echo "current barcode set";
+			if($_SESSION["currentBarcode"] != $barcode) {
+				$_SESSION["currentBarcode"] = $barcode;
+				$_SESSION["codes"][] = $barcode;
+			}
+
+
+
 
 			$_SESSION["max"] = sizeof($_SESSION["codes"]);
 			$_SESSION["index"] = sizeof($_SESSION["codes"]) - 1;
