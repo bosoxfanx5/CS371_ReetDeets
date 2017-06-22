@@ -139,11 +139,7 @@ if(isset($_SESSION["backBar"])) {
 	$barcode = $_SESSION["backBar"];
 	//echo $barcode;
 	session_unset($_SESSION["backBar"]);
-} elseif (isset($_SESSION["currentBarcode"])) {
-	$barcode = 	$_SESSION["currentBarcode"];
-	session_unset($_SESSION["currentBarcode"]);
-	echo "current barcode unset";
-	//header( 'Location: https://mysterious-bayou-55662.herokuapp.com/product.php?barcode=' . $barcode );
+
 } else {
 
 	if (!empty($_GET["barcode"])) {
