@@ -104,7 +104,7 @@ _/_/_/      _/_/    _/_/_/        _/
 			  	<?php echo $error; ?>
 				<?php if(isset($_SESSION["userFound"]) && $_SESSION["userFound"] == false) : ?>
 					<p class="text-center" id='loginError'>*Email address and/or password is incorrect.</p>
-					<?php session_unset($_SESSION["userFound"]); ?>
+					
 			  	<? endif ?>
           		<input type="text" class="form-control" name="barcode" placeholder="Enter the Barcode ID" required>
       </div>
