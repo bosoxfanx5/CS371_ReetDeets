@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$sql0 = $db->prepare("SELECT id, fname, email, psswd FROM s_person WHERE email='$personEmail'");
 		$sql0->execute();
 		$result = $sql0->fetch();
-		
+
 		//$email = $result["email"];
 		// echo $email;
 		// echo "awesome";
@@ -99,11 +99,11 @@ $database = null;
 			<form class="form-signin" method="POST" action="">
 				<h2>You want to join? Sweet!</h2>
 				<p>Fill out the form and click submit.</p>
-				<input type="text" class="form-control" name="fname" placeholder="First Name" required>
+				<input type="text" class="form-control" name="fname" placeholder="First Name" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required>
 				<br>
-				<input type="text" class="form-control" name="lname" placeholder="Last Name" required>
+				<input type="text" class="form-control" name="lname" placeholder="Last Name" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required>
 				<br>
-				<input type="text" class="form-control" name="createEmail" placeholder="Email Address" required>
+				<input type="text" class="form-control" name="createEmail" placeholder="Email Address" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required>
 				<br>
 				<input type="password" class="form-control" name="createPassword" placeholder="Password" required>
 				<button id="submitCreate" class="btn btn-success btn-lg" type="submit">Submit</button>
@@ -120,9 +120,9 @@ $database = null;
 		<div class="wrapper">
 			<form class="form-signin" method="POST" action="">
 				<h2 class="form-signin-heading">Please login</h2>
-				<input type="text" class="form-control" name="email" placeholder="Email Address" required>
+				<input type="text" class="form-control" name="email" placeholder="Email Address" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required>
 				<br>
-				<input type="password" class="form-control" name="password" placeholder="Password" required>
+				<input type="password" class="form-control" name="password" placeholder="Password" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required>
 				<br>
 				<button class="btn btn-success btn-lg" type="submit">Login</button>
 				<a href="javascript:void(0)" id="closeLogin" class="closebtn">&times;</a>
