@@ -13,7 +13,7 @@ if (!empty($_POST["email"]) && !empty($_POST["password"])) {
 	// authenticate user provided info with database
 	$authenticated = password_verify($_POST["password"], $result['psswd']);
 
-	if ($result["email"] == $personEmail && $authenticated) {
+	if (strtolower($result["email"]) == $personEmail && $authenticated) {
 		$_SESSION["loggedIn"] = true;
 		$_SESSION["id"] = $result["id"];
 		$_SESSION["email"] = $result["email"];
