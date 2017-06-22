@@ -27,7 +27,7 @@ if (!empty($_POST["email"]) && !empty($_POST["password"])) {
 		$_SESSION["email"] = $result["email"];
 		$_SESSION["fname"] = $result["fname"];
 		$userFound = true;
-		header( 'Location: https://mysterious-bayou-55662.herokuapp.com/product.php' );
+		//header( 'Location: https://mysterious-bayou-55662.herokuapp.com/product.php' );
 		die();
 	} else {
 		$userFound = false;

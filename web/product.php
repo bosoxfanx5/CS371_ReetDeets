@@ -192,7 +192,7 @@ include 'productControl.php';
      <div class="overlay-content">
         <div class="wrapper-creation">
            <div class="form-group">
-           <form class="form-signin" method="POST" action="product.php">
+           <form class="form-signin" method="POST" action="">
               <h2>You want to join? Sweet!</h2>
               <p>Fill out the form and click submit.</p>
               <input type="text" class="form-control" name="fname" placeholder="First Name" required>
@@ -214,7 +214,7 @@ include 'productControl.php';
   <div id="login" class="overlay">
      <div class="overlay-content">
         <div class="wrapper">
-           <form class="form-signin" method="POST" action="product.php">
+           <form class="form-signin" method="POST" action="">
               <h2 class="form-signin-heading">Please login</h2>
               <input type="text" class="form-control" name="email" placeholder="Email Address" required>
               <br>
