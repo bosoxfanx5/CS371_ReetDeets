@@ -22,6 +22,7 @@ if (!empty($_POST["email"]) && !empty($_POST["password"])) {
 		die();
 	} else {
 		$userFound = false;
+		header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
 	}
 }
 

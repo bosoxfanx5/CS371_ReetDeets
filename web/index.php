@@ -88,9 +88,9 @@ _/_/_/      _/_/    _/_/_/        _/
 
 	<div class="container">
 		<div class="row">
-      <div class="col-xs-4 col-xs-offset-4">
+      	<div class="col-xs-4 col-xs-offset-4">
 			   <img class="img-responsive logo" src="img/barcode_smLogo.png">
-       </div>
+			</div>
 		</div>
   </div>
 
@@ -101,19 +101,19 @@ _/_/_/      _/_/    _/_/_/        _/
   <div class="container">
     <div class="row">
       <div class="col-xs-10 col-xs-offset-1">
-        <form class="form-signin" method="GET" action="product.php">
-			  <?php echo $error; ?>
-          <input type="text" class="form-control" name="barcode" placeholder="Enter the Barcode ID" required>
+        	<form class="form-signin" method="GET" action="product.php">
+			  	<?php echo $error; ?>
+          		<input type="text" class="form-control" name="barcode" placeholder="Enter the Barcode ID" required>
       </div>
     </div>
     <br>
-    <div class="row text-center">
-      <div class="col-xs-4 col-xs-offset-4">
-        <input class="btn btn-success btn-lg" type="submit">
-      </form>
-      </div>
-    </div>
-  </div>
+   	<div class="row text-center">
+      	<div class="col-xs-4 col-xs-offset-4">
+        		<input class="btn btn-success btn-lg" type="submit">
+      	</form>
+      	</div>
+    	</div>
+  	</div>
 
 	<?php if(empty($_SESSION["email"])) : ?>
   	<div class="container">
