@@ -143,7 +143,7 @@ if(isset($_SESSION["backBar"])) {
 	//echo $barcode;
 	session_unset($_SESSION["backBar"]);
 } elseif (isset($_SESSION["createLogin"]) && $_SESSION["createLogin"] == true) {
-	$barcode = $currentBarcode;
+	$barcode = 	$_SESSION["currentBarcode"];
 } else {
 
 	if (!empty($_GET["barcode"])) {
@@ -157,7 +157,7 @@ if(isset($_SESSION["backBar"])) {
 			//$_SESSION["barcode"] = $_GET["barcode"];
 
 			$_SESSION["codes"][] = $barcode;
-
+			$_SESSION["currentBarcode"] = $barcode;
 
 
 			$_SESSION["max"] = sizeof($_SESSION["codes"]);
@@ -212,7 +212,7 @@ if(isset($_SESSION["backBar"])) {
 	// echo $_SESSION["max"];
 }
 	$reviewLink = '<a href="#" id="reviewLink">';
-	$currentBarcode = $barcode;
+
 if(isset($barcode)) {
 	$sql0 = $db->prepare("SELECT id, title, price, listinfo1, listinfo2, listinfo3, listinfo4, image FROM s_saleable_item WHERE barcode='$barcode'");
 	$sql0->execute();
