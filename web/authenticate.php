@@ -5,15 +5,15 @@ $userFound = true;
 echo '<script type="text/javascript"> alert("script works"); </script>';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	echo '<script type="text/javascript"> alert("GOT POST"); </script>';
+	//echo '<script type="text/javascript"> alert("GOT POST"); </script>';
 	if (!empty($_POST["email"]) && !empty($_POST["password"])) {
-		echo '<script type="text/javascript"> alert("got post data"); </script>';
+		//echo '<script type="text/javascript"> alert("got post data"); </script>';
 		$personEmail = $_POST["email"];
 		// query for email and password of user
 		$sql0 = $db->prepare("SELECT id, fname, email, psswd FROM s_person WHERE email='$personEmail'");
 		$sql0->execute();
 		$result = $sql0->fetch();
-		echo '<script type="text/javascript"> alert("login POST hit"); </script>';
+		//echo '<script type="text/javascript"> alert("login POST hit"); </script>';
 		//$email = $result["email"];
 		// echo $email;
 		// echo "awesome";
@@ -26,18 +26,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$_SESSION["email"] = $result["email"];
 			$_SESSION["fname"] = $result["fname"];
 			$userFound = true;
-			echo '<script type="text/javascript"> alert("authenticated"); </script>';
+		//	echo '<script type="text/javascript"> alert("authenticated"); </script>';
 			header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
 			die();
 		} else {
-			echo '<script type="text/javascript"> alert("not authenticated"); </script>';
+			//echo '<script type="text/javascript"> alert("not authenticated"); </script>';
 			$userFound = false;
 			$_SESSION["userFound"] = false;
 			header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
 		}
-		echo '<script type="text/javascript"> alert("post data IF exit"); </script>';
+		//echo '<script type="text/javascript"> alert("post data IF exit"); </script>';
 	}
-	echo '<script type="text/javascript"> alert("post request IF exit"); </script>';
+	//echo '<script type="text/javascript"> alert("post request IF exit"); </script>';
 /******************************************************************
 * Creation of new login account
 *******************************************************************/
