@@ -144,6 +144,8 @@ if(isset($_SESSION["backBar"])) {
 	session_unset($_SESSION["backBar"]);
 } elseif (isset($_SESSION["createLogin"]) && $_SESSION["createLogin"] == true) {
 	$barcode = 	$_SESSION["currentBarcode"];
+	session_unset($_SESSION["createLogin"]);
+	session_unset($_SESSION["currentBarcode"]);
 } else {
 
 	if (!empty($_GET["barcode"])) {
