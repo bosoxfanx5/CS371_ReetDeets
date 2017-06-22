@@ -1,6 +1,5 @@
 <?php
 include 'dbconnect.php';
-$_SESSION["userFound"] = true;
 $userFound = true;
 
 if (!empty($_POST["email"]) && !empty($_POST["password"])) {

@@ -10,7 +10,7 @@ Heroku CLI: heroku pg:psql postgresql-cubic-94519 --app rocky-everglades-86262--
 <?php
 include 'session.php';
 include 'dbconnect.php';
-
+$_SESSION["userFound"] = true;
 
 $welcome = true;
 $error = "";
@@ -27,6 +27,7 @@ if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
    session_unset($_SESSION["max"]);
    session_unset($_SESSION["codes"]);
 	session_unset($_SESSION["error"]);
+	$_SESSION["userFound"] = true;
 	session_destroy();
 	header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
 	die();
