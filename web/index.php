@@ -9,7 +9,6 @@ Heroku CLI: heroku pg:psql postgresql-cubic-94519 --app rocky-everglades-86262--
 
 <?php
 include 'session.php';
-include 'dbconnect.php';
 
 
 $welcome = true;
