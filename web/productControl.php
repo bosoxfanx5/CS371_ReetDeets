@@ -6,7 +6,7 @@ include 'dbconnect.php';
 * AUTHENTICATION
 *******************************************************************/
 $userFound = true;
-$_SESSION["currentBarcode"] = 1;
+$_SESSION["currentBarcode"];
 
 /******************************************************************
 * LOGIN
