@@ -133,10 +133,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 $database = null;
 ?>
 
-$database = null;
-
-?>
-
 
 <!DOCTYPE html>
 <html lang="en">
