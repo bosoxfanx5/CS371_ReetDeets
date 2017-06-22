@@ -9,23 +9,23 @@ if (!empty($_POST["email"]) && !empty($_POST["password"])) {
 	$sql0 = $db->prepare("SELECT id, fname, email, psswd FROM s_person WHERE email='$personEmail'");
 	$sql0->execute();
 	$result = $sql0->fetch();
-	echo $personEmail . "<br>" . strtolower($result["email"]);
+
 	// authenticate user provided info with database
 	$authenticated = password_verify($_POST["password"], $result['psswd']);
 
-	if (strtolower($result["email"]) == $personEmail && $authenticated) {
-		$_SESSION["loggedIn"] = true;
-		$_SESSION["id"] = $result["id"];
-		$_SESSION["email"] = $result["email"];
-		$_SESSION["fname"] = $result["fname"];
-		$userFound = true;
-		header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
-		die();
-	} else {
-		$userFound = false;
-		$_SESSION["userFound"] = false;
-		header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
-	}
+	// if (strtolower($result["email"]) == $personEmail && $authenticated) {
+	// 	$_SESSION["loggedIn"] = true;
+	// 	$_SESSION["id"] = $result["id"];
+	// 	$_SESSION["email"] = $result["email"];
+	// 	$_SESSION["fname"] = $result["fname"];
+	// 	$userFound = true;
+	// 	header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
+	// 	die();
+	// } else {
+	// 	$userFound = false;
+	// 	$_SESSION["userFound"] = false;
+	// 	header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
+	// }
 }
 
 /******************************************************************
