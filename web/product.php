@@ -27,8 +27,8 @@ include 'productControl.php';
       <?php if(empty($_SESSION["email"])) : ?>
         <ul class="nav navbar-nav navbar-right">
            <li><a href="https://mysterious-bayou-55662.herokuapp.com"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-          <li><a href="" id="createNew"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-          <li><a href="" id="loginBtn"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          <li><a href="#" id="createNew"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="#" id="loginBtn"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         </ul>
       <?php else : ?>
         <ul class="nav navbar-nav navbar-right">
