@@ -12,6 +12,9 @@ $userFound = true;
 		$sql0->execute();
 		$result = $sql0->fetch();
 
+
+   echo '<script>console.log(' . $result["email"] . ')</script>';
+
 		//$email = $result["email"];
 		// echo $email;
 		// echo "awesome";
