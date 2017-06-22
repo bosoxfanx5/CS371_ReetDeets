@@ -11,9 +11,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$sql0 = $db->prepare("SELECT id, fname, email, psswd FROM s_person WHERE email='$personEmail'");
 		$sql0->execute();
 		$result = $sql0->fetch();
-		$email = $result["email"];
-		echo $email;
-		echo "awesome";
+		
+		//$email = $result["email"];
+		// echo $email;
+		// echo "awesome";
 		// authenticate user provided info with database
 		$authenticated = password_verify($_POST["password"], $result['psswd']);
 
