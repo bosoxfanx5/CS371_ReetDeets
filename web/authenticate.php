@@ -11,7 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$sql0 = $db->prepare("SELECT id, fname, email, psswd FROM s_person WHERE email='$personEmail'");
 		$sql0->execute();
 		$result = $sql0->fetch();
-		echo $result["email"];
+		$email = $result["email"];
+		echo $email;
 		echo "awesome";
 		// authenticate user provided info with database
 		$authenticated = password_verify($_POST["password"], $result['psswd']);
@@ -30,43 +31,43 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		// 	header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
 		// }
 	}
-}
+
 /******************************************************************
 * Creation of new login account
 *******************************************************************/
 
 
-if (!empty($_POST["fname"]) && !empty($_POST["lname"]) && !empty($_POST["createEmail"])
-&& !empty($_POST["createPassword"])) {
-	$fname = $_POST['fname'];
-	$lname = $_POST['lname'];
-	$_SESSION["fname"] = $fname;
+	if (!empty($_POST["fname"]) && !empty($_POST["lname"]) && !empty($_POST["createEmail"])
+	&& !empty($_POST["createPassword"])) {
+		$fname = $_POST['fname'];
+		$lname = $_POST['lname'];
+		$_SESSION["fname"] = $fname;
 
 
-	// if ($gender == 1) {
-	// 	$prefix = "Mr.";
-	// } else {
-	// 	$prefix = "Ms.";
-	// }
+		// if ($gender == 1) {
+		// 	$prefix = "Mr.";
+		// } else {
+		// 	$prefix = "Ms.";
+		// }
 
-	$cEmail = $_POST['createEmail'];
-	$cPassword = $_POST['createPassword'];
+		$cEmail = $_POST['createEmail'];
+		$cPassword = $_POST['createPassword'];
 
-	//hash the password
-	$hashed = password_hash($cPassword, PASSWORD_DEFAULT);
+		//hash the password
+		$hashed = password_hash($cPassword, PASSWORD_DEFAULT);
 
-	// if user already has a session id and is creating a new login
-	if (!empty($_SESSION["id"])) {
-		$personID = $_SESSION["id"];
-		$sql = $db->prepare("UPDATE s_person SET fname='$fname', lname='$lname', prefix='$prefix',
+		// if user already has a session id and is creating a new login
+		if (!empty($_SESSION["id"])) {
+			$personID = $_SESSION["id"];
+			$sql = $db->prepare("UPDATE s_person SET fname='$fname', lname='$lname', prefix='$prefix',
 			email='$cEmail', psswd='$hashed' WHERE id='$personID'");
 
-		$sql->execute();
-		$_SESSION['email'] = $cEmail;
-		$userFound = true;
-		$_SESSION["loggedIn"] = true;
-		header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
-		die();
+			$sql->execute();
+			$_SESSION['email'] = $cEmail;
+			$userFound = true;
+			$_SESSION["loggedIn"] = true;
+			header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
+			die();
 
 		} else {
 			// if there isn't a session id for the user yet
@@ -86,6 +87,7 @@ if (!empty($_POST["fname"]) && !empty($_POST["lname"]) && !empty($_POST["createE
 			die();
 		}
 	}
+}
 $database = null;
 ?>
 
