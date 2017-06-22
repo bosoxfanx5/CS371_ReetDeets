@@ -58,8 +58,7 @@ input[type="password"] {
 	height: 495px;
 	width: 100%;
 	margin-top: 126px;
-	position: fixed;
-	overflow: auto;
+	position: absolute;
 	z-index: 1;
 	top: 0;
 	left: 0;
@@ -73,8 +72,7 @@ input[type="password"] {
 	height: 495px;
 	width: 100%;
 	margin-top: 126px;
-	position: fixed;
-	overflow: auto;
+	position: absolute;
 	z-index: 1;
 	top: 0;
 	left: 0;
