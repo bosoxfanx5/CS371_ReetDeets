@@ -9,7 +9,7 @@ if (!empty($_POST["email"]) && !empty($_POST["password"])) {
 	$sql0 = $db->prepare("SELECT id, fname, email, psswd FROM s_person WHERE email='$personEmail'");
 	$sql0->execute();
 	$result = $sql0->fetch();
-	echo strtolower($result["email"]);
+	echo $result["email"];
 	// authenticate user provided info with database
 	$authenticated = password_verify($_POST["password"], $result['psswd']);
 
