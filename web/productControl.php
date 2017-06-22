@@ -6,7 +6,7 @@ include 'dbconnect.php';
 * AUTHENTICATION
 *******************************************************************/
 $userFound = true;
-$_SESSION["currentBarcode"];
+//$_SESSION["currentBarcode"];
 /******************************************************************
 * LOGIN
 *******************************************************************/
@@ -142,7 +142,8 @@ if(isset($_SESSION["backBar"])) {
 } elseif (isset($_SESSION["currentBarcode"])) {
 	$barcode = 	$_SESSION["currentBarcode"];
 	session_unset($_SESSION["currentBarcode"]);
-	header( 'Location: https://mysterious-bayou-55662.herokuapp.com/product.php?barcode=' . $barcode );
+	echo "current barcode unset";
+	//header( 'Location: https://mysterious-bayou-55662.herokuapp.com/product.php?barcode=' . $barcode );
 } else {
 
 	if (!empty($_GET["barcode"])) {
@@ -157,7 +158,7 @@ if(isset($_SESSION["backBar"])) {
 
 			$_SESSION["codes"][] = $barcode;
 			$_SESSION["currentBarcode"] = $barcode;
-
+			echo "current barcode set";
 
 			$_SESSION["max"] = sizeof($_SESSION["codes"]);
 			$_SESSION["index"] = sizeof($_SESSION["codes"]) - 1;
@@ -183,7 +184,7 @@ if(isset($_SESSION["backBar"])) {
 		$_SESSION["index"] -= 1;
 		$barcode = $_SESSION["codes"][$_SESSION["index"]];
 		$_SESSION["currentBarcode"] = $barcode;
-
+		echo "current barcode set previous";
 		if ($_SESSION["index"] == 0 && $_SESSION["max"] > 1) {
 			$_SESSION["previousEnabled"] = false;
 			$_SESSION["nextEnabled"] = true;
@@ -199,6 +200,7 @@ if(isset($_SESSION["backBar"])) {
 			$_SESSION["index"] += 1;
 			$barcode = $_SESSION["codes"][$_SESSION["index"]];
 			$_SESSION["currentBarcode"] = $barcode;
+			echo "current barcode set next";
 		}
 
 		if (($_SESSION["index"] + 1) == $_SESSION["max"] && $_SESSION["index"] != 0) {
