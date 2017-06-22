@@ -2,32 +2,34 @@
 include 'dbconnect.php';
 $userFound = true;
 
-if (!empty($_POST["email"]) && !empty($_POST["password"])) {
-	$personEmail = $_POST["email"];
-	strtolower($personEmail);
-	// query for email and password of user
-	$sql0 = $db->prepare("SELECT id, fname, email, psswd FROM s_person WHERE email='$personEmail'");
-	$sql0->execute();
-	$result = $sql0->fetch();
-	echo $result["email"];
-	// authenticate user provided info with database
-	$authenticated = password_verify($_POST["password"], $result['psswd']);
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
-	// if (strtolower($result["email"]) == $personEmail && $authenticated) {
-	// 	$_SESSION["loggedIn"] = true;
-	// 	$_SESSION["id"] = $result["id"];
-	// 	$_SESSION["email"] = $result["email"];
-	// 	$_SESSION["fname"] = $result["fname"];
-	// 	$userFound = true;
-	// 	header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
-	// 	die();
-	// } else {
-	// 	$userFound = false;
-	// 	$_SESSION["userFound"] = false;
-	// 	header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
-	// }
+	if (!empty($_POST["email"]) && !empty($_POST["password"])) {
+		$personEmail = $_POST["email"];
+		strtolower($personEmail);
+		// query for email and password of user
+		$sql0 = $db->prepare("SELECT id, fname, email, psswd FROM s_person WHERE email='$personEmail'");
+		$sql0->execute();
+		$result = $sql0->fetch();
+		echo $result["email"];
+		// authenticate user provided info with database
+		$authenticated = password_verify($_POST["password"], $result['psswd']);
+
+		// if (strtolower($result["email"]) == $personEmail && $authenticated) {
+		// 	$_SESSION["loggedIn"] = true;
+		// 	$_SESSION["id"] = $result["id"];
+		// 	$_SESSION["email"] = $result["email"];
+		// 	$_SESSION["fname"] = $result["fname"];
+		// 	$userFound = true;
+		// 	header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
+		// 	die();
+		// } else {
+		// 	$userFound = false;
+		// 	$_SESSION["userFound"] = false;
+		// 	header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
+		// }
+	}
 }
-
 /******************************************************************
 * Creation of new login account
 *******************************************************************/
@@ -90,7 +92,7 @@ $database = null;
 	<div class="overlay-content">
 		<div class="wrapper-creation">
 			<div class="form-group">
-			<form class="form-signin" method="POST" action="index.php">
+			<form class="form-signin" method="POST" action="">
 				<h2>You want to join? Sweet!</h2>
 				<p>Fill out the form and click submit.</p>
 				<input type="text" class="form-control" name="fname" placeholder="First Name" required>
@@ -112,7 +114,7 @@ $database = null;
 <div id="login" class="overlay">
 	<div class="overlay-content">
 		<div class="wrapper">
-			<form class="form-signin" method="POST" action="index.php">
+			<form class="form-signin" method="POST" action="">
 				<h2 class="form-signin-heading">Please login</h2>
 				<input type="text" class="form-control" name="email" placeholder="Email Address" required>
 				<br>
