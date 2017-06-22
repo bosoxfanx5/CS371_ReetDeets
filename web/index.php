@@ -16,6 +16,7 @@ $welcome = true;
 $error = "";
 $_SESSION["loggedIn"] = false;
 $_SESSION["fname"] = "";
+$userFound = true;
 
 if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
 	session_unset($_SESSION["id"]);
@@ -82,6 +83,9 @@ _/    _/  _/    _/  _/    _/      _/
 _/_/_/      _/_/    _/_/_/        _/
 -->
 <!-- Begin page content -->
+
+
+
 	<div class="container">
 		<div class="row">
       <div class="col-xs-4 col-xs-offset-4">
@@ -89,6 +93,10 @@ _/_/_/      _/_/    _/_/_/        _/
        </div>
 		</div>
   </div>
+
+  	<?php if(!$userFound) : ?>
+		<p id='loginError'>*Email address and/or password is incorrect.</p>
+  	<? endif ?>
 
   <div class="container">
     <div class="row">
