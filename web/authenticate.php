@@ -1,6 +1,7 @@
 <?php
 include 'dbconnect.php';
-
+$_SESSION["userFound"] = true;
+$userFound = true;
 
 if (!empty($_POST["email"]) && !empty($_POST["password"])) {
 	$personEmail = $_POST["email"];
@@ -22,6 +23,7 @@ if (!empty($_POST["email"]) && !empty($_POST["password"])) {
 		die();
 	} else {
 		$userFound = false;
+		$_SESSION["userFound"] = false;
 		header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
 	}
 }
