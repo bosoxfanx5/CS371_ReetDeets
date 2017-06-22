@@ -11,7 +11,7 @@ $_SESSION["currentBarcode"];
 /******************************************************************
 * LOGIN
 *******************************************************************/
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
 	if (!empty($_POST["email"]) && !empty($_POST["password"])) {
 
 		$personEmail = $_POST["email"];
@@ -91,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				die();
 			}
 		}
-	}
+
 
    /******************************************************************
    * END AUTHENTICATION
