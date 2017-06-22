@@ -10,7 +10,7 @@ Heroku CLI: heroku pg:psql postgresql-cubic-94519 --app rocky-everglades-86262--
 <?php
 include 'session.php';
 include 'dbconnect.php';
-$_SESSION["userFound"] = true;
+
 
 $welcome = true;
 $error = "";
@@ -95,7 +95,7 @@ _/_/_/      _/_/    _/_/_/        _/
 		</div>
   </div>
 
-  	<?php if($_SESSION["userFound"] != true) : ?>
+  	<?php if(isset($_SESSION["userFound"]) && $_SESSION["userFound"] == false) : ?>
 		<p id='loginError'>*Email address and/or password is incorrect.</p>
   	<? endif ?>
 
