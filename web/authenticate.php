@@ -3,7 +3,7 @@ include 'dbconnect.php';
 $userFound = true;
 
 
-
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	if (!empty($_POST["email"]) && !empty($_POST["password"])) {
 		$personEmail = $_POST["email"];
 		// query for email and password of user
@@ -87,7 +87,7 @@ $userFound = true;
 			die();
 		}
 	}
-
+}
 $database = null;
 ?>
 
