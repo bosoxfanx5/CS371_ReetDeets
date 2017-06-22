@@ -150,6 +150,7 @@ if(isset($_SESSION["backBar"])) {
 
 		if($sqlCheck->fetchColumn()) {
 			$barcode = $_GET["barcode"];
+			$_SESSION["currentBarcode"] = $barcode;
 
 			if($_SESSION["currentBarcode"] != $barcode) {
 				$_SESSION["currentBarcode"] = $barcode;
