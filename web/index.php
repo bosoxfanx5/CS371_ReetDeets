@@ -23,7 +23,6 @@ if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
    session_unset($_SESSION["max"]);
    session_unset($_SESSION["codes"]);
 	session_unset($_SESSION["error"]);
-	$_SESSION["userFound"] = true;
 	session_destroy();
 	header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
 	die();
@@ -76,39 +75,30 @@ _/    _/  _/    _/  _/    _/      _/
 _/_/_/      _/_/    _/_/_/        _/
 -->
 <!-- Begin page content -->
-
-
-
 	<div class="container">
 		<div class="row">
-      	<div class="col-xs-4 col-xs-offset-4">
+      <div class="col-xs-4 col-xs-offset-4">
 			   <img class="img-responsive logo" src="img/barcode_smLogo.png">
-			</div>
+       </div>
 		</div>
   </div>
-
-
 
   <div class="container">
     <div class="row">
       <div class="col-xs-10 col-xs-offset-1">
-        	<form class="form-signin" method="GET" action="product.php">
-			  	<?php echo $error; ?>
-				<?php if(isset($_SESSION["userFound"]) && $_SESSION["userFound"] == false) : ?>
-					<p class="text-center" id='loginError'>*Email address and/or password is incorrect.</p>
-					<?php session_unset($_SESSION["userFound"]); ?>
-			  	<? endif ?>
-          		<input type="text" class="form-control" name="barcode" placeholder="Enter the Barcode ID" required>
+        <form class="form-signin" method="GET" action="product.php">
+			  <?php echo $error; ?>
+          <input type="text" class="form-control" name="barcode" placeholder="Enter the Barcode ID" required>
       </div>
     </div>
     <br>
-   	<div class="row text-center">
-      	<div class="col-xs-4 col-xs-offset-4">
-        		<input class="btn btn-success btn-lg" type="submit">
-      	</form>
-      	</div>
-    	</div>
-  	</div>
+    <div class="row text-center">
+      <div class="col-xs-4 col-xs-offset-4">
+        <input class="btn btn-success btn-lg" type="submit">
+      </form>
+      </div>
+    </div>
+  </div>
 
 	<?php if(empty($_SESSION["email"])) : ?>
   	<div class="container">
@@ -126,7 +116,7 @@ _/_/_/      _/_/    _/_/_/        _/
 		<div class="container">
     	<div class="row text-center">
       	<div class="col-xs-4 col-xs-offset-4">
-        		<a class="btn btn-warning btn-lg" href="https://mysterious-bayou-55662.herokuapp.com?logout=true">Logout</a>
+        		<a class="btn btn-warning btn-lg" id="loginBtn" href="https://mysterious-bayou-55662.herokuapp.com?logout=true">Logout</a>
       	</div>
     	</div>
   	</div>

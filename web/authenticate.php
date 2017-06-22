@@ -1,62 +1,54 @@
 <?php
 include 'dbconnect.php';
 $userFound = true;
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	if (!empty($_POST["email"]) && !empty($_POST["password"])) {
-		$personEmail = $_POST["email"];
-		strtolower($personEmail);
-		// query for email and password of user
-		$sql0 = $db->prepare("SELECT id, fname, email, psswd FROM s_person WHERE email='$personEmail'");
-		$sql0->execute();
-		$result = $sql0->fetch();
-
-		//$email = $result["email"];
-		// echo $email;
-		// echo "awesome";
-		// authenticate user provided info with database
-		$authenticated = password_verify($_POST["password"], $result['psswd']);
-		if ($result["email"] == $personEmail && $authenticated) {
-			$_SESSION["loggedIn"] = true;
-			$_SESSION["id"] = $result["id"];
-			$_SESSION["email"] = $result["email"];
-			$_SESSION["fname"] = $result["fname"];
-			$userFound = true;
-			header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
-			die();
-		} else {
-			$userFound = false;
-			$_SESSION["userFound"] = false;
-			header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
-		}
+if (!empty($_POST["email"]) && !empty($_POST["password"])) {
+	$personEmail = $_POST["email"];
+	// query for email and password of user
+	$sql0 = $db->prepare("SELECT id, fname, email, psswd FROM s_person WHERE email='$personEmail'");
+	$sql0->execute();
+	$result = $sql0->fetch();
+	// authenticate user provided info with database
+	$authenticated = password_verify($_POST["password"], $result['psswd']);
+	if ($result["email"] == $personEmail && $authenticated) {
+		$_SESSION["loggedIn"] = true;
+		$_SESSION["id"] = $result["id"];
+		$_SESSION["email"] = $result["email"];
+		$_SESSION["fname"] = $result["fname"];
+		$userFound = true;
+		header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
+		die();
+	} else {
+		$userFound = false;
 	}
+}
 /******************************************************************
 * Creation of new login account
 *******************************************************************/
-	if (!empty($_POST["fname"]) && !empty($_POST["lname"]) && !empty($_POST["createEmail"])
-	&& !empty($_POST["createPassword"])) {
-		$fname = $_POST['fname'];
-		$lname = $_POST['lname'];
-		$_SESSION["fname"] = $fname;
-		// if ($gender == 1) {
-		// 	$prefix = "Mr.";
-		// } else {
-		// 	$prefix = "Ms.";
-		// }
-		$cEmail = $_POST['createEmail'];
-		$cPassword = $_POST['createPassword'];
-		//hash the password
-		$hashed = password_hash($cPassword, PASSWORD_DEFAULT);
-		// if user already has a session id and is creating a new login
-		if (!empty($_SESSION["id"])) {
-			$personID = $_SESSION["id"];
-			$sql = $db->prepare("UPDATE s_person SET fname='$fname', lname='$lname', prefix='$prefix',
+if (!empty($_POST["fname"]) && !empty($_POST["lname"]) && !empty($_POST["createEmail"])
+&& !empty($_POST["createPassword"])) {
+	$fname = $_POST['fname'];
+	$lname = $_POST['lname'];
+	$_SESSION["fname"] = $fname;
+	// if ($gender == 1) {
+	// 	$prefix = "Mr.";
+	// } else {
+	// 	$prefix = "Ms.";
+	// }
+	$cEmail = $_POST['createEmail'];
+	$cPassword = $_POST['createPassword'];
+	//hash the password
+	$hashed = password_hash($cPassword, PASSWORD_DEFAULT);
+	// if user already has a session id and is creating a new login
+	if (!empty($_SESSION["id"])) {
+		$personID = $_SESSION["id"];
+		$sql = $db->prepare("UPDATE s_person SET fname='$fname', lname='$lname', prefix='$prefix',
 			email='$cEmail', psswd='$hashed' WHERE id='$personID'");
-			$sql->execute();
-			$_SESSION['email'] = $cEmail;
-			$userFound = true;
-			$_SESSION["loggedIn"] = true;
-			header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
-			die();
+		$sql->execute();
+		$_SESSION['email'] = $cEmail;
+		$userFound = true;
+		$_SESSION["loggedIn"] = true;
+		header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
+		die();
 		} else {
 			// if there isn't a session id for the user yet
 			$sql = $db->prepare("INSERT INTO s_person (fname, lname, prefix, email, psswd)
@@ -73,7 +65,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			die();
 		}
 	}
-}
 $database = null;
 ?>
 
@@ -81,7 +72,7 @@ $database = null;
 	<div class="overlay-content">
 		<div class="wrapper-creation">
 			<div class="form-group">
-			<form class="form-signin" method="POST" action="">
+			<form class="form-signin" method="POST" action="index.php">
 				<h2>You want to join? Sweet!</h2>
 				<p>Fill out the form and click submit.</p>
 				<input type="text" class="form-control" name="fname" placeholder="First Name" required>
@@ -103,7 +94,7 @@ $database = null;
 <div id="login" class="overlay">
 	<div class="overlay-content">
 		<div class="wrapper">
-			<form class="form-signin" method="POST" action="">
+			<form class="form-signin" method="POST" action="index.php">
 				<h2 class="form-signin-heading">Please login</h2>
 				<input type="text" class="form-control" name="email" placeholder="Email Address" required>
 				<br>
@@ -111,11 +102,11 @@ $database = null;
 				<br>
 				<button class="btn btn-success btn-lg" type="submit">Login</button>
 				<a href="javascript:void(0)" id="closeLogin" class="closebtn">&times;</a>
+				<?php if (!$userFound) {
+					echo "<br><br><p id='loginError'>*Email address and/or password is incorrect.</p>";
+				}
+				?>
 			</form>
-			<?php if (!$userFound) {
-						echo "<br><br><p id='loginError'>*Email address and/or password is incorrect.</p>";
-					}
-			?>
 		</div>
 	</div>
 </div>
