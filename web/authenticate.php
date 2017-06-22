@@ -2,6 +2,7 @@
 include 'dbconnect.php';
 $userFound = true;
 
+echo '<script type="text/javascript"> alert("script works"); </script>';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	if (!empty($_POST["email"]) && !empty($_POST["password"])) {
@@ -10,20 +11,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$sql0 = $db->prepare("SELECT id, fname, email, psswd FROM s_person WHERE email='$personEmail'");
 		$sql0->execute();
 		$result = $sql0->fetch();
-
+		echo '<script type="text/javascript"> alert("login POST hit"); </script>';
 		//$email = $result["email"];
 		// echo $email;
 		// echo "awesome";
 		// authenticate user provided info with database
 		$authenticated = password_verify($_POST["password"], $result['psswd']);
-		echo '<script type="text/javascript"> alert("authenticated"); </script>';
+
 		if (($result["email"] == $personEmail) && $authenticated) {
 			$_SESSION["loggedIn"] = true;
 			$_SESSION["id"] = $result["id"];
 			$_SESSION["email"] = $result["email"];
 			$_SESSION["fname"] = $result["fname"];
 			$userFound = true;
-
+			echo '<script type="text/javascript"> alert("authenticated"); </script>';
 			header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
 			die();
 		} else {
