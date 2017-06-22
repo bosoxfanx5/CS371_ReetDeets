@@ -199,7 +199,7 @@ include 'productControl.php';
               <br>
               <input type="text" class="form-control" name="lname" placeholder="Last Name" required>
               <br>
-              <input type="text" class="form-control" name="createEmail" placeholder="Email Address" required>
+              <input type="text" class="form-control" name="createEmail" placeholder="Username" required>
               <br>
               <input type="password" class="form-control" name="createPassword" placeholder="Password" required>
               <button id="submitCreate" class="btn btn-success btn-lg" type="submit">Submit</button>
@@ -216,7 +216,7 @@ include 'productControl.php';
         <div class="wrapper">
            <form class="form-signin" method="POST" action="">
               <h2 class="form-signin-heading">Please login</h2>
-              <input type="text" class="form-control" name="email" placeholder="Email Address" required>
+              <input type="text" class="form-control" name="email" placeholder="Username" required>
               <br>
               <input type="password" class="form-control" name="password" placeholder="Password" required>
               <br>
