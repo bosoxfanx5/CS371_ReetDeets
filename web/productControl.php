@@ -11,86 +11,87 @@ $_SESSION["currentBarcode"];
 /******************************************************************
 * LOGIN
 *******************************************************************/
-if (!empty($_POST["email"]) && !empty($_POST["password"])) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+	if (!empty($_POST["email"]) && !empty($_POST["password"])) {
 
-	$personEmail = $_POST["email"];
-	// query for email and password of user
-	$sql0 = $db->prepare("SELECT id, fname, email, psswd FROM s_person WHERE email='$personEmail'");
-	$sql0->execute();
-	$result = $sql0->fetch();
+		$personEmail = $_POST["email"];
+		// query for email and password of user
+		$sql0 = $db->prepare("SELECT id, fname, email, psswd FROM s_person WHERE email='$personEmail'");
+		$sql0->execute();
+		$result = $sql0->fetch();
 
-	// authenticate user provided info with database
-	$authenticated = password_verify($_POST["password"], $result['psswd']);
+		// authenticate user provided info with database
+		$authenticated = password_verify($_POST["password"], $result['psswd']);
 
-	if ($result["email"] == $personEmail && $authenticated) {
-		$_SESSION["loggedIn"] = true;
-		$_SESSION["id"] = $result["id"];
-		$_SESSION["email"] = $result["email"];
-		$_SESSION["fname"] = $result["fname"];
-		$userFound = true;
-		header( 'Location: https://mysterious-bayou-55662.herokuapp.com/product.php?barcode=' . $_SESSION["currentBarcode"] );
-		die();
-	} else {
-		$userFound = false;
+		if ($result["email"] == $personEmail && $authenticated) {
+			$_SESSION["loggedIn"] = true;
+			$_SESSION["id"] = $result["id"];
+			$_SESSION["email"] = $result["email"];
+			$_SESSION["fname"] = $result["fname"];
+			$userFound = true;
+			header( 'Location: https://mysterious-bayou-55662.herokuapp.com/product.php?barcode=' . $_SESSION["currentBarcode"] );
+			die();
+		} else {
+			$userFound = false;
+		}
 	}
-}
 
-/******************************************************************
-* Creation of new login account
-*******************************************************************/
-
-
-if (!empty($_POST["fname"]) && !empty($_POST["lname"]) && !empty($_POST["createEmail"])
-&& !empty($_POST["createPassword"])) {
-	$fname = $_POST['fname'];
-	$lname = $_POST['lname'];
-	$_SESSION["fname"] = $fname;
+	/******************************************************************
+	* Creation of new login account
+	*******************************************************************/
 
 
-	// if ($gender == 1) {
-	// 	$prefix = "Mr.";
-	// } else {
-	// 	$prefix = "Ms.";
-	// }
+	if (!empty($_POST["fname"]) && !empty($_POST["lname"]) && !empty($_POST["createEmail"])
+	&& !empty($_POST["createPassword"])) {
+		$fname = $_POST['fname'];
+		$lname = $_POST['lname'];
+		$_SESSION["fname"] = $fname;
 
-	$cEmail = $_POST['createEmail'];
-	$cPassword = $_POST['createPassword'];
 
-	//hash the password
-	$hashed = password_hash($cPassword, PASSWORD_DEFAULT);
+		// if ($gender == 1) {
+		// 	$prefix = "Mr.";
+		// } else {
+		// 	$prefix = "Ms.";
+		// }
 
-	// if user already has a session id and is creating a new login
-	if (!empty($_SESSION["id"])) {
-		$personID = $_SESSION["id"];
-		$sql = $db->prepare("UPDATE s_person SET fname='$fname', lname='$lname',
-			email='$cEmail', psswd='$hashed' WHERE id='$personID'");
+		$cEmail = $_POST['createEmail'];
+		$cPassword = $_POST['createPassword'];
 
-		$sql->execute();
-		$_SESSION['email'] = $cEmail;
-		$userFound = true;
-		$_SESSION["loggedIn"] = true;
-		header( 'Location: https://mysterious-bayou-55662.herokuapp.com/product.php?barcode=' . $_SESSION["currentBarcode"] );
-		die();
+		//hash the password
+		$hashed = password_hash($cPassword, PASSWORD_DEFAULT);
 
-	} else {
-		// if there isn't a session id for the user yet
-		$sql = $db->prepare("INSERT INTO s_person (fname, lname, email, psswd)
-		VALUES ('$fname','$lname','$cEmail','$hashed')");
+		// if user already has a session id and is creating a new login
+		if (!empty($_SESSION["id"])) {
+			$personID = $_SESSION["id"];
+			$sql = $db->prepare("UPDATE s_person SET fname='$fname', lname='$lname',
+				email='$cEmail', psswd='$hashed' WHERE id='$personID'");
 
-		$sql->execute();
-		$_SESSION['email'] = $cEmail;
-		$sql = $db->prepare("SELECT id FROM s_person WHERE email='$cEmail'");
-		$sql->execute();
-		$result2 = $sql->fetch();
+				$sql->execute();
+				$_SESSION['email'] = $cEmail;
+				$userFound = true;
+				$_SESSION["loggedIn"] = true;
+				header( 'Location: https://mysterious-bayou-55662.herokuapp.com/product.php?barcode=' . $_SESSION["currentBarcode"] );
+				die();
 
-		$_SESSION["id"] = $result2['id'];
-		$userFound = true;
-		$_SESSION["loggedIn"] = true;
-		header( 'Location: https://mysterious-bayou-55662.herokuapp.com/product.php?barcode=' . $_SESSION["currentBarcode"]);
-		die();
+			} else {
+				// if there isn't a session id for the user yet
+				$sql = $db->prepare("INSERT INTO s_person (fname, lname, email, psswd)
+				VALUES ('$fname','$lname','$cEmail','$hashed')");
+
+				$sql->execute();
+				$_SESSION['email'] = $cEmail;
+				$sql = $db->prepare("SELECT id FROM s_person WHERE email='$cEmail'");
+				$sql->execute();
+				$result2 = $sql->fetch();
+
+				$_SESSION["id"] = $result2['id'];
+				$userFound = true;
+				$_SESSION["loggedIn"] = true;
+				header( 'Location: https://mysterious-bayou-55662.herokuapp.com/product.php?barcode=' . $_SESSION["currentBarcode"]);
+				die();
+			}
+		}
 	}
-}
-
 
    /******************************************************************
    * END AUTHENTICATION
