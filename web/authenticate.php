@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		// echo "awesome";
 		// authenticate user provided info with database
 		$authenticated = password_verify($_POST["password"], $result['psswd']);
-		echo "<script> alert('authenticated')</script>";
+		echo '<script type="text/javascript"> alert("authenticated"); </script>';
 		if (($result["email"] == $personEmail) && $authenticated) {
 			$_SESSION["loggedIn"] = true;
 			$_SESSION["id"] = $result["id"];
