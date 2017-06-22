@@ -27,7 +27,6 @@ if (!empty($_POST["email"]) && !empty($_POST["password"])) {
 		$_SESSION["email"] = $result["email"];
 		$_SESSION["fname"] = $result["fname"];
 		$userFound = true;
-		$_SESSION["createLogin"] = true;
 		header( 'Location: https://mysterious-bayou-55662.herokuapp.com/product.php' );
 		die();
 	} else {
@@ -69,7 +68,6 @@ if (!empty($_POST["fname"]) && !empty($_POST["lname"]) && !empty($_POST["createE
 		$_SESSION['email'] = $cEmail;
 		$userFound = true;
 		$_SESSION["loggedIn"] = true;
-		$_SESSION["createLogin"] = true;
 		//header( 'Location: https://mysterious-bayou-55662.herokuapp.com/product.php' );
 		die();
 
@@ -87,7 +85,6 @@ if (!empty($_POST["fname"]) && !empty($_POST["lname"]) && !empty($_POST["createE
 		$_SESSION["id"] = $result2['id'];
 		$userFound = true;
 		$_SESSION["loggedIn"] = true;
-		$_SESSION["createLogin"] = true;
 		//header( 'Location: https://mysterious-bayou-55662.herokuapp.com/product.php' );
 		die();
 	}
@@ -145,6 +142,7 @@ if(isset($_SESSION["backBar"])) {
 } elseif (isset($_SESSION["currentBarcode"])) {
 	$barcode = 	$_SESSION["currentBarcode"];
 	session_unset($_SESSION["currentBarcode"]);
+	header( 'Location: https://mysterious-bayou-55662.herokuapp.com/product.php?barcode=' . $barcode );
 } else {
 
 	if (!empty($_GET["barcode"])) {
