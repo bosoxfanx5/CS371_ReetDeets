@@ -6,14 +6,11 @@ $userFound = true;
 
 	if (!empty($_POST["email"]) && !empty($_POST["password"])) {
 		$personEmail = $_POST["email"];
-		strtolower($personEmail);
+		$personEmail;
 		// query for email and password of user
 		$sql0 = $db->prepare("SELECT id, fname, email, psswd FROM s_person WHERE email='$personEmail'");
 		$sql0->execute();
 		$result = $sql0->fetch();
-
-
-   echo '<script>console.log(' . $result["email"] . ')</script>';
 
 		//$email = $result["email"];
 		// echo $email;
