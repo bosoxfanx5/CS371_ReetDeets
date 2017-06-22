@@ -2,7 +2,7 @@
 include 'dbconnect.php';
 $userFound = true;
 
-echo '<script type="text/javascript"> alert("script works"); </script>';
+//echo '<script type="text/javascript"> alert("script works"); </script>';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	//echo '<script type="text/javascript"> alert("GOT POST"); </script>';
