@@ -23,12 +23,12 @@ $userFound = true;
 			$_SESSION["email"] = $result["email"];
 			$_SESSION["fname"] = $result["fname"];
 			$userFound = true;
-			header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
+			//header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
 			die();
 		} else {
 			$userFound = false;
 			$_SESSION["userFound"] = false;
-			header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
+			//header( 'Location: https://mysterious-bayou-55662.herokuapp.com' );
 		}
 	}
 
