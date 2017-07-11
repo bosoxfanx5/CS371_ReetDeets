@@ -123,7 +123,7 @@ _/_/_/      _/_/    _/_/_/        _/
         		<button class="btn btn-warning btn-lg" id="loginBtn">Login</button>
       	</div>
       	<div class="col-xs-6">
-         	<button class="btn btn-primary btn-lg" id="createNew">Sign Up</button>
+         	<button class="btn btn-primary btn-lg" id="createNew">Create Login</button>
       	</div>
     	</div>
   	</div>
