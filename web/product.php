@@ -167,16 +167,16 @@ include 'productControl.php';
       <div class="row">
          <div class="col-xs-4">
             <?php if ($_SESSION["previousEnabled"] == false) : ?>
-               <a class="btn btn-danger btn-lg" type="submit" disabled><span>Previous</span></a>
+               <a class="btn btn-default btn-lg" type="submit" disabled><span>Previous</span></a>
             <?php else : ?>
-               <a class="btn btn-danger btn-lg" type="submit" href="https://mysterious-bayou-55662.herokuapp.com/product.php?previous=true"><span>Previous</span></a>
+               <a class="btn btn-default btn-lg" type="submit" href="https://mysterious-bayou-55662.herokuapp.com/product.php?previous=true"><span>Previous</span></a>
             <?php endif ?>
          </div>
          <div class="col-xs-4">
             <?php if ($_SESSION["nextEnabled"] == false) : ?>
-               <a class="btn btn-success btn-lg" type="submit" disabled><span>Next</span></a>
+               <a class="btn btn-default btn-lg" type="submit" disabled><span>Next</span></a>
             <?php else :?>
-               <a class="btn btn-success btn-lg" type="submit" href="https://mysterious-bayou-55662.herokuapp.com/product.php?next=true"><span>Next</span></a>
+               <a class="btn btn-default btn-lg" type="submit" href="https://mysterious-bayou-55662.herokuapp.com/product.php?next=true"><span>Next</span></a>
             <? endif ?>
          </div>
          <form method="POST" action="index.php">
