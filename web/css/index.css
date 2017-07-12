@@ -25,9 +25,9 @@
 }
 
 .btn-danger {
-   background-color: #9c9c9c !important;
-   border-color: #9c9c9c !important;
-	color: white !important;
+   background-color: rgba(47, 94, 217, 0.8) !important;
+   border-color: rgba(47, 94, 217, 0.8) !important;
+	 color: white !important;
 }
 
 /*.btn-danger:disabled {
