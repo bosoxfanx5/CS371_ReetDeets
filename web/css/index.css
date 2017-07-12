@@ -48,6 +48,8 @@
 
 .btn-success, .btn-success:hover, .btn-success:active, .btn-sucess:visited {
     color: white !important;
+		background-color: rgba(47, 94, 217, 0.8) !important;
+    border-color: rgba(47, 94, 217, 0.8) !important;
 }
 
 .logo {
