@@ -22,7 +22,7 @@ include 'productControl.php';
         <?php else :?>
           <span class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">Options</span>
           <a class="navbar-brand" href="https://mysterious-bayou-55662.herokuapp.com"><p style="color:black">RD|ReetDeets</p></a>
-          <span><p><?php echo $barcode ?></p></span>
+          <span><p style="font-size:20%">Barcode: <?php echo $barcode ?></p></span>
         <?php endif ?>
       </div>
       <div class="collapse navbar-collapse pull-right" id="myNavbar">
