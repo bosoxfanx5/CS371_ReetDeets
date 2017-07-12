@@ -18,11 +18,11 @@ include 'productControl.php';
         <?php if(isset($_SESSION["email"])) : ?>
           <span class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"><?php echo $_SESSION["email"] ?></span>
           <a class="navbar-brand" href="https://mysterious-bayou-55662.herokuapp.com"><h4 style="color:black">RD|ReetDeets</h4></a>
-          <span><p class="text-bottom" style="font-size:90%">Barcode: <?php echo $barcode ?></p></span>
+          <span><p class="text-bottom" style="font-size:120%">Barcode: <?php echo $barcode ?></p></span>
         <?php else :?>
           <span class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">Options</span>
           <a class="navbar-brand" href="https://mysterious-bayou-55662.herokuapp.com"><p style="color:black">RD|ReetDeets</p></a>
-          <span><p class="text-bottom" style="font-size:90%">Barcode: <?php echo $barcode ?></p></span>
+          <span><p class="text-bottom" style="font-size:120%">Barcode: <?php echo $barcode ?></p></span>
         <?php endif ?>
       </div>
       <div class="collapse navbar-collapse pull-right" id="myNavbar">
