@@ -12,7 +12,7 @@
 	<meta name="description" content="RD|ReetDeets">
 	<meta name="author" content="Brooks Robison">
 	<link rel="icon" href="/favicon.ico">
-
+	<meta name="mobile-web-app-capable" content="yes">
 	<title>RD|ReetDeets</title>
 
 	<!-- Custom styles for this template -->
