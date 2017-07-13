@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	// $("html, body").animate({ scrollTop: 1000 }, 2000);
+	$("html, body").animate({ scrollTop: 1000 }, 2000);
 	$("#forgot").click(function() {
 		$("#resetPass").fadeIn("slow");
 
